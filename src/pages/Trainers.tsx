@@ -49,17 +49,17 @@ const trainers = [
 
 const Trainers: React.FC = () => {
   return (
-    <div className="pt-40 pb-24 bg-background min-h-screen">
-      <div className="max-w-[1440px] mx-auto px-6">
+    <div className="pt-32 pb-24 bg-cream min-h-screen">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-24">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl lg:text-6xl font-heading font-bold text-primary mb-6"
+            className="text-5xl lg:text-7xl font-heading font-black text-navy mb-6 tracking-tighter"
           >
-            Our World-Class <span className="text-secondary">Experts</span>
+            Our World-Class <span className="text-gradient">Experts</span>
           </motion.h1>
-          <p className="text-dark/60 max-w-2xl mx-auto text-lg font-medium">Learn from the best in the industry. Our trainers bring years of real-world experience from top tech giants.</p>
+          <p className="text-text max-w-2xl mx-auto text-lg font-medium leading-relaxed">Learn from the best in the industry. Our trainers bring years of real-world experience from top tech giants.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -71,40 +71,40 @@ const Trainers: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               whileHover={{ y: -15 }}
-              className="bg-white rounded-[32px] p-10 shadow-soft border border-primary/5 text-center group hover:shadow-layered transition-all duration-500"
+              className="bg-white rounded-[32px] p-10 shadow-soft border border-border/50 text-center group hover:shadow-premium transition-all duration-500"
             >
               <div className="relative w-36 h-36 mx-auto mb-8">
-                <div className="absolute inset-0 hero-gradient rounded-full opacity-20 scale-110 group-hover:scale-125 transition-transform duration-700" />
+                <div className="absolute inset-0 accent-gradient rounded-full opacity-20 scale-110 group-hover:scale-125 transition-transform duration-700" />
                 <div className="relative z-10 w-full h-full rounded-full border-4 border-white shadow-xl overflow-hidden">
                   <img src={trainer.image} alt={trainer.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>
               </div>
               
-              <h3 className="text-2xl font-bold text-primary mb-1 group-hover:text-secondary transition-colors">{trainer.name}</h3>
-              <p className="text-secondary text-sm font-black uppercase tracking-widest mb-6">{trainer.role}</p>
+              <h3 className="text-2xl font-bold text-navy mb-1 group-hover:text-accent transition-colors">{trainer.name}</h3>
+              <p className="text-primary text-sm font-black uppercase tracking-widest mb-6">{trainer.role}</p>
               
               <div className="flex flex-wrap justify-center gap-2 mb-8">
                 {trainer.skills.map(skill => (
-                  <span key={skill} className="px-3 py-1 bg-background text-primary text-[10px] font-black rounded-full uppercase tracking-widest border border-primary/5">
+                  <span key={skill} className="px-3 py-1 bg-lightBlue text-primary text-[10px] font-black rounded-full uppercase tracking-widest border border-border">
                     {skill}
                   </span>
                 ))}
               </div>
 
               <div className="space-y-4 mb-10">
-                <div className="flex items-center justify-center gap-2 text-dark/40 text-xs font-bold uppercase tracking-widest">
+                <div className="flex items-center justify-center gap-2 text-muted text-xs font-bold uppercase tracking-widest">
                    <BriefcaseIcon size={14} /> <span>{trainer.exp} Exp</span>
                 </div>
-                <p className="text-dark/60 text-sm leading-relaxed line-clamp-3 font-medium">
+                <p className="text-text text-sm leading-relaxed line-clamp-3 font-medium">
                   {trainer.bio}
                 </p>
               </div>
 
-              <div className="flex justify-center gap-4 border-t border-gray-50 pt-8">
-                <a href="#" className="w-11 h-11 rounded-xl bg-background flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-all shadow-sm">
+              <div className="flex justify-center gap-4 border-t border-border/50 pt-8">
+                <a href="#" className="w-11 h-11 rounded-xl bg-lightBlue flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm">
                   <LinkedinIcon size={20} />
                 </a>
-                <a href="#" className="w-11 h-11 rounded-xl bg-background flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-all shadow-sm">
+                <a href="#" className="w-11 h-11 rounded-xl bg-lightBlue flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm">
                   <TwitterIcon size={20} />
                 </a>
               </div>

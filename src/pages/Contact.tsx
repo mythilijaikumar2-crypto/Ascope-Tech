@@ -21,17 +21,17 @@ const MessageCircleIcon = ({ size = 24 }) => (
 
 const Contact: React.FC = () => {
   return (
-    <div className="pt-40 pb-24 bg-background min-h-screen">
-      <div className="max-w-[1440px] mx-auto px-6">
+    <div className="pt-32 pb-24 bg-cream min-h-screen">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-24">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl lg:text-6xl font-heading font-bold text-primary mb-6"
+            className="text-5xl lg:text-7xl font-heading font-black text-navy mb-6 tracking-tighter"
           >
-            Let's <span className="text-secondary">Talk</span>
+            Let's <span className="text-gradient">Talk</span>
           </motion.h1>
-          <p className="text-dark/60 max-w-2xl mx-auto text-lg font-medium">Have questions about our courses or placements? Our team is here to help you navigate your tech journey.</p>
+          <p className="text-text max-w-2xl mx-auto text-lg font-medium leading-relaxed">Have questions about our courses or placements? Our team is here to help you navigate your tech journey.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
           <div className="space-y-6">
             {[
               { icon: PhoneIcon, title: "Call Support", details: "+1 (555) 000-1234", sub: "Mon-Fri, 9am - 6pm", color: "text-blue-600", bg: "bg-blue-50" },
-              { icon: MailIcon, title: "Official Email", details: "hello@ascopetech.com", sub: "24/7 Online Support", color: "text-secondary", bg: "bg-cyan-50" },
+              { icon: MailIcon, title: "Official Email", details: "hello@ascopetech.com", sub: "24/7 Online Support", color: "text-accent", bg: "bg-lightBlue" },
               { icon: MessageCircleIcon, title: "WhatsApp Chat", details: "+1 (555) 000-5678", sub: "Instant Response", color: "text-green-600", bg: "bg-green-50" },
             ].map((item, idx) => (
               <motion.div
@@ -48,15 +48,15 @@ const Contact: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ x: 10 }}
-                className="bg-white p-8 rounded-20 shadow-soft border border-primary/5 flex items-start gap-6 group hover:bg-primary transition-all duration-500"
+                className="bg-white p-8 rounded-20 shadow-soft border border-border/50 flex items-start gap-6 group hover:accent-gradient transition-all duration-500"
               >
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${item.bg} ${item.color} group-hover:bg-white transition-all`}>
                   <item.icon size={28} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-primary mb-1 group-hover:text-white transition-colors">{item.title}</h4>
-                  <p className="font-bold text-dark group-hover:text-white transition-colors">{item.details}</p>
-                  <p className="text-xs text-dark/40 font-bold uppercase tracking-widest group-hover:text-white/60 transition-colors mt-1">{item.sub}</p>
+                  <h4 className="font-bold text-navy mb-1 group-hover:text-white transition-colors">{item.title}</h4>
+                  <p className="font-bold text-text group-hover:text-white transition-colors">{item.details}</p>
+                  <p className="text-xs text-muted font-bold uppercase tracking-widest group-hover:text-white/60 transition-colors mt-1">{item.sub}</p>
                 </div>
               </motion.div>
             ))}
@@ -66,33 +66,33 @@ const Contact: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="lg:col-span-2 bg-white p-12 lg:p-16 rounded-[40px] shadow-layered border border-primary/5 relative overflow-hidden"
+            className="lg:col-span-2 bg-white p-12 lg:p-16 rounded-[40px] shadow-premium border border-border/50 relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/5 rounded-full blur-[80px] -mr-32 -mt-32" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] -mr-32 -mt-32" />
             
-            <h3 className="text-3xl font-heading font-bold text-primary mb-10 relative z-10">Drop us a Line</h3>
+            <h3 className="text-3xl font-heading font-bold text-navy mb-10 relative z-10">Drop us a Line</h3>
             <form className="space-y-8 relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="text-sm font-bold text-dark/60 ml-1">Full Name</label>
+                  <label className="text-sm font-bold text-muted ml-1">Full Name</label>
                   <input 
                     type="text" 
                     placeholder="John Doe" 
-                    className="w-full px-6 py-4 rounded-xl bg-background border border-transparent focus:border-secondary focus:bg-white outline-none transition-all shadow-inner" 
+                    className="w-full px-6 py-4 rounded-xl bg-cream border border-transparent focus:border-accent focus:bg-white outline-none transition-all shadow-inner" 
                   />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-sm font-bold text-dark/60 ml-1">Email Address</label>
+                  <label className="text-sm font-bold text-muted ml-1">Email Address</label>
                   <input 
                     type="email" 
                     placeholder="john@example.com" 
-                    className="w-full px-6 py-4 rounded-xl bg-background border border-transparent focus:border-secondary focus:bg-white outline-none transition-all shadow-inner" 
+                    className="w-full px-6 py-4 rounded-xl bg-cream border border-transparent focus:border-accent focus:bg-white outline-none transition-all shadow-inner" 
                   />
                 </div>
               </div>
               <div className="space-y-3">
-                <label className="text-sm font-bold text-dark/60 ml-1">Inquiry Type</label>
-                <select className="w-full px-6 py-4 rounded-xl bg-background border border-transparent focus:border-secondary focus:bg-white outline-none transition-all shadow-inner appearance-none cursor-pointer">
+                <label className="text-sm font-bold text-muted ml-1">Inquiry Type</label>
+                <select className="w-full px-6 py-4 rounded-xl bg-cream border border-transparent focus:border-accent focus:bg-white outline-none transition-all shadow-inner appearance-none cursor-pointer">
                   <option>Full Stack Mastery</option>
                   <option>Data Science & AI</option>
                   <option>UI/UX Design</option>
@@ -101,11 +101,11 @@ const Contact: React.FC = () => {
                 </select>
               </div>
               <div className="space-y-3">
-                <label className="text-sm font-bold text-dark/60 ml-1">Your Message</label>
+                <label className="text-sm font-bold text-muted ml-1">Your Message</label>
                 <textarea 
                   rows={5} 
                   placeholder="Tell us how we can help you..." 
-                  className="w-full px-6 py-4 rounded-xl bg-background border border-transparent focus:border-secondary focus:bg-white outline-none transition-all resize-none shadow-inner"
+                  className="w-full px-6 py-4 rounded-xl bg-cream border border-transparent focus:border-accent focus:bg-white outline-none transition-all resize-none shadow-inner"
                 ></textarea>
               </div>
               <GradientButton className="w-full flex items-center justify-center gap-3 py-5 text-lg">
@@ -117,14 +117,14 @@ const Contact: React.FC = () => {
 
         {/* Global Offices */}
         <div className="mt-32 relative">
-           <div className="bg-primary rounded-[40px] p-16 lg:p-24 text-white overflow-hidden relative shadow-2xl">
+           <div className="bg-navy rounded-[40px] p-16 lg:p-24 text-white overflow-hidden relative shadow-2xl">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
                  <div>
                     <h2 className="text-4xl font-heading font-bold mb-8">Our Global <br />Headquarters</h2>
                     <p className="text-white/70 text-lg mb-10 leading-relaxed">Located at the heart of innovation, our offices are designed to foster creativity and collaboration. Visit us to experience the Ascope Tech culture.</p>
                     <div className="flex items-start gap-5">
-                       <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-secondary">
+                       <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-accent">
                           <MapPinIcon />
                        </div>
                        <div>

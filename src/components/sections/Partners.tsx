@@ -7,9 +7,9 @@ const partners = [
 
 const Partners: React.FC = () => {
   return (
-    <section className="py-20 bg-background overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6">
-        <p className="text-center text-dark/40 font-bold uppercase tracking-widest text-sm mb-12">
+    <section className="py-20 bg-cream overflow-hidden border-y border-border/50">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <p className="text-center text-muted font-black uppercase tracking-[0.3em] text-xs mb-12">
           Our Graduates Work At
         </p>
         
@@ -18,7 +18,7 @@ const Partners: React.FC = () => {
             <motion.div
               key={partner}
               whileHover={{ scale: 1.1, opacity: 1 }}
-              className="text-3xl font-heading font-black text-primary cursor-default"
+              className="text-3xl font-heading font-black text-navy cursor-default"
             >
               {partner}
             </motion.div>

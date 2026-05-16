@@ -34,11 +34,17 @@ const companies = ["Google", "Meta", "Amazon", "Microsoft", "Netflix", "Tesla", 
 
 const Placements: React.FC = () => {
   return (
-    <div className="pt-32 pb-24 bg-background min-h-screen">
-      <div className="max-w-[1440px] mx-auto px-6">
+    <div className="pt-32 pb-24 bg-cream min-h-screen">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h1 className="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6">Placement Statistics</h1>
-          <p className="text-dark/60 max-w-2xl mx-auto font-medium">Our alumni are working at some of the world's most prestigious technology companies. See the impact of our industry-ready curriculum.</p>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl lg:text-7xl font-heading font-black text-navy mb-6 tracking-tighter"
+          >
+            Placement <span className="text-gradient">Statistics</span>
+          </motion.h1>
+          <p className="text-text max-w-2xl mx-auto text-lg font-medium leading-relaxed">Our alumni are working at some of the world's most prestigious technology companies. See the impact of our industry-ready curriculum.</p>
         </div>
 
         {/* Stats Grid */}
@@ -50,33 +56,33 @@ const Placements: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-white p-10 rounded-20 shadow-soft text-center group hover:bg-primary transition-all duration-500"
+              className="bg-white p-10 rounded-20 shadow-soft text-center group hover:bg-primary transition-all duration-500 border border-border/50"
             >
-              <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mx-auto mb-6 group-hover:bg-white group-hover:scale-110 transition-all duration-500">
+              <div className="w-16 h-16 rounded-2xl bg-accent/5 flex items-center justify-center text-accent mx-auto mb-6 group-hover:bg-white group-hover:scale-110 transition-all duration-500">
                 <stat.icon size={32} />
               </div>
-              <h3 className="text-3xl font-black text-primary mb-2 group-hover:text-white transition-colors">{stat.value}</h3>
-              <p className="text-dark font-bold mb-1 group-hover:text-white/90 transition-colors">{stat.label}</p>
-              <p className="text-xs text-dark/40 font-bold uppercase tracking-widest group-hover:text-white/60 transition-colors">{stat.sub}</p>
+              <h3 className="text-3xl font-black text-navy mb-2 group-hover:text-white transition-colors">{stat.value}</h3>
+              <p className="text-text font-bold mb-1 group-hover:text-white/90 transition-colors">{stat.label}</p>
+              <p className="text-xs text-muted font-bold uppercase tracking-widest group-hover:text-white/60 transition-colors">{stat.sub}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Hiring Partners */}
-        <div className="bg-white rounded-[40px] p-16 shadow-layered border border-primary/5 relative overflow-hidden">
-           <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-[100px] -mr-48 -mt-48" />
+        <div className="bg-white rounded-[40px] p-16 shadow-premium border border-border/50 relative overflow-hidden">
+           <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] -mr-48 -mt-48" />
            <div className="relative z-10">
               <div className="text-center mb-16">
-                 <h2 className="text-3xl font-heading font-bold text-primary mb-4 flex items-center justify-center gap-3">
-                   <AwardIcon size={32} className="text-secondary" /> Our Hiring Network
+                 <h2 className="text-3xl font-heading font-bold text-navy mb-4 flex items-center justify-center gap-3">
+                   <AwardIcon size={32} className="text-accent" /> Our Hiring Network
                  </h2>
-                 <p className="text-dark/60 font-medium">Direct placement opportunities with world-class organizations</p>
+                 <p className="text-muted font-medium">Direct placement opportunities with world-class organizations</p>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-20">
                  {companies.map((company) => (
-                   <div key={company} className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 opacity-40 hover:opacity-100">
-                      <span className="text-3xl font-black text-primary/80 uppercase tracking-tighter">{company}</span>
-                   </div>
+                    <div key={company} className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 opacity-40 hover:opacity-100">
+                       <span className="text-3xl font-black text-navy/80 uppercase tracking-tighter">{company}</span>
+                    </div>
                  ))}
               </div>
            </div>
@@ -87,13 +93,13 @@ const Placements: React.FC = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="mt-32 hero-gradient rounded-20 p-12 lg:p-20 text-white text-center shadow-2xl relative overflow-hidden"
+          className="mt-32 accent-gradient rounded-20 p-12 lg:p-20 text-white text-center shadow-premium relative overflow-hidden"
         >
           <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
           <div className="relative z-10 max-w-3xl mx-auto">
              <h2 className="text-4xl lg:text-5xl font-heading font-bold mb-8">Ready to be our next success story?</h2>
              <p className="text-white/80 text-lg mb-12 font-medium">Join the thousands of students who have transformed their careers with Ascope Tech. Our placement cell works tirelessly to get you the best opportunities.</p>
-             <button className="bg-white text-primary hover:bg-secondary hover:text-white px-12 py-5 rounded-xl font-black text-lg transition-all shadow-xl hover:scale-105 active:scale-95">
+             <button className="bg-white text-primary hover:bg-white/90 px-12 py-5 rounded-xl font-black text-lg transition-all shadow-xl hover:scale-105 active:scale-95">
                 Apply for Next Batch
              </button>
           </div>

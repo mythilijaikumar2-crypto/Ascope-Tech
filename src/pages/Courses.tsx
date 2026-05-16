@@ -37,17 +37,17 @@ const Courses: React.FC = () => {
     : courses.filter(c => c.category === activeCategory);
 
   return (
-    <div className="pt-40 pb-24 bg-background min-h-screen">
-      <div className="max-w-[1440px] mx-auto px-6">
+    <div className="pt-32 pb-24 bg-cream min-h-screen">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="mb-20">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl lg:text-6xl font-heading font-bold text-primary mb-6"
+            className="text-5xl lg:text-7xl font-heading font-black text-navy mb-6 tracking-tighter"
           >
-            Explore <span className="text-secondary">Courses</span>
+            Explore <span className="text-gradient">Courses</span>
           </motion.h1>
-          <p className="text-dark/60 max-w-2xl text-lg font-medium">Industry-vetted curricula designed to take you from zero to professional. Master the tools and techniques used by the world's best teams.</p>
+          <p className="text-text max-w-2xl text-lg font-medium leading-relaxed">Industry-vetted curricula designed to take you from zero to professional. Master the tools and techniques used by the world's best teams.</p>
         </div>
 
         {/* Filters and Search */}
@@ -57,20 +57,20 @@ const Courses: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 ${activeCategory === cat ? 'bg-primary text-white shadow-xl scale-105' : 'bg-white text-primary hover:bg-light_blue'}`}
+                className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 ${activeCategory === cat ? 'accent-gradient text-white shadow-xl scale-105' : 'bg-white text-navy hover:bg-lightBlue'}`}
               >
                 {cat}
               </button>
             ))}
           </div>
           <div className="relative w-full lg:w-[400px] group">
-            <div className="absolute left-6 top-1/2 -translate-y-1/2 text-primary/30 group-focus-within:text-secondary transition-colors">
+            <div className="absolute left-6 top-1/2 -translate-y-1/2 text-navy/30 group-focus-within:text-accent transition-colors">
               <SearchIcon size={22} />
             </div>
             <input 
               type="text" 
               placeholder="What do you want to learn?" 
-              className="w-full pl-16 pr-8 py-5 rounded-[20px] bg-white shadow-soft border border-transparent focus:border-secondary outline-none transition-all font-medium"
+              className="w-full pl-16 pr-8 py-5 rounded-[20px] bg-white shadow-soft border border-transparent focus:border-accent outline-none transition-all font-medium"
             />
           </div>
         </div>
@@ -85,27 +85,27 @@ const Courses: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 key={course.id}
-                className="bg-white rounded-[32px] overflow-hidden shadow-soft hover:shadow-layered transition-all duration-500 group border border-primary/5"
+                className="bg-white rounded-[32px] overflow-hidden shadow-soft hover:shadow-premium transition-all duration-500 group border border-border/50"
               >
                 <div className="relative h-60 overflow-hidden">
                   <img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                  <div className="absolute top-6 left-6 px-4 py-1.5 bg-white/90 backdrop-blur-md rounded-full text-primary text-[10px] font-black uppercase tracking-wider">
+                  <div className="absolute top-6 left-6 px-4 py-1.5 bg-navy/90 backdrop-blur-md rounded-full text-white text-[10px] font-black uppercase tracking-wider">
                     {course.category}
                   </div>
                 </div>
                 <div className="p-10">
                   <div className="flex items-center gap-1 text-yellow-500 mb-4 font-bold">
                     <StarIcon fill="currentColor" />
-                    <span className="text-sm text-dark ml-1">{course.rating}</span>
+                    <span className="text-sm text-navy ml-1">{course.rating}</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-primary mb-6 group-hover:text-secondary transition-colors line-clamp-1 leading-snug">{course.title}</h3>
-                  <div className="flex items-center gap-6 text-dark/40 text-xs font-black uppercase tracking-widest mb-10">
+                  <h3 className="text-2xl font-bold text-navy mb-6 group-hover:text-accent transition-colors line-clamp-1 leading-snug">{course.title}</h3>
+                  <div className="flex items-center gap-6 text-muted text-xs font-black uppercase tracking-widest mb-10">
                     <span className="flex items-center gap-2"><ClockIcon /> {course.duration}</span>
                     <span className="flex items-center gap-2"><BookOpenIcon /> {course.level}</span>
                   </div>
-                  <div className="flex justify-between items-center pt-8 border-t border-gray-50">
-                    <span className="text-3xl font-black text-primary">{course.price}</span>
-                    <button className="flex items-center gap-2 text-secondary font-black hover:gap-4 transition-all uppercase tracking-wider text-xs">
+                  <div className="flex justify-between items-center pt-8 border-t border-border">
+                    <span className="text-3xl font-black text-navy">{course.price}</span>
+                    <button className="flex items-center gap-2 text-accent font-black hover:gap-4 transition-all uppercase tracking-wider text-xs">
                       Enroll Now <ArrowRightIcon />
                     </button>
                   </div>
