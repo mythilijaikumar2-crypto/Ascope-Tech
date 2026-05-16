@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body bg-background text-dark;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, #07598A 0%, #0384B4 50%, #05A8D6 100%);
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-soft;
+  }
+
+  .glass-navbar {
+    @apply bg-primary/95 backdrop-blur-md shadow-soft;
+  }
+
+  .rounded-20 {
+    border-radius: 20px;
+  }
+
+  .blur-circle {
+    @apply absolute rounded-full blur-[120px] pointer-events-none z-0;
+  }
+
+  .section-padding {
+    @apply py-24;
+  }
+}
+
+/* Custom transitions and scroll behaviors */
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-all;
+}
