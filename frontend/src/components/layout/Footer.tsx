@@ -19,47 +19,29 @@ const WhatsappIcon: React.FC<{ size?: number; className?: string }> = ({ size = 
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-navy text-white pt-24 pb-12 overflow-hidden relative">
+    <footer className="bg-navy text-white pt-16 pb-12 overflow-hidden relative">
       {/* Background circles */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[100px] -mr-48 -mt-48" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -ml-32 -mb-32" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        {/* Newsletter Section */}
-        <div className="bg-white/5 backdrop-blur-lg rounded-20 p-10 lg:p-16 mb-20 border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-10">
-          <div className="max-w-xl">
-            <h3 className="text-3xl font-heading font-black mb-4">Subscribe to our newsletter</h3>
-            <p className="text-white/60">Get the latest updates, course announcements and career tips directly in your inbox.</p>
-          </div>
-          <div className="flex w-full lg:w-[450px] gap-3">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="flex-grow bg-white/10 border border-white/10 rounded-xl px-5 outline-none focus:border-accent transition-all text-white"
-            />
-            <button className="premium-button px-8 py-3 rounded-xl font-black transition-all shadow-xl">
-              Join Now
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand */}
-          <div className="space-y-8">
-            <Link to="/" className="flex flex-col items-start gap-3">
-              <motion.img 
+          <div className="space-y-6 col-span-2 sm:col-span-1">
+            <Link to="/" className="flex items-center gap-3">
+              <motion.img
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ y: -10, scale: 1.05 }}
-                src="/src/assets/ascopetech_logo.png" 
-                alt="Ascope Tech Logo" 
-                className="w-40 h-40 object-contain drop-shadow-[0_0_30px_rgba(23,181,231,0.2)]" 
+                whileHover={{ y: -5, scale: 1.05 }}
+                src="/src/assets/ascopetech_logo.png"
+                alt="Ascope Tech Logo"
+                className="w-12 h-12 object-contain drop-shadow-[0_0_15px_rgba(23,181,231,0.2)]"
               />
-              <span className="text-2xl font-heading font-black text-white tracking-tight -mt-10">
+              <span className="text-2xl font-heading font-black text-white tracking-tight">
                 Ascope <span className="text-accent">Tech</span>
               </span>
             </Link>
-            <p className="text-white/60 leading-relaxed max-w-xs font-body">
+            <p className="text-white/60 leading-relaxed max-w-xs font-body text-sm">
               Empowering the next generation of tech leaders through industry-ready courses and expert mentorship since 2018.
             </p>
             <div className="flex gap-3 flex-wrap">
@@ -84,7 +66,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="col-span-1">
             <h4 className="font-heading font-black text-white mb-8 border-l-4 border-accent pl-4 uppercase tracking-widest text-xs">Company</h4>
             <ul className="space-y-4">
               {['Courses', 'Trainers', 'Placements', 'Contact'].map((link) => (
@@ -98,7 +80,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Support */}
-          <div>
+          <div className="col-span-1">
             <h4 className="font-heading font-black text-white mb-8 border-l-4 border-accent pl-4 uppercase tracking-widest text-xs">Categories</h4>
             <ul className="space-y-4">
               {['Full Stack Dev', 'Data Science', 'UI/UX Design', 'Cloud Computing', 'Cybersecurity'].map((item) => (
@@ -112,24 +94,24 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="col-span-2 sm:col-span-1">
             <h4 className="font-heading font-black text-white mb-8 border-l-4 border-accent pl-4 uppercase tracking-widest text-xs">Contact Info</h4>
             <div className="space-y-6">
               <div className="flex gap-4 text-white/60 items-start">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0">
-                   <MapPin size={20} />
+                  <MapPin size={20} />
                 </div>
                 <span className="text-sm">5th floor, SBRR Square,<br />Anna Nagar, Trichy – 620017</span>
               </div>
               <div className="flex gap-4 text-white/60 items-center">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0">
-                   <Phone size={20} />
+                  <Phone size={20} />
                 </div>
                 <span className="text-sm">+91 97894 44431</span>
               </div>
               <div className="flex gap-4 text-white/60 items-center">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0">
-                   <Mail size={20} />
+                  <Mail size={20} />
                 </div>
                 <span className="text-sm">ascopetech@gmail.com</span>
               </div>
@@ -137,7 +119,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:row justify-between items-center gap-6 text-white/40 text-sm">
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40 text-sm">
           <p>© 2026 Ascope Tech. All rights reserved.</p>
           <div className="flex gap-10">
             <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
