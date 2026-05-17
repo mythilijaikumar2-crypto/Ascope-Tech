@@ -1,0 +1,156 @@
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Star, Clock, ArrowRight } from "lucide-react";
+import api from "../../services/api";
+
+interface Course {
+  id: string | number;
+  title: string;
+  category: string;
+  level?: string;
+  duration: string;
+  rating: number;
+  price: string;
+  image: string;
+}
+
+const PopularCourses: React.FC = () => {
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    api
+      .get("/courses?limit=3")
+      .then((res) => {
+        setCourses(res.data.data || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching popular courses:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
+    }
+  };
+
+  return (
+    <section className="py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8"
+        >
+          <div className="max-w-2xl">
+            <h2 className="text-sm font-black text-primary tracking-[0.4em] uppercase mb-4">
+              Industry Leading
+            </h2>
+            <h3 className="text-4xl lg:text-5xl font-heading font-black text-navy leading-tight tracking-tighter">
+              Our Most Popular <span className="text-gradient">Courses</span>
+            </h3>
+          </div>
+          <Link to="/courses">
+            <motion.button
+              whileHover={{ x: 8 }}
+              className="flex items-center gap-2 text-navy font-black hover:text-primary transition-all uppercase tracking-[0.2em] text-[10px]"
+            >
+              Explore Full Catalog <ArrowRight size={18} />
+            </motion.button>
+          </Link>
+        </motion.div>
+
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+          </div>
+        ) : (
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          >
+            {courses.map((course, idx) => (
+              <motion.div
+                key={idx}
+                variants={itemVariants}
+                whileHover={{ y: -15 }}
+                className="bg-white rounded-[32px] overflow-hidden shadow-soft hover:shadow-premium group transition-all duration-500 border border-border/50"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-black uppercase tracking-widest text-navy shadow-lg">
+                    {course.category}
+                  </div>
+                </div>
+
+                <div className="p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="flex items-center gap-1 text-primary">
+                      <Star size={16} fill="currentColor" />
+                      <span className="font-black text-sm">{course.rating}</span>
+                    </div>
+                    <span className="w-1.5 h-1.5 rounded-full bg-border" />
+                    <div className="flex items-center gap-2 text-navy/40 font-bold text-xs uppercase tracking-widest">
+                      <Clock size={16} />
+                      {course.duration}
+                    </div>
+                  </div>
+
+                  <h4 className="text-2xl font-black text-navy mb-6 group-hover:text-primary transition-colors leading-tight min-h-[3.5rem]">
+                    {course.title}
+                  </h4>
+
+                  <div className="flex items-center justify-between pt-6 border-t border-border/50">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-navy/40 font-black uppercase tracking-widest mb-1">
+                        Course Fee
+                      </span>
+                      <span className="text-2xl font-black text-navy">
+                        {course.price}
+                      </span>
+                    </div>
+                    <Link
+                      to={`/enroll/${course.id}`}
+                      className="w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center text-navy group-hover:bg-navy group-hover:text-white transition-all duration-300 shadow-sm"
+                    >
+                      <ArrowRight size={24} />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default PopularCourses;

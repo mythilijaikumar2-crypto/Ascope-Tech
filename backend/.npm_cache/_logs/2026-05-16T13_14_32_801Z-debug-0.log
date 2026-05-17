@@ -1,0 +1,70 @@
+0 verbose cli /Users/apple/.nvm/versions/node/v24.14.0/bin/node /usr/local/bin/npm
+1 info using npm@11.9.0
+2 info using node@v24.14.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/apple/Desktop/ascope tech /backend/.npmrc
+5 silly config load:file:/Users/apple/.npmrc
+6 silly config load:file:/Users/apple/.nvm/versions/node/v24.14.0/etc/npmrc
+7 verbose title npm install dotenv
+8 verbose argv "install" "--cache" ".npm_cache" "dotenv"
+9 verbose logfile logs-max:10 dir:/Users/apple/Desktop/ascope tech /backend/.npm_cache/_logs/2026-05-16T13_14_32_801Z-
+10 verbose logfile /Users/apple/Desktop/ascope tech /backend/.npm_cache/_logs/2026-05-16T13_14_32_801Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 silly fetch manifest cors@^2.8.5
+15 silly packumentCache full:https://registry.npmjs.org/cors cache-miss
+16 http fetch GET https://registry.npmjs.org/cors attempt 1 failed with ENOTFOUND
+17 http fetch GET https://registry.npmjs.org/cors attempt 2 failed with ENOTFOUND
+18 http fetch GET https://registry.npmjs.org/cors attempt 3 failed with ENOTFOUND
+19 silly fetch manifest dotenv@^16.4.7
+20 silly packumentCache full:https://registry.npmjs.org/dotenv cache-miss
+21 http fetch GET https://registry.npmjs.org/dotenv attempt 1 failed with ENOTFOUND
+22 http fetch GET https://registry.npmjs.org/dotenv attempt 2 failed with ENOTFOUND
+23 http fetch GET https://registry.npmjs.org/dotenv attempt 3 failed with ENOTFOUND
+24 silly fetch manifest express@^4.21.2
+25 silly packumentCache full:https://registry.npmjs.org/express cache-miss
+26 http fetch GET https://registry.npmjs.org/express attempt 1 failed with ENOTFOUND
+27 http fetch GET https://registry.npmjs.org/express attempt 2 failed with ENOTFOUND
+28 http fetch GET https://registry.npmjs.org/express attempt 3 failed with ENOTFOUND
+29 silly fetch manifest pg@^8.13.3
+30 silly packumentCache full:https://registry.npmjs.org/pg cache-miss
+31 http fetch GET https://registry.npmjs.org/pg attempt 1 failed with ENOTFOUND
+32 http fetch GET https://registry.npmjs.org/pg attempt 2 failed with ENOTFOUND
+33 http fetch GET https://registry.npmjs.org/pg attempt 3 failed with ENOTFOUND
+34 silly fetch manifest nodemon@^3.1.9
+35 silly packumentCache full:https://registry.npmjs.org/nodemon cache-miss
+36 http fetch GET https://registry.npmjs.org/nodemon attempt 1 failed with ENOTFOUND
+37 http fetch GET https://registry.npmjs.org/nodemon attempt 2 failed with ENOTFOUND
+38 http fetch GET https://registry.npmjs.org/nodemon attempt 3 failed with ENOTFOUND
+39 silly placeDep ROOT cors@ OK for: backend@1.0.0 want: ^2.8.5
+40 silly placeDep ROOT dotenv@ OK for: backend@1.0.0 want: ^16.4.7
+41 silly placeDep ROOT express@ OK for: backend@1.0.0 want: ^4.21.2
+42 silly placeDep ROOT nodemon@ OK for: backend@1.0.0 want: ^3.1.9
+43 silly placeDep ROOT pg@ OK for: backend@1.0.0 want: ^8.13.3
+44 verbose type system
+45 verbose stack FetchError: request to https://registry.npmjs.org/cors failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+45 verbose stack     at ClientRequest.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/minipass-fetch/lib/index.js:130:14)
+45 verbose stack     at ClientRequest.emit (node:events:508:28)
+45 verbose stack     at emitErrorEvent (node:_http_client:108:11)
+45 verbose stack     at _destroy (node:_http_client:963:9)
+45 verbose stack     at onSocketNT (node:_http_client:983:5)
+45 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:91:21)
+46 error code ENOTFOUND
+47 error syscall getaddrinfo
+48 error errno ENOTFOUND
+49 error network request to https://registry.npmjs.org/cors failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+50 error network This is a problem related to network connectivity.
+50 error network In most cases you are behind a proxy or have bad network settings.
+50 error network
+50 error network If you are behind a proxy, please make sure that the
+50 error network 'proxy' config is set properly.  See: 'npm help config'
+51 silly unfinished npm timer reify 1778937273246
+52 silly unfinished npm timer reify:loadTrees 1778937273250
+53 verbose cwd /Users/apple/Desktop/ascope tech /backend
+54 verbose os Darwin 25.4.0
+55 verbose node v24.14.0
+56 verbose npm  v11.9.0
+57 verbose exit 1
+58 verbose code 1
+59 error A complete log of this run can be found in: /Users/apple/Desktop/ascope tech /backend/.npm_cache/_logs/2026-05-16T13_14_32_801Z-debug-0.log

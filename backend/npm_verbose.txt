@@ -1,0 +1,46 @@
+npm verbose cli /Users/apple/.nvm/versions/node/v24.14.0/bin/node /usr/local/bin/npm
+npm info using npm@11.9.0
+npm info using node@v24.14.0
+npm verbose title npm install
+npm verbose argv "install" "--cache" ".npm_cache" "--prefer-offline" "--no-audit" "--no-fund" "--loglevel" "verbose"
+npm verbose logfile logs-max:10 dir:/Users/apple/Desktop/ascope tech /backend/.npm_cache/_logs/2026-05-16T14_56_42_939Z-
+npm verbose logfile /Users/apple/Desktop/ascope tech /backend/.npm_cache/_logs/2026-05-16T14_56_42_939Z-debug-0.log
+npm http fetch GET https://registry.npmjs.org/cors attempt 1 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/cors attempt 2 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/cors attempt 3 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/dotenv attempt 1 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/dotenv attempt 2 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/dotenv attempt 3 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/express attempt 1 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/express attempt 2 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/express attempt 3 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/pg attempt 1 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/pg attempt 2 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/pg attempt 3 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/nodemon attempt 1 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/nodemon attempt 2 failed with ENOTFOUND
+npm http fetch GET https://registry.npmjs.org/nodemon attempt 3 failed with ENOTFOUND
+npm verbose type system
+npm verbose stack FetchError: request to https://registry.npmjs.org/cors failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+npm verbose stack     at ClientRequest.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/minipass-fetch/lib/index.js:130:14)
+npm verbose stack     at ClientRequest.emit (node:events:508:28)
+npm verbose stack     at emitErrorEvent (node:_http_client:108:11)
+npm verbose stack     at _destroy (node:_http_client:963:9)
+npm verbose stack     at onSocketNT (node:_http_client:983:5)
+npm verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:91:21)
+npm error code ENOTFOUND
+npm error syscall getaddrinfo
+npm error errno ENOTFOUND
+npm error network request to https://registry.npmjs.org/cors failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly.  See: 'npm help config'
+npm verbose cwd /Users/apple/Desktop/ascope tech /backend
+npm verbose os Darwin 25.4.0
+npm verbose node v24.14.0
+npm verbose npm  v11.9.0
+npm verbose exit 1
+npm verbose code 1
+npm error A complete log of this run can be found in: /Users/apple/Desktop/ascope tech /backend/.npm_cache/_logs/2026-05-16T14_56_42_939Z-debug-0.log
