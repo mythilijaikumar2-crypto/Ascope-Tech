@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
-  Search, 
-  Clock, 
   Star, 
   ArrowRight
 } from 'lucide-react';
 import api from '../services/api';
 
-const categories = ["All", "Development", "Data Science", "Design", "Business", "Marketing"];
+const categories = ["All", "Development", "Data Science", "Design", "Marketing"];
 
 interface Course {
   id: string | number;
@@ -19,6 +17,7 @@ interface Course {
   duration: string;
   rating: number;
   price: string;
+  originalPrice?: string;
   image: string;
 }
 
@@ -75,24 +74,9 @@ const Courses: React.FC = () => {
             <h1 className="text-6xl lg:text-8xl font-heading font-black text-navy mb-8 tracking-tighter">
               Discover Your <span className="text-gradient">Future</span>
             </h1>
-            <p className="text-navy/60 max-w-2xl mx-auto text-lg font-medium leading-relaxed mb-12">
+            <p className="text-navy/60 max-w-2xl mx-auto text-lg font-medium leading-relaxed">
               Browse through our industry-vetted courses and start your journey towards becoming a world-class professional.
             </p>
-            
-            {/* Centered Premium Search */}
-            <div className="max-w-2xl mx-auto relative group">
-              <div className="absolute left-6 top-1/2 -translate-y-1/2 text-navy/30 group-focus-within:text-primary transition-colors">
-                <Search size={24} />
-              </div>
-              <input 
-                type="text" 
-                placeholder="Search courses, skills, or careers..." 
-                className="w-full pl-16 pr-8 py-6 rounded-[32px] bg-white shadow-soft border border-border/50 focus:border-primary outline-none transition-all font-medium text-lg"
-              />
-              <button className="absolute right-4 top-1/2 -translate-y-1/2 bg-navy text-white px-8 py-3 rounded-2xl font-bold hover:bg-navy/90 transition-all active:scale-95">
-                Search
-              </button>
-            </div>
           </motion.div>
         </div>
 
@@ -119,16 +103,6 @@ const Courses: React.FC = () => {
                 {cat}
               </button>
             ))}
-          </div>
-          <div className="relative w-full lg:w-[400px] group">
-            <div className="absolute left-6 top-1/2 -translate-y-1/2 text-navy/30 group-focus-within:text-accent transition-colors">
-              <Search size={22} />
-            </div>
-            <input 
-              type="text" 
-              placeholder="What do you want to learn?" 
-              className="w-full pl-16 pr-8 py-5 rounded-[20px] bg-white shadow-soft border border-transparent focus:border-accent outline-none transition-all font-medium"
-            />
           </div>
         </motion.div>
 
@@ -169,11 +143,6 @@ const Courses: React.FC = () => {
                         <Star size={16} fill="currentColor" />
                         <span className="font-black text-sm">{course.rating}</span>
                       </div>
-                      <span className="w-1.5 h-1.5 rounded-full bg-border" />
-                      <div className="flex items-center gap-2 text-navy/40 font-bold text-xs uppercase tracking-widest">
-                        <Clock size={16} />
-                        {course.duration}
-                      </div>
                     </div>
 
                     <h3 className="text-2xl font-black text-navy mb-6 group-hover:text-primary transition-colors leading-tight">
@@ -183,7 +152,15 @@ const Courses: React.FC = () => {
                     <div className="flex items-center justify-between pt-6 border-t border-border/50">
                       <div className="flex flex-col">
                         <span className="text-[10px] text-navy/40 font-black uppercase tracking-widest mb-1">Course Fee</span>
-                        <span className="text-2xl font-black text-navy">{course.price}</span>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-2xl font-black text-navy">{course.price}</span>
+                          {course.originalPrice && (
+                            <span className="text-sm font-semibold text-navy/30 line-through">{course.originalPrice}</span>
+                          )}
+                          {course.originalPrice && (
+                            <span className="text-[10px] bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">20% OFF</span>
+                          )}
+                        </div>
                       </div>
                       <Link 
                         to={`/enroll/${course.id}`}

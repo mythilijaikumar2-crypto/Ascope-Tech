@@ -12,6 +12,7 @@ interface Course {
   duration: string;
   rating: number;
   price: string;
+  originalPrice?: string;
   image: string;
 }
 
@@ -23,7 +24,8 @@ const PopularCourses: React.FC = () => {
     api
       .get("/courses?limit=3")
       .then((res) => {
-        setCourses(res.data.data || []);
+        const fetchedCourses = res.data.data || [];
+        setCourses(fetchedCourses.slice(0, 3));
         setLoading(false);
       })
       .catch((err) => {
@@ -116,11 +118,6 @@ const PopularCourses: React.FC = () => {
                       <Star size={16} fill="currentColor" />
                       <span className="font-black text-sm">{course.rating}</span>
                     </div>
-                    <span className="w-1.5 h-1.5 rounded-full bg-border" />
-                    <div className="flex items-center gap-2 text-navy/40 font-bold text-xs uppercase tracking-widest">
-                      <Clock size={16} />
-                      {course.duration}
-                    </div>
                   </div>
 
                   <h4 className="text-2xl font-black text-navy mb-6 group-hover:text-primary transition-colors leading-tight min-h-[3.5rem]">
@@ -132,9 +129,15 @@ const PopularCourses: React.FC = () => {
                       <span className="text-[10px] text-navy/40 font-black uppercase tracking-widest mb-1">
                         Course Fee
                       </span>
-                      <span className="text-2xl font-black text-navy">
-                        {course.price}
-                      </span>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-black text-navy">{course.price}</span>
+                        {course.originalPrice && (
+                          <span className="text-sm font-semibold text-navy/30 line-through">{course.originalPrice}</span>
+                        )}
+                        {course.originalPrice && (
+                          <span className="text-[10px] bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">20% OFF</span>
+                        )}
+                      </div>
                     </div>
                     <Link
                       to={`/enroll/${course.id}`}
