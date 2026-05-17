@@ -112,3 +112,5 @@ app.listen(PORT, () => {
     console.log(`🚀 Professional Backend is running at http://localhost:${PORT}`);
     console.log(`📡 Courses Endpoint: http://localhost:${PORT}/api/courses`);
 });
+
+// Trigger nodemon reload

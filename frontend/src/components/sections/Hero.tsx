@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
 
             <motion.h1 
               variants={textReveal}
-              className="text-5xl md:text-6xl lg:text-8xl font-heading font-black leading-tight tracking-tighter text-navy"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-[1.1] tracking-tight text-navy"
             >
               Build Skills.
               <br />
@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
 
             <motion.p 
               variants={textReveal}
-              className="text-lg md:text-xl text-text max-w-xl lg:mx-0 mx-auto leading-relaxed font-body"
+              className="text-base sm:text-lg md:text-xl text-text/80 max-w-xl lg:mx-0 mx-auto leading-relaxed font-body font-medium tracking-wide"
             >
               Industry-ready courses, expert mentors, real-world projects and
               guaranteed placement support to launch your career in tech.
@@ -99,41 +99,7 @@ const Hero: React.FC = () => {
               </button>
             </motion.div>
 
-            {/* Stats Bottom */}
-            <motion.div variants={textReveal} className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-10 border-t border-border">
-              {[
-                {
-                  value: "10K+",
-                  label: "Students",
-                  icon: <Users size={20} />,
-                },
-                {
-                  value: "500+",
-                  label: "Placed",
-                  icon: <TrendingUp size={20} />,
-                },
-                {
-                  value: "50+",
-                  label: "Trainers",
-                  icon: <GraduationCap size={20} />,
-                },
-                {
-                  value: "95%",
-                  label: "Success",
-                  icon: <ShieldCheck size={20} />,
-                },
-              ].map((stat, i) => (
-                <div key={i} className="space-y-2 lg:text-left text-center">
-                  <div className="text-accent flex lg:justify-start justify-center">
-                    {stat.icon}
-                  </div>
-                  <p className="text-2xl font-black text-navy">{stat.value}</p>
-                  <p className="text-[10px] text-muted uppercase font-bold tracking-widest">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
+
           </motion.div>
 
           {/* Visuals */}
@@ -151,6 +117,11 @@ const Hero: React.FC = () => {
                   duration: 6,
                   repeat: Infinity,
                   ease: "easeInOut",
+                }}
+                style={{
+                  willChange: "transform",
+                  WebkitBackfaceVisibility: "hidden",
+                  backfaceVisibility: "hidden",
                 }}
                 src="/src/assets/hero_student_male.png"
                 alt="Student"

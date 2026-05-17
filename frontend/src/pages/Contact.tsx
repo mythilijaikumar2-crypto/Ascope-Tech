@@ -91,11 +91,21 @@ const Contact: React.FC = () => {
                   <motion.div 
                     animate={{ y: [0, -10, 0] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0 bg-white shadow-premium rounded-[60px] border border-border/50 flex flex-col items-center justify-center p-10 will-change-transform"
+                    style={{
+                      willChange: "transform",
+                      WebkitBackfaceVisibility: "hidden",
+                      backfaceVisibility: "hidden",
+                    }}
+                    className="absolute inset-0 bg-white shadow-premium rounded-[60px] border border-border/50 flex flex-col items-center justify-center p-10"
                   >
                      <motion.div 
                        animate={{ scale: [1, 1.05, 1] }}
                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                       style={{
+                         willChange: "transform",
+                         WebkitBackfaceVisibility: "hidden",
+                         backfaceVisibility: "hidden",
+                       }}
                        className="w-32 h-32 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-8"
                      >
                         <Mail size={64} />

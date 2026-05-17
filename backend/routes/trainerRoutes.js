@@ -15,12 +15,12 @@ router.get('/', (req, res) => {
             },
             { 
                 id: 2, 
-                name: "Ms Yashmeen", 
-                role: "Data Science Lead", 
-                company: "Trainer On Ascope Tech", 
-                skills: ["Python", "ML", "TensorFlow", "SQL", "Power BI"],
-                color: "bg-[#064e3b]",
-                emoji: "👩‍🔬"
+                name: "Ms Mahalakshmi V", 
+                role: "Java & DevOps Expert", 
+                company: "LT Mindtree - 2 Years Experience", 
+                skills: ["Java", "Spring Boot", "Jenkins"],
+                color: "bg-[#083344]",
+                emoji: "☕"
             },
             { 
                 id: 3, 
@@ -33,15 +33,6 @@ router.get('/', (req, res) => {
             },
             { 
                 id: 4, 
-                name: "Ms Mahalakshmi V", 
-                role: "Java & DevOps Expert", 
-                company: "LT Mindtree - 2 Years Experience", 
-                skills: ["Java", "Spring Boot", "Jenkins"],
-                color: "bg-[#083344]",
-                emoji: "☕"
-            },
-            { 
-                id: 5, 
                 name: "Ms Santhanalakshmi", 
                 role: "Digital Marketing Strategist", 
                 company: "Cognizant - 2 Years Experience", 
@@ -50,13 +41,22 @@ router.get('/', (req, res) => {
                 emoji: "📊"
             },
             { 
-                id: 6, 
+                id: 5, 
                 name: "Priya", 
                 role: "Business Analytics Expert", 
                 company: "LT Mindtree - 2 Years Experience", 
                 skills: ["Excel", "Tableau", "SAP", "JIRA"],
                 color: "bg-[#064e3b]",
                 emoji: "📈"
+            },
+            { 
+                id: 6, 
+                name: "Ms Yashmeen", 
+                role: "Data Science Lead", 
+                company: "Trainer On Ascope Tech", 
+                skills: ["Python", "ML", "TensorFlow", "SQL", "Power BI"],
+                color: "bg-[#064e3b]",
+                emoji: "👩‍🔬"
             }
         ]
     });

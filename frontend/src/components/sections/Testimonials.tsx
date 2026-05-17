@@ -31,27 +31,31 @@ const StarIcon = ({ size = 16, fill = "none" }) => (
   </svg>
 );
 
+const getInitials = (name: string) => {
+  return name.split(" ").map(word => word[0]).slice(0, 2).join("").toUpperCase();
+};
+
 const testimonials = [
   {
     name: "Alex Johnson",
     role: "Full Stack Developer at Google",
     content:
       "The curriculum at Ascope Tech is exactly what I needed to land my dream job. The mentors are incredibly supportive and the projects are real-world ready.",
-    avatar: "https://i.pravatar.cc/150?u=alex",
+    gradient: "from-primary to-accent",
   },
   {
     name: "Sarah Chen",
     role: "Data Scientist at Amazon",
     content:
       "The hands-on projects were the highlight. I learned more in 6 months here than in 4 years of college. The placement support is unmatched.",
-    avatar: "https://i.pravatar.cc/150?u=sarah",
+    gradient: "from-accent to-secondary",
   },
   {
     name: "Marcus Thorne",
     role: "UI/UX Designer at Meta",
     content:
       "Premium quality education with a focus on real-world application. Highly recommended for anyone looking to transition into high-end tech roles.",
-    avatar: "https://i.pravatar.cc/150?u=marcus",
+    gradient: "from-secondary to-primary",
   },
 ];
 
@@ -108,11 +112,9 @@ const Testimonials: React.FC = () => {
               <div className="flex items-center gap-5 pt-8 border-t border-border">
                 <div className="relative">
                   <div className="absolute inset-0 bg-accent blur-sm rounded-full opacity-0 group-hover:opacity-40 transition-opacity" />
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full relative z-10 border-2 border-white shadow-soft"
-                  />
+                  <div className={`w-16 h-16 rounded-full relative z-10 border-2 border-white shadow-soft bg-gradient-to-tr ${testimonial.gradient} text-white font-heading font-black text-lg tracking-wider flex items-center justify-center select-none`}>
+                    {getInitials(testimonial.name)}
+                  </div>
                 </div>
                 <div>
                   <h4 className="font-bold text-navy group-hover:text-accent transition-colors">

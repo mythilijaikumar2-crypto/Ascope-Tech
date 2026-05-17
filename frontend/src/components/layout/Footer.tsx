@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-heading font-black text-white mb-8 border-l-4 border-accent pl-4 uppercase tracking-widest text-xs">Company</h4>
             <ul className="space-y-4">
-              {['About Us', 'Courses', 'Trainers', 'Placements', 'Contact'].map((link) => (
+              {['Courses', 'Trainers', 'Placements', 'Contact'].map((link) => (
                 <li key={link}>
                   <Link to={`/${link.toLowerCase().replace(' ', '-')}`} className="text-white/60 hover:text-accent hover:pl-2 transition-all flex items-center gap-2 font-bold text-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent/30" /> {link}
@@ -110,19 +110,19 @@ const Footer: React.FC = () => {
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0">
                    <MapPin size={20} />
                 </div>
-                <span className="text-sm">123 Tech Avenue, Silicon Valley, <br />California, CA 94025</span>
+                <span className="text-sm">5th floor, SBRR Square,<br />Anna Nagar, Trichy – 620017</span>
               </div>
               <div className="flex gap-4 text-white/60 items-center">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0">
                    <Phone size={20} />
                 </div>
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">+91 97894 44431</span>
               </div>
               <div className="flex gap-4 text-white/60 items-center">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0">
                    <Mail size={20} />
                 </div>
-                <span className="text-sm">hello@ascopetech.com</span>
+                <span className="text-sm">ascopetech@gmail.com</span>
               </div>
             </div>
           </div>
