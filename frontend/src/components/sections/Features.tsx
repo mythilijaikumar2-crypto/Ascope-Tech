@@ -11,7 +11,7 @@ const features = [
   {
     icon: Award,
     title: "Placement Guarantee",
-    desc: "We connect you with 500+ hiring partners and ensure placement support until you succeed.",
+    desc: "We connect you with 20+ hiring partners and ensure placement support until you succeed.",
   },
   {
     icon: Users,

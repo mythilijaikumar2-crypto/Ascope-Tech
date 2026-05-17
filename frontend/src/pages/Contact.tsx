@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   User,
   Phone, 
@@ -10,8 +10,15 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  Youtube
+  BookOpen
 } from 'lucide-react';
+
+// Sleek, high-quality, brand-accurate WhatsappIcon inline SVG
+const WhatsappIcon: React.FC<{ size?: number; className?: string }> = ({ size = 20, className }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.46h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" fill="currentColor" />
+  </svg>
+);
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -19,16 +26,29 @@ const Contact: React.FC = () => {
     lastName: '',
     email: '',
     phone: '',
+    course: '',
     message: ''
   });
   const [status, setStatus] = useState({ type: '', message: '' });
+  const [courses, setCourses] = useState<{ id: number; title: string }[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5003/api/courses')
+      .then(res => res.json())
+      .then(data => {
+        setCourses(data.data || []);
+      })
+      .catch(err => {
+        console.error('Failed to fetch courses:', err);
+      });
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus({ type: 'loading', message: 'Sending message...' });
     
     try {
-      const res = await fetch('http://localhost:5002/api/contact', {
+      const res = await fetch('http://localhost:5003/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -36,7 +56,7 @@ const Contact: React.FC = () => {
       
       if (res.ok) {
         setStatus({ type: 'success', message: 'Message sent successfully!' });
-        setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' });
+        setFormData({ firstName: '', lastName: '', email: '', phone: '', course: '', message: '' });
       } else {
         setStatus({ type: 'error', message: 'Failed to send message.' });
       }
@@ -117,20 +137,23 @@ const Contact: React.FC = () => {
                         ))}
                      </div>
 
-                     <div className="flex gap-4 mt-8">
+                     <div className="flex gap-4 mt-8 flex-wrap justify-center">
                        {[
-                         { Icon: Facebook, color: "hover:bg-[#1877F2]", brand: "#1877F2" },
-                         { Icon: Instagram, color: "hover:bg-[#E4405F]", brand: "#E4405F" },
-                         { Icon: Linkedin, color: "hover:bg-[#0A66C2]", brand: "#0A66C2" },
-                         { Icon: Youtube, color: "hover:bg-[#FF0000]", brand: "#FF0000" }
+                         { Icon: Instagram, color: "hover:bg-[#E4405F]", href: "#" },
+                         { Icon: WhatsappIcon, color: "hover:bg-[#25D366]", href: "https://wa.me/919789444431" },
+                         { Icon: Facebook, color: "hover:bg-[#1877F2]", href: "#" },
+                         { Icon: Linkedin, color: "hover:bg-[#0A66C2]", href: "#" },
+                         { Icon: Mail, color: "hover:bg-[#EA4335]", href: "mailto:ascopetech@gmail.com" }
                        ].map((social, idx) => (
                          <motion.a 
                            key={idx}
-                           href="#"
+                           href={social.href}
+                           target={social.href !== "#" ? "_blank" : undefined}
+                           rel={social.href !== "#" ? "noopener noreferrer" : undefined}
                            whileHover={{ y: -5, scale: 1.1 }}
-                           className={`w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center text-navy/40 ${social.color} hover:text-white hover:border-transparent transition-all shadow-sm group`}
+                           className={`w-12 h-12 rounded-xl bg-white border border-border flex items-center justify-center text-navy/40 ${social.color} hover:text-white hover:border-transparent transition-all shadow-sm group`}
                          >
-                           <social.Icon size={24} />
+                           <social.Icon size={20} />
                          </motion.a>
                        ))}
                      </div>
@@ -163,7 +186,124 @@ const Contact: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             className="lg:w-1/2 w-full"
           >
-            <div className="bg-white rounded-[40px] p-8 lg:p-12 shadow-premium border border-border/30 relative">
+            <div className="bg-white rounded-[40px] p-8 lg:p-12 shadow-premium border border-border/30 relative overflow-hidden">
+               <AnimatePresence>
+                 {status.type === 'success' && (
+                   <motion.div 
+                     initial={{ opacity: 0, scale: 0.95 }}
+                     animate={{ opacity: 1, scale: 1 }}
+                     exit={{ opacity: 0 }}
+                     className="absolute inset-0 bg-white/95 backdrop-blur-md z-30 flex flex-col items-center justify-center p-8 text-center"
+                   >
+                     {/* Dynamic Shower of Happy Confetti */}
+                     <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                       {Array.from({ length: 45 }).map((_, i) => {
+                         const randomLeft = Math.random() * 100;
+                         const randomDelay = Math.random() * 3;
+                         const randomDuration = 2.5 + Math.random() * 2;
+                         const randomSize = 8 + Math.random() * 8;
+                         const randomColor = [
+                           '#004b87',
+                           '#00b5e2',
+                           '#e31b23',
+                           '#ff9800',
+                           '#10b981',
+                           '#a100ff',
+                           '#fdd000',
+                         ][Math.floor(Math.random() * 7)];
+                         const randomShape = Math.random() > 0.5 ? '50%' : '0%';
+                         const randomRotate = Math.random() * 360;
+
+                         return (
+                           <div
+                             key={i}
+                             className="absolute animate-confetti-fall"
+                             style={{
+                               left: `${randomLeft}%`,
+                               top: `-20px`,
+                               width: `${randomSize}px`,
+                               height: `${randomSize}px`,
+                               backgroundColor: randomColor,
+                               borderRadius: randomShape,
+                               opacity: 0.8,
+                               transform: `rotate(${randomRotate}deg)`,
+                               animationDelay: `${randomDelay}s`,
+                               animationDuration: `${randomDuration}s`,
+                             }}
+                           />
+                         );
+                       })}
+                     </div>
+
+                     {/* Premium Animated Tick Mark Card */}
+                     <motion.div
+                       initial={{ scale: 0, rotate: -180 }}
+                       animate={{ scale: 1, rotate: 0 }}
+                       transition={{ type: "spring", stiffness: 100, damping: 12, delay: 0.2 }}
+                       className="w-24 h-24 rounded-full bg-emerald-500/10 border-4 border-emerald-500/20 flex items-center justify-center text-emerald-500 mb-6 shadow-lg shadow-emerald-500/10"
+                     >
+                       <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth="4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                         <motion.path 
+                           initial={{ pathLength: 0 }}
+                           animate={{ pathLength: 1 }}
+                           transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+                           strokeLinecap="round" 
+                           strokeLinejoin="round" 
+                           d="M5 13l4 4L19 7"
+                         />
+                       </svg>
+                     </motion.div>
+
+                     <motion.h3 
+                       initial={{ opacity: 0, y: 15 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       transition={{ delay: 0.7 }}
+                       className="text-3xl font-black text-navy tracking-tight mb-3"
+                     >
+                       Thank You!
+                     </motion.h3>
+
+                     <motion.p 
+                       initial={{ opacity: 0, y: 15 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       transition={{ delay: 0.8 }}
+                       className="text-navy/70 font-semibold max-w-sm mb-8 leading-relaxed font-body"
+                     >
+                       Your message has been sent successfully. Our counselors will contact you shortly!
+                     </motion.p>
+
+                     <motion.button
+                       initial={{ opacity: 0 }}
+                       animate={{ opacity: 1 }}
+                       transition={{ delay: 1 }}
+                       onClick={() => setStatus({ type: '', message: '' })}
+                       className="px-8 py-3.5 bg-primary text-white font-black text-xs uppercase tracking-widest rounded-xl hover:bg-primary/90 transition-all shadow-md shadow-primary/10 hover:shadow-lg hover:scale-105 active:scale-95"
+                     >
+                       Send Another Message
+                     </motion.button>
+
+                     {/* Confetti Animation Keyframes Style Tag */}
+                     <style>{`
+                       @keyframes confetti-fall {
+                         0% {
+                           transform: translateY(0) rotate(0deg);
+                           opacity: 1;
+                         }
+                         100% {
+                           transform: translateY(550px) rotate(720deg);
+                           opacity: 0;
+                         }
+                       }
+                       .animate-confetti-fall {
+                         animation-name: confetti-fall;
+                         animation-timing-function: linear;
+                         animation-iteration-count: infinite;
+                       }
+                     `}</style>
+                   </motion.div>
+                 )}
+               </AnimatePresence>
+
                <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="relative group">
                     <div className="absolute left-6 top-1/2 -translate-y-1/2 text-navy/20 group-focus-within:text-primary transition-colors">
@@ -222,6 +362,30 @@ const Contact: React.FC = () => {
                   </div>
 
                   <div className="relative group">
+                    <div className="absolute left-6 top-1/2 -translate-y-1/2 text-navy/20 group-focus-within:text-primary transition-colors">
+                      <BookOpen size={20} />
+                    </div>
+                    <select
+                      required
+                      value={formData.course}
+                      onChange={(e) => setFormData({...formData, course: e.target.value})}
+                      className="w-full pl-16 pr-12 py-5 rounded-2xl bg-sky/20 border-2 border-transparent focus:border-primary/20 focus:bg-white outline-none transition-all font-bold text-navy appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled className="text-navy/30">Select Interested Course *</option>
+                      {courses.map((course) => (
+                        <option key={course.id} value={course.title} className="text-navy font-bold">
+                          {course.title}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-navy/40">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div className="relative group">
                     <div className="absolute left-6 top-8 text-navy/20 group-focus-within:text-primary transition-colors">
                       <MessageSquare size={20} />
                     </div>
@@ -234,8 +398,8 @@ const Contact: React.FC = () => {
                     ></textarea>
                   </div>
 
-                  {status.message && (
-                    <div className={`p-4 rounded-xl text-xs font-black text-center ${status.type === 'error' ? 'bg-red-50 text-red-500' : 'bg-emerald-50 text-emerald-500'}`}>
+                  {status.message && status.type === 'error' && (
+                    <div className="p-4 rounded-xl text-xs font-black text-center bg-red-50 text-red-500">
                       {status.message}
                     </div>
                   )}

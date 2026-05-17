@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "firstName": "sample ",
+    "lastName": "s",
+    "email": "sample@gmail.com",
+    "phone": "1234567890",
+    "course": "Python Full Course",
+    "message": "hi ",
+    "created_at": "2026-05-17T11:21:29.620Z"
+  },
+  {
+    "id": 2,
+    "firstName": "sample ",
+    "lastName": "s",
+    "email": "sample@gmail.com",
+    "phone": "9876543210",
+    "course": "Cloud Computing",
+    "message": "sample ",
+    "created_at": "2026-05-17T11:36:01.088Z"
+  }
+]

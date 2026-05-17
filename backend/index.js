@@ -33,9 +33,19 @@ const initDB = async () => {
                 email VARCHAR(100) NOT NULL,
                 phone VARCHAR(20),
                 course VARCHAR(200),
+                mobile_number VARCHAR(20),
+                course_section VARCHAR(200),
                 message TEXT NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
+        `);
+        // Migration: Ensure course, first_name, last_name, mobile_number, and course_section columns exist if table was created in an older run
+        await db.query(`
+            ALTER TABLE contacts ADD COLUMN IF NOT EXISTS course VARCHAR(200);
+            ALTER TABLE contacts ADD COLUMN IF NOT EXISTS first_name VARCHAR(100);
+            ALTER TABLE contacts ADD COLUMN IF NOT EXISTS last_name VARCHAR(100);
+            ALTER TABLE contacts ADD COLUMN IF NOT EXISTS mobile_number VARCHAR(20);
+            ALTER TABLE contacts ADD COLUMN IF NOT EXISTS course_section VARCHAR(200);
         `);
         // 3. Create Enrollments Table
         await db.query(`
@@ -113,4 +123,4 @@ app.listen(PORT, () => {
     console.log(`📡 Courses Endpoint: http://localhost:${PORT}/api/courses`);
 });
 
-// Trigger nodemon reload
+// Trigger nodemon reload - 2026-05-17T07:22:00Z

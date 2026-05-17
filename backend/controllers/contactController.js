@@ -26,7 +26,12 @@ const saveFallbackContact = (contact) => {
 
 const submitContactForm = async (req, res) => {
   try {
-    const { firstName, lastName, email, phone, course, message } = req.body;
+    const first_name = req.body.first_name || req.body.firstName;
+    const last_name = req.body.last_name || req.body.lastName;
+    const mobile_number = req.body.mobile_number || req.body.phone;
+    const email = req.body.email;
+    const course_section = req.body.course_section || req.body.course;
+    const message = req.body.message;
 
     // Basic Validation
     if (!email || !message) {
@@ -38,14 +43,30 @@ const submitContactForm = async (req, res) => {
 
     try {
         await pool.query(
-          `INSERT INTO contacts (first_name, last_name, email, phone, course, message)
-           VALUES ($1, $2, $3, $4, $5, $6)`,
-          [firstName, lastName, email, phone, course, message]
+          `INSERT INTO contacts (first_name, last_name, email, phone, course, mobile_number, course_section, message)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+          [
+            first_name,
+            last_name,
+            email,
+            mobile_number,     // stores in old 'phone' field
+            course_section,    // stores in old 'course' field
+            mobile_number,     // stores in new 'mobile_number' field
+            course_section,    // stores in new 'course_section' field
+            message
+          ]
         );
         console.log("✅ Contact saved to PostgreSQL database successfully.");
     } catch (dbErr) {
         console.warn("⚠️ Database insert failed. Saving contact to local JSON data store:", dbErr.message);
-        saveFallbackContact({ firstName, lastName, email, phone, course, message });
+        saveFallbackContact({ 
+          first_name, 
+          last_name, 
+          email, 
+          mobile_number, 
+          course_section, 
+          message 
+        });
     }
 
     res.status(200).json({

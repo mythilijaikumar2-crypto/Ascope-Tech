@@ -17,7 +17,7 @@ const Trainers: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5002/api/trainers')
+    fetch('http://localhost:5003/api/trainers')
       .then(res => res.json())
       .then(data => {
         setTrainers(data.data || []);
@@ -59,7 +59,7 @@ const Trainers: React.FC = () => {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           className="text-center mb-24"
         >
-          <h1 className="text-5xl lg:text-7xl font-heading font-black text-navy mb-6 tracking-tighter">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-navy mb-6 tracking-tighter">
             Our Expert <span className="text-gradient">Trainers</span>
           </h1>
           <p className="text-navy/40 max-w-2xl mx-auto font-bold uppercase tracking-[0.4em] text-[11px] leading-relaxed">

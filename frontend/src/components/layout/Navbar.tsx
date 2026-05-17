@@ -64,12 +64,6 @@ const Navbar: React.FC = () => {
         {/* Right Actions */}
         <div className="hidden md:flex items-center gap-6">
           <Link
-            to="/login"
-            className="text-navy font-black text-xs uppercase tracking-widest hover:text-accent transition-colors"
-          >
-            Login
-          </Link>
-          <Link
             to="/courses"
             className="premium-button px-8 py-3.5 rounded-2xl font-black text-xs uppercase tracking-[0.15em] transition-all shadow-xl shadow-primary/30 hover:scale-105 active:scale-95"
           >
@@ -109,13 +103,6 @@ const Navbar: React.FC = () => {
                 ))}
               </div>
               <div className="flex flex-col gap-4 pt-8 border-t border-border">
-                <Link
-                  to="/login"
-                  onClick={() => setIsOpen(false)}
-                  className="text-navy font-black text-center uppercase tracking-widest text-sm py-4 rounded-2xl bg-navy/5 hover:bg-navy/10 transition-all"
-                >
-                  Login
-                </Link>
                 <Link
                   to="/courses"
                   onClick={() => setIsOpen(false)}
