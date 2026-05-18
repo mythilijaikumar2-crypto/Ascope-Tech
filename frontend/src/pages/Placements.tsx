@@ -197,7 +197,7 @@ const Placements: React.FC = () => {
   const stats = [
     { label: "Placement Rate", value: "95%", icon: TrendingUp, color: "text-primary", bg: "bg-primary/10" },
     { label: "Highest Package", value: "₹12 LPA", icon: DollarSign, color: "text-emerald-500", bg: "bg-emerald-500/10" },
-    { label: "Hiring Partners", value: "350+", icon: Building2, color: "text-orange-500", bg: "bg-orange-500/10" },
+    { label: "Hiring Partners", value: "20+", icon: Building2, color: "text-orange-500", bg: "bg-orange-500/10" },
     { label: "Avg Salary", value: "₹3.5 LPA", icon: Award, color: "text-accent", bg: "bg-accent/10" },
   ];
 
