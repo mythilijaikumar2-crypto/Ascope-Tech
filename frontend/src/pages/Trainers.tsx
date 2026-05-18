@@ -1,6 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Building2 } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import {
+  Building2,
+  Linkedin,
+  Github,
+  Globe,
+  Code,
+  Cpu,
+  Database,
+  Laptop,
+  Brain,
+  BarChart3,
+  Binary,
+  Sparkles,
+  Shield,
+  Lock,
+  Terminal,
+  Network,
+  Coffee,
+  Server,
+  Cloud,
+  GitBranch,
+  Palette,
+  Layers,
+  Eye,
+  Compass,
+  TrendingUp,
+  PieChart,
+  FileSpreadsheet,
+  Briefcase,
+} from "lucide-react";
 
 interface Trainer {
   id: number;
@@ -10,22 +39,222 @@ interface Trainer {
   skills: string[];
   color: string;
   emoji: string;
+  socials?: {
+    linkedin: string;
+    github: string;
+    web: string;
+  };
 }
 
+const DEFAULT_TRAINERS: Trainer[] = [
+  {
+    id: 1,
+    name: "Mr Aswinraj",
+    role: "Senior Full Stack Developer",
+    company: "Zoho - Software Developer Engineer",
+    skills: ["React", "Node.js", "MongoDB", "AWS", "Docker"],
+    color: "bg-[#0f172a]",
+    emoji: "👨‍💻",
+    socials: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+      web: "https://ascope.tech",
+    },
+  },
+  {
+    id: 2,
+    name: "Ms Mahalakshmi V",
+    role: "Java & DevOps Expert",
+    company: "LT Mindtree - 2 Years Experience",
+    skills: ["Java", "Spring Boot", "Jenkins"],
+    color: "bg-[#083344]",
+    emoji: "☕",
+    socials: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+      web: "https://ascope.tech",
+    },
+  },
+  {
+    id: 3,
+    name: "Mr Keerthivasan VR",
+    role: "UI/UX Design Expert",
+    company: "Ex- Infinity notion - 5 Years Experience",
+    skills: ["Figma", "Adobe XD", "Prototyping", "Research"],
+    color: "bg-[#581c87]",
+    emoji: "🎨",
+    socials: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+      web: "https://ascope.tech",
+    },
+  },
+  {
+    id: 4,
+    name: "Priya",
+    role: "Business Analytics Expert",
+    company: "LT Mindtree - 2 Years Experience",
+    skills: ["Excel", "Tableau", "SAP", "JIRA"],
+    color: "bg-[#064e3b]",
+    emoji: "📈",
+    socials: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+      web: "https://ascope.tech",
+    },
+  },
+  {
+    id: 5,
+    name: "Ms Yashmeen",
+    role: "Data Science Lead",
+    company: "Trainer On Ascope Tech",
+    skills: ["Python", "ML", "TensorFlow", "SQL", "Power BI"],
+    color: "bg-[#064e3b]",
+    emoji: "👩‍🔬",
+    socials: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+      web: "https://ascope.tech",
+    },
+  },
+  {
+    id: 6,
+    name: "Ms Brindha A",
+    role: "Junior Full Stack Developer",
+    company: "Ascope Tech - Core Developer",
+    skills: ["React", "Node.js", "Express.js", "Tailwind CSS", "MongoDB", "Git"],
+    color: "bg-[#075a97]",
+    emoji: "👩‍💻",
+    socials: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+      web: "https://ascope.tech",
+    },
+  },
+  {
+    id: 7,
+    name: "Ms Dharshini S",
+    role: "Data Science, Machine Learning & Data Analytics",
+    company: "Ascope Tech - AI Specialist",
+    skills: ["Python", "Machine Learning", "Data Analytics", "Pandas", "SQL", "Scikit-Learn"],
+    color: "bg-[#10b981]",
+    emoji: "👩‍🔬",
+    socials: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+      web: "https://ascope.tech",
+    },
+  },
+  {
+    id: 8,
+    name: "Mr Sathiyanarayana J",
+    role: "Cybersecurity & Ethical Hacking",
+    company: "Ascope Tech - Security Lead",
+    skills: ["Ethical Hacking", "Penetration Testing", "Linux", "Network Security", "Wireshark", "Metasploit"],
+    color: "bg-[#6366f1]",
+    emoji: "👨‍💻",
+    socials: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+      web: "https://ascope.tech",
+    },
+  },
+];
+
+const getDomainIcons = (role: string) => {
+  const roleLower = role.toLowerCase();
+  if (roleLower.includes("full stack") || roleLower.includes("developer")) {
+    return [
+      { Icon: Code, className: "top-4 left-4" },
+      { Icon: Cpu, className: "top-5 right-5" },
+      { Icon: Database, className: "bottom-5 left-5" },
+      { Icon: Laptop, className: "bottom-4 right-4" },
+    ];
+  } else if (
+    roleLower.includes("data science") ||
+    roleLower.includes("machine learning") ||
+    roleLower.includes("analytics")
+  ) {
+    return [
+      { Icon: Brain, className: "top-4 left-4" },
+      { Icon: BarChart3, className: "top-5 right-5" },
+      { Icon: Binary, className: "bottom-5 left-5" },
+      { Icon: Sparkles, className: "bottom-4 right-4" },
+    ];
+  } else if (
+    roleLower.includes("cybersecurity") ||
+    roleLower.includes("hacking") ||
+    roleLower.includes("security")
+  ) {
+    return [
+      { Icon: Shield, className: "top-4 left-4" },
+      { Icon: Lock, className: "top-5 right-5" },
+      { Icon: Terminal, className: "bottom-5 left-5" },
+      { Icon: Network, className: "bottom-4 right-4" },
+    ];
+  } else if (roleLower.includes("java") || roleLower.includes("devops")) {
+    return [
+      { Icon: Coffee, className: "top-4 left-4" },
+      { Icon: Server, className: "top-5 right-5" },
+      { Icon: Cloud, className: "bottom-5 left-5" },
+      { Icon: GitBranch, className: "bottom-4 right-4" },
+    ];
+  } else if (roleLower.includes("ui/ux") || roleLower.includes("design")) {
+    return [
+      { Icon: Palette, className: "top-4 left-4" },
+      { Icon: Layers, className: "top-5 right-5" },
+      { Icon: Eye, className: "bottom-5 left-5" },
+      { Icon: Compass, className: "bottom-4 right-4" },
+    ];
+  } else {
+    // Default fallback (e.g. Business Analytics or general)
+    return [
+      { Icon: TrendingUp, className: "top-4 left-4" },
+      { Icon: PieChart, className: "top-5 right-5" },
+      { Icon: FileSpreadsheet, className: "bottom-5 left-5" },
+      { Icon: Briefcase, className: "bottom-4 right-4" },
+    ];
+  }
+};
+
+const getCentralIcon = (role: string) => {
+  const roleLower = role.toLowerCase();
+  if (roleLower.includes("full stack") || roleLower.includes("developer")) {
+    return { Icon: Code, colorClass: "text-[#075a97]", bgClass: "bg-blue-50/80" };
+  } else if (
+    roleLower.includes("data science") ||
+    roleLower.includes("machine learning") ||
+    roleLower.includes("analytics")
+  ) {
+    return { Icon: Brain, colorClass: "text-[#10b981]", bgClass: "bg-emerald-50/80" };
+  } else if (
+    roleLower.includes("cybersecurity") ||
+    roleLower.includes("hacking") ||
+    roleLower.includes("security")
+  ) {
+    return { Icon: Shield, colorClass: "text-[#6366f1]", bgClass: "bg-indigo-50/80" };
+  } else if (roleLower.includes("java") || roleLower.includes("devops")) {
+    return { Icon: Coffee, colorClass: "text-[#f97316]", bgClass: "bg-orange-50/80" };
+  } else if (roleLower.includes("ui/ux") || roleLower.includes("design")) {
+    return { Icon: Palette, colorClass: "text-[#a855f7]", bgClass: "bg-purple-50/80" };
+  } else {
+    return { Icon: TrendingUp, colorClass: "text-[#064e3b]", bgClass: "bg-teal-50/80" };
+  }
+};
+
 const Trainers: React.FC = () => {
-  const [trainers, setTrainers] = useState<Trainer[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [trainers, setTrainers] = useState<Trainer[]>(DEFAULT_TRAINERS);
 
   useEffect(() => {
-    fetch('http://localhost:5004/api/trainers')
-      .then(res => res.json())
-      .then(data => {
-        setTrainers(data.data || []);
-        setLoading(false);
+    fetch("http://localhost:5004/api/trainers")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.data) {
+          setTrainers(data.data);
+        }
       })
-      .catch(err => {
-        console.error('Failed to fetch trainers:', err);
-        setLoading(false);
+      .catch((err) => {
+        console.warn("Failed to fetch fresh trainers, using high-fidelity offline fallback:", err);
       });
   }, []);
 
@@ -35,89 +264,165 @@ const Trainers: React.FC = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
-    }
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+      },
+    },
   };
 
   return (
     <div className="pt-32 pb-24 bg-white min-h-screen font-sans overflow-hidden">
+      {/* GPU-Accelerated Lighter CSS Animation Classes */}
+      <style>{`
+        @keyframes gpu-float {
+          0%, 100% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-5px) rotate(5deg); }
+        }
+        .animate-float-1 { animation: gpu-float 4s ease-in-out infinite; }
+        .animate-float-2 { animation: gpu-float 4.6s ease-in-out infinite 0.5s; }
+        .animate-float-3 { animation: gpu-float 5.2s ease-in-out infinite 1s; }
+        .animate-float-4 { animation: gpu-float 5.8s ease-in-out infinite 1.5s; }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+          transition={{
+            duration: 1,
+            ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+          }}
           className="text-center mb-24"
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-navy mb-6 tracking-tighter">
             Our Expert <span className="text-gradient">Trainers</span>
           </h1>
-          <p className="text-navy/40 max-w-2xl mx-auto font-bold uppercase tracking-[0.4em] text-[11px] leading-relaxed">
-            Industry veterans working in world-class technology hubs
+          <p className="text-muted text-sm font-bold max-w-xl mx-auto uppercase tracking-widest">
+            Learn from industry practitioners with years of hands-on experience
           </p>
         </motion.div>
-
-        {loading ? (
-          <div className="flex justify-center items-center h-64">
-             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-          </div>
-        ) : (
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-x-12 lg:gap-y-16"
           >
-            {trainers.map((trainer) => (
-              <motion.div
-                key={trainer.id}
-                variants={itemVariants}
-                className="group relative bg-white rounded-[32px] overflow-hidden shadow-soft hover:shadow-premium transition-all duration-500 border border-border/50"
-              >
-                <div className={`h-40 ${trainer.color} relative flex items-center justify-center overflow-hidden`}>
-                   <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                   <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-24 h-24 bg-white rounded-full p-2 shadow-xl border-4 border-white transition-transform duration-500 group-hover:scale-110">
-                      <div className="w-full h-full bg-cream rounded-full flex items-center justify-center text-4xl shadow-inner">
-                        {trainer.emoji}
+            {trainers.map((trainer) => {
+              const centralIcon = getCentralIcon(trainer.role);
+              return (
+                <motion.div
+                  key={trainer.id}
+                  variants={itemVariants}
+                  className="group relative bg-white rounded-[32px] shadow-soft hover:shadow-premium transition-all duration-500 border border-border/50 flex flex-col h-full justify-between mt-8"
+                >
+                  <div>
+                    {/* Stylized Spinning Vector Icon Circle Container */}
+                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-white rounded-full p-1.5 shadow-xl border-4 border-white transition-transform duration-500 group-hover:scale-110 z-20 will-change-transform">
+                      <div className={`w-full h-full ${centralIcon.bgClass} rounded-full flex items-center justify-center shadow-inner group-hover:rotate-[360deg] transition-all duration-700 ease-out will-change-transform`}>
+                        <centralIcon.Icon
+                          size={28}
+                          className={`${centralIcon.colorClass} filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.05)] group-hover:drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)] transition-all duration-300`}
+                        />
                       </div>
-                   </div>
-                </div>
+                    </div>
 
-                <div className="pt-14 pb-10 px-8 text-center">
-                   <h3 className="text-2xl font-black text-navy mb-1 group-hover:text-primary transition-colors">
-                     {trainer.name}
-                   </h3>
-                   <p className="text-muted text-xs font-bold uppercase tracking-widest mb-6">
-                     {trainer.role}
-                   </p>
+                    <div
+                      className={`h-32 ${trainer.color} relative flex items-center justify-center rounded-t-[32px] overflow-hidden`}
+                    >
+                      {/* Floating Domain Icons background layer using lightweight CSS Keyframe Classes */}
+                      {getDomainIcons(trainer.role).map(
+                        ({ Icon, className }, index) => {
+                          const floatClass = `animate-float-${(index % 4) + 1}`;
+                          return (
+                            <div
+                              key={index}
+                              className={`absolute ${className} ${floatClass} z-10 text-white/20 p-1.5 rounded-lg backdrop-blur-[2px] bg-white/5 border border-white/10 shadow-[0_4px_12px_rgba(255,255,255,0.03)] group-hover:text-white/70 group-hover:border-white/20 group-hover:bg-white/10 group-hover:scale-110 transition-all duration-500 will-change-transform`}
+                            >
+                              <Icon
+                                size={14}
+                                className="filter drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)] transition-all duration-500"
+                              />
+                            </div>
+                          );
+                        }
+                      )}
 
-                   <div className="flex items-center justify-center gap-2 mb-6 text-accent font-black text-xs uppercase tracking-wider">
-                      <Building2 size={16} className="opacity-50" />
-                      <span>{trainer.company}</span>
-                   </div>
+                      <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
 
-                   <div className="flex flex-wrap justify-center gap-2 mt-auto">
-                      {trainer.skills.map(skill => (
-                        <span key={skill} className="px-3 py-1 bg-gray-50 text-navy/60 text-[10px] font-black rounded-full uppercase tracking-widest border border-gray-100 group-hover:border-primary/20 group-hover:bg-primary/5 transition-all">
-                          {skill}
-                        </span>
-                      ))}
-                   </div>
-                </div>
-              </motion.div>
-            ))}
+                    <div className="pt-6 pb-6 px-8 text-center flex flex-col items-center">
+                      <h3 className="text-2xl font-black text-navy mb-1 group-hover:text-primary transition-colors">
+                        {trainer.name}
+                      </h3>
+                      <p className="text-muted text-xs font-bold uppercase tracking-widest mb-6 min-h-[32px] flex items-center justify-center">
+                        {trainer.role}
+                      </p>
+
+                      <div className="flex items-center justify-center gap-2 mb-6 text-accent font-black text-xs uppercase tracking-wider">
+                        <Building2 size={16} className="opacity-50" />
+                        <span>{trainer.company}</span>
+                      </div>
+
+                      <div className="flex flex-wrap justify-center gap-2 mb-4">
+                        {trainer.skills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="px-3 py-1 bg-gray-50 text-navy/60 text-[10px] font-black rounded-full uppercase tracking-widest border border-gray-100 group-hover:border-primary/20 group-hover:bg-primary/5 transition-all"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Optional Social Icons Footer */}
+                  {trainer.socials && (
+                    <div className="pb-8 px-8 flex justify-center gap-4 mt-auto">
+                      <div className="w-full pt-4 border-t border-slate-100/60 flex justify-center gap-4">
+                        <a
+                          href={trainer.socials.linkedin}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 bg-slate-50 border border-slate-100 hover:text-[#0a66c2] hover:bg-[#0a66c2]/5 hover:border-[#0a66c2]/20 transition-all duration-300 active:scale-90"
+                        >
+                          <Linkedin size={14} />
+                        </a>
+                        <a
+                          href={trainer.socials.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 bg-slate-50 border border-slate-100 hover:text-[#181717] hover:bg-[#181717]/5 hover:border-[#181717]/20 transition-all duration-300 active:scale-90"
+                        >
+                          <Github size={14} />
+                        </a>
+                        <a
+                          href={trainer.socials.web}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 bg-slate-50 border border-slate-100 hover:text-primary hover:bg-primary/5 hover:border-primary/20 transition-all duration-300 active:scale-90"
+                        >
+                          <Globe size={14} />
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
           </motion.div>
-        )}
       </div>
     </div>
   );

@@ -18,32 +18,74 @@ import {
    Data
 ───────────────────────────────────────────── */
 const orbitNodes = [
-  { id: 1, icon: Code2, label: "React", color: "#61dafb", bg: "#0d1117", angle: 0, radius: 130 },
-  { id: 2, icon: Database, label: "Python", color: "#3b82f6", bg: "#eff6ff", angle: 72, radius: 130 },
-  { id: 3, icon: Globe, label: "DevOps", color: "#10b981", bg: "#f0fdf4", angle: 144, radius: 130 },
-  { id: 4, icon: Cpu, label: "AI / ML", color: "#8b5cf6", bg: "#f5f3ff", angle: 216, radius: 130 },
-  { id: 5, icon: Globe, label: "UI / UX", color: "#f59e0b", bg: "#fffbeb", angle: 288, radius: 130 },
+  {
+    id: 1,
+    icon: Code2,
+    label: "React",
+    color: "#61dafb",
+    bg: "#0d1117",
+    angle: 0,
+    radius: 130,
+  },
+  {
+    id: 2,
+    icon: Database,
+    label: "Python",
+    color: "#3b82f6",
+    bg: "#eff6ff",
+    angle: 72,
+    radius: 130,
+  },
+  {
+    id: 3,
+    icon: Globe,
+    label: "DevOps",
+    color: "#10b981",
+    bg: "#f0fdf4",
+    angle: 144,
+    radius: 130,
+  },
+  {
+    id: 4,
+    icon: Cpu,
+    label: "AI / ML",
+    color: "#8b5cf6",
+    bg: "#f5f3ff",
+    angle: 216,
+    radius: 130,
+  },
+  {
+    id: 5,
+    icon: Globe,
+    label: "UI / UX",
+    color: "#f59e0b",
+    bg: "#fffbeb",
+    angle: 288,
+    radius: 130,
+  },
 ];
 
 const floatingCards = [
   {
     id: "mentors",
     icon: Users,
-    title: "50+ Expert Mentors",
+    title: "20+ Expert Mentors",
     sub: "Industry veterans",
     color: "#075a97",
     bg: "#eff6ff",
-    top: "4%", left: "2%",
+    top: "4%",
+    left: "2%",
     delay: 0,
   },
   {
     id: "placed",
     icon: Trophy,
-    title: "5,200+ Placed",
+    title: "50+ Placed",
     sub: "In top companies",
     color: "#10b981",
     bg: "#f0fdf4",
-    top: "4%", right: "0%",
+    top: "4%",
+    right: "0%",
     delay: 0.3,
   },
   {
@@ -53,7 +95,8 @@ const floatingCards = [
     sub: "By 12K+ students",
     color: "#f59e0b",
     bg: "#fffbeb",
-    bottom: "4%", left: "2%",
+    bottom: "-8%",
+    left: "2%",
     delay: 0.5,
   },
   {
@@ -63,12 +106,22 @@ const floatingCards = [
     sub: "Every weekday",
     color: "#8b5cf6",
     bg: "#f5f3ff",
-    bottom: "4%", right: "0%",
+    bottom: "-8%",
+    right: "0%",
     delay: 0.8,
   },
 ];
 
-const skills = ["React", "Node.js", "Python", "DevOps", "AI/ML", "DSA", "UI/UX", "Java"];
+const skills = [
+  "React",
+  "Node.js",
+  "Python",
+  "DevOps",
+  "AI/ML",
+  "DSA",
+  "UI/UX",
+  "Java",
+];
 
 /* ─────────────────────────────────────────────
    Helpers
@@ -91,7 +144,9 @@ const OrbitalLines: React.FC = () => (
   >
     {/* Outer dashed ring */}
     <motion.circle
-      cx="200" cy="200" r="130"
+      cx="200"
+      cy="200"
+      r="130"
       stroke="rgba(7,90,151,0.12)"
       strokeWidth="1.5"
       strokeDasharray="6 6"
@@ -100,7 +155,14 @@ const OrbitalLines: React.FC = () => (
       transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
     />
     {/* Inner ring */}
-    <circle cx="200" cy="200" r="72" stroke="rgba(23,181,231,0.10)" strokeWidth="1" strokeDasharray="4 8" />
+    <circle
+      cx="200"
+      cy="200"
+      r="72"
+      stroke="rgba(23,181,231,0.10)"
+      strokeWidth="1"
+      strokeDasharray="4 8"
+    />
 
     {/* Spoke lines centre → each node */}
     {orbitNodes.map((n) => {
@@ -108,14 +170,20 @@ const OrbitalLines: React.FC = () => (
       return (
         <motion.line
           key={n.id}
-          x1="200" y1="200"
-          x2={x} y2={y}
+          x1="200"
+          y1="200"
+          x2={x}
+          y2={y}
           stroke={n.color}
           strokeWidth="1"
           strokeDasharray="4 4"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 0.35 }}
-          transition={{ duration: 1, delay: 0.4 + n.id * 0.15, ease: "easeOut" }}
+          transition={{
+            duration: 1,
+            delay: 0.4 + n.id * 0.15,
+            ease: "easeOut",
+          }}
         />
       );
     })}
@@ -126,7 +194,9 @@ const OrbitalLines: React.FC = () => (
       return (
         <motion.circle
           key={`dot-${n.id}`}
-          cx={x} cy={y} r="3"
+          cx={x}
+          cy={y}
+          r="3"
           fill={n.color}
           animate={{ opacity: [0.4, 1, 0.4] }}
           transition={{ duration: 2.5, repeat: Infinity, delay: n.id * 0.3 }}
@@ -139,7 +209,7 @@ const OrbitalLines: React.FC = () => (
 /** Central hub */
 const CentralHub: React.FC = () => (
   <motion.div
-    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+    className="absolute top-[48%] left-[46%] -translate-x-1/2 -translate-y-1/2 z-20"
     initial={{ scale: 0, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
@@ -150,7 +220,12 @@ const CentralHub: React.FC = () => (
         key={r}
         className="absolute inset-0 rounded-full border border-primary/20"
         animate={{ scale: [1, 1.5 + r * 0.3], opacity: [0.5, 0] }}
-        transition={{ duration: 2.5, repeat: Infinity, delay: r * 0.7, ease: "easeOut" }}
+        transition={{
+          duration: 2.5,
+          repeat: Infinity,
+          delay: r * 0.7,
+          ease: "easeOut",
+        }}
         style={{ margin: `-${r * 8}px` }}
       />
     ))}
@@ -159,20 +234,26 @@ const CentralHub: React.FC = () => (
       className="relative w-[100px] h-[100px] rounded-full flex flex-col items-center justify-center shadow-2xl"
       style={{
         background: "linear-gradient(135deg, #075a97 0%, #17b5e7 100%)",
-        boxShadow: "0 0 40px rgba(7,90,151,0.45), 0 0 80px rgba(23,181,231,0.2)",
+        boxShadow:
+          "0 0 40px rgba(7,90,151,0.45), 0 0 80px rgba(23,181,231,0.2)",
       }}
     >
       <BookOpen className="text-white mb-1" size={24} />
       <span className="text-white text-[9px] font-black uppercase tracking-widest leading-none">
         Ascope
       </span>
-      <span className="text-white/70 text-[7px] font-bold tracking-wider">Tech</span>
+      <span className="text-white/70 text-[7px] font-bold tracking-wider">
+        Tech
+      </span>
     </div>
   </motion.div>
 );
 
 /** Orbit nodes */
-const OrbitNode: React.FC<{ node: (typeof orbitNodes)[0]; index: number }> = ({ node, index }) => {
+const OrbitNode: React.FC<{ node: (typeof orbitNodes)[0]; index: number }> = ({
+  node,
+  index,
+}) => {
   const Icon = node.icon;
   return (
     <motion.div
@@ -190,12 +271,15 @@ const OrbitNode: React.FC<{ node: (typeof orbitNodes)[0]; index: number }> = ({ 
       transition={{
         opacity: { duration: 0.5, delay: 0.5 + index * 0.12 },
         scale: { duration: 0.5, delay: 0.5 + index * 0.12 },
-        y: { duration: 3.5 + index * 0.4, repeat: Infinity, ease: "easeInOut", delay: index * 0.3 },
+        y: {
+          duration: 3.5 + index * 0.4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: index * 0.3,
+        },
       }}
     >
-      <div
-        className="flex flex-col items-center gap-1.5 cursor-default group"
-      >
+      <div className="flex flex-col items-center gap-1.5 cursor-default group">
         <motion.div
           whileHover={{ scale: 1.15 }}
           className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
@@ -219,7 +303,9 @@ const OrbitNode: React.FC<{ node: (typeof orbitNodes)[0]; index: number }> = ({ 
 };
 
 /** Floating stat card */
-const FloatingCard: React.FC<{ card: (typeof floatingCards)[0] }> = ({ card }) => {
+const FloatingCard: React.FC<{ card: (typeof floatingCards)[0] }> = ({
+  card,
+}) => {
   const Icon = card.icon;
   return (
     <motion.div
@@ -245,7 +331,12 @@ const FloatingCard: React.FC<{ card: (typeof floatingCards)[0] }> = ({ card }) =
       transition={{
         opacity: { duration: 0.6, delay: 0.8 + card.delay },
         scale: { duration: 0.6, delay: 0.8 + card.delay },
-        y: { duration: 4 + card.delay, repeat: Infinity, ease: "easeInOut", delay: card.delay },
+        y: {
+          duration: 4 + card.delay,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: card.delay,
+        },
       }}
     >
       <div
@@ -255,8 +346,12 @@ const FloatingCard: React.FC<{ card: (typeof floatingCards)[0] }> = ({ card }) =
         <Icon size={18} color={card.color} />
       </div>
       <div>
-        <p className="text-xs font-black text-slate-800 leading-tight">{card.title}</p>
-        <p className="text-[10px] text-slate-400 font-medium mt-0.5">{card.sub}</p>
+        <p className="text-xs font-black text-slate-800 leading-tight">
+          {card.title}
+        </p>
+        <p className="text-[10px] text-slate-400 font-medium mt-0.5">
+          {card.sub}
+        </p>
       </div>
     </motion.div>
   );
@@ -290,7 +385,7 @@ const SkillScroller: React.FC = () => (
 /** Active learner avatars */
 const LearnersBadge: React.FC = () => (
   <motion.div
-    className="absolute top-1/2 -translate-y-1/2 right-[-16px] z-30 flex flex-col items-center gap-1 bg-white/90 backdrop-blur-md border border-white/80 shadow-lg rounded-2xl px-3 py-3"
+    className="absolute top-1/2 -translate-y-1/2 right-[-100px] z-30 flex flex-col items-center gap-1 bg-white/90 backdrop-blur-md border border-white/80 shadow-lg rounded-2xl px-3 py-3"
     initial={{ opacity: 0, x: 20 }}
     animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
     transition={{
@@ -317,7 +412,7 @@ const LearnersBadge: React.FC = () => (
         transition={{ duration: 1.5, repeat: Infinity }}
       />
       <span className="text-[9px] font-black text-slate-600 whitespace-nowrap">
-        10K+ Active
+        1,000+ Active
       </span>
     </div>
     <CheckCircle size={10} color="#10b981" className="mt-0.5" />
@@ -333,7 +428,10 @@ const Hero: React.FC = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+      transition: {
+        duration: 1,
+        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+      },
     },
   };
 
@@ -358,12 +456,16 @@ const Hero: React.FC = () => {
         />
         <div
           className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(191,219,254,0.25) 0%, transparent 70%)" }}
+          style={{
+            background:
+              "radial-gradient(circle, rgba(191,219,254,0.25) 0%, transparent 70%)",
+          }}
         />
         <div
           className="absolute inset-0 opacity-[0.035]"
           style={{
-            backgroundImage: "radial-gradient(circle, #075a97 1px, transparent 1px)",
+            backgroundImage:
+              "radial-gradient(circle, #075a97 1px, transparent 1px)",
             backgroundSize: "28px 28px",
           }}
         />
@@ -371,7 +473,6 @@ const Hero: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-20 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-
           {/* ══ LEFT CONTENT ══ */}
           <motion.div
             variants={staggerContainer}
@@ -379,7 +480,10 @@ const Hero: React.FC = () => {
             animate="visible"
             className="text-navy space-y-7 lg:text-left text-center"
           >
-            <motion.div variants={textReveal} className="flex items-center gap-3 lg:justify-start justify-center">
+            <motion.div
+              variants={textReveal}
+              className="flex items-center gap-3 lg:justify-start justify-center"
+            >
               <div className="w-8 h-px bg-accent" />
               <span className="text-xs font-black uppercase tracking-[0.4em] text-muted">
                 Premier EdTech Platform
@@ -392,8 +496,7 @@ const Hero: React.FC = () => {
             >
               Build Skills.
               <br />
-              Build{" "}
-              <span className="text-gradient drop-shadow-sm">Future</span>
+              Build <span className="text-gradient drop-shadow-sm">Future</span>
               <br />
               with Ascope Tech.
             </motion.h1>
@@ -406,7 +509,10 @@ const Hero: React.FC = () => {
               guaranteed placement support to launch your career in tech.
             </motion.p>
 
-            <motion.div variants={textReveal} className="flex flex-wrap gap-4 pt-2 lg:justify-start justify-center">
+            <motion.div
+              variants={textReveal}
+              className="flex flex-wrap gap-4 pt-2 lg:justify-start justify-center"
+            >
               <button className="premium-button px-9 py-4 rounded-[14px] font-bold text-base flex items-center gap-3 shadow-xl shadow-primary/20 group">
                 Explore Courses
                 <span className="group-hover:translate-x-1 transition-transform">
@@ -421,7 +527,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
-            className="relative lg:flex hidden justify-center items-center"
+            className="relative lg:flex hidden justify-center items-center lg:scale-[0.8] xl:scale-95 2xl:scale-100 transition-all duration-300 origin-center"
             style={{ minHeight: "520px" }}
           >
             {/* Core illustration canvas */}
@@ -458,7 +564,6 @@ const Hero: React.FC = () => {
               <FloatingCard key={card.id} card={card} />
             ))}
           </motion.div>
-
         </div>
       </div>
     </section>
