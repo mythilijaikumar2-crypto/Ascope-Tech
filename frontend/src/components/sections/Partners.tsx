@@ -73,10 +73,9 @@ const AccentureIcon: React.FC = () => (
   </svg>
 );
 
-const MphasisIcon: React.FC = () => (
+const FreshworksIcon: React.FC = () => (
   <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="9" stroke="#e31b23" strokeWidth="3.5"></circle>
-    <circle cx="12" cy="12" r="3.5" fill="#e31b23"></circle>
+    <path d="M12 2L2 22h20L12 2z" fill="#ff7a00" />
   </svg>
 );
 
@@ -109,7 +108,7 @@ const partners = [
   { name: "Hexaware",      icon: <HexawareIcon /> },
   { name: "Capgemini",     icon: <CapgeminiIcon /> },
   { name: "Accenture",     icon: <AccentureIcon /> },
-  { name: "Mphasis",       icon: <MphasisIcon /> },
+  { name: "Freshworks",   icon: <FreshworksIcon /> },
   { name: "LTI",           icon: <LTIIcon /> },
   { name: "Mindtree",      icon: <MindtreeIcon /> },
 ];

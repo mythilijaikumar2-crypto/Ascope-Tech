@@ -80,7 +80,7 @@ const floatingCards = [
   {
     id: "placed",
     icon: Trophy,
-    title: "50+ Placed",
+    title: "1,500+ Placed",
     sub: "In top companies",
     color: "#10b981",
     bg: "#f0fdf4",
@@ -91,8 +91,8 @@ const floatingCards = [
   {
     id: "rating",
     icon: Star,
-    title: "4.9 Rating",
-    sub: "By 12K+ students",
+    title: "4.5 Rating",
+    sub: "By 2,000+ students",
     color: "#f59e0b",
     bg: "#fffbeb",
     bottom: "-8%",
@@ -103,7 +103,7 @@ const floatingCards = [
     id: "live",
     icon: Zap,
     title: "Live Classes",
-    sub: "Every weekday",
+    sub: "Weekdays & Weekends",
     color: "#8b5cf6",
     bg: "#f5f3ff",
     bottom: "-8%",
@@ -121,6 +121,7 @@ const skills = [
   "DSA",
   "UI/UX",
   "Java",
+  "C Programming",
 ];
 
 /* ─────────────────────────────────────────────
@@ -412,7 +413,7 @@ const LearnersBadge: React.FC = () => (
         transition={{ duration: 1.5, repeat: Infinity }}
       />
       <span className="text-[9px] font-black text-slate-600 whitespace-nowrap">
-        1,000+ Active
+        800+ Active
       </span>
     </div>
     <CheckCircle size={10} color="#10b981" className="mt-0.5" />

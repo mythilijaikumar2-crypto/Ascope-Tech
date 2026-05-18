@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
               </span>
             </Link>
             <p className="text-white/60 leading-relaxed max-w-xs font-body text-sm">
-              Empowering the next generation of tech leaders through industry-ready courses and expert mentorship since 2018.
+              Empowering the next generation of tech leaders through industry-ready courses and expert mentorship since 2024.
             </p>
             <div className="flex gap-3 flex-wrap">
               {[
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0">
                   <MapPin size={20} />
                 </div>
-                <span className="text-sm">5th floor, SBRR Square,<br />Anna Nagar, Trichy – 620017</span>
+                <span className="text-sm">Ascope Tech, 5th floor, SBRR Square,<br />Anna Nagar, Trichy – 620017</span>
               </div>
               <div className="flex gap-4 text-white/60 items-center">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0">

@@ -19,7 +19,7 @@ const getFallbackCourses = () => {
                     rating: 4.8,
                     price: "₹11,999",
                     originalPrice: "₹14,399",
-                    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+                    image: "/images/pfc.png"
                 },
                 {
                     id: 2,
@@ -53,7 +53,7 @@ const getFallbackCourses = () => {
                 },
                 {
                     id: 5,
-                    title: "Mastering in Python + C",
+                    title: "Mastering in Python and C Programming",
                     category: "Development",
                     duration: "3 Months",
                     rating: 4.8,

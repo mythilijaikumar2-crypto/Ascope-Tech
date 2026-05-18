@@ -84,12 +84,7 @@ const HexawareIcon: React.FC = () => (
   </svg>
 );
 
-const MphasisIcon: React.FC = () => (
-  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="9" stroke="#e31b23" strokeWidth="3.5" />
-    <circle cx="12" cy="12" r="3.5" fill="#e31b23" />
-  </svg>
-);
+
 
 const LtiIcon: React.FC = () => (
   <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,7 +105,7 @@ const Placements: React.FC = () => {
   const stats = [
     { label: "Placement Rate", value: "95%", icon: TrendingUp, color: "text-primary", bg: "bg-primary/10" },
     { label: "Highest Package", value: "₹12 LPA", icon: DollarSign, color: "text-emerald-500", bg: "bg-emerald-500/10" },
-    { label: "Hiring Partners", value: "20+", icon: Building2, color: "text-orange-500", bg: "bg-orange-500/10" },
+    { label: "Hiring Partners", value: "350+", icon: Building2, color: "text-orange-500", bg: "bg-orange-500/10" },
     { label: "Avg Salary", value: "₹3.5 LPA", icon: Award, color: "text-accent", bg: "bg-accent/10" },
   ];
 
@@ -125,7 +120,6 @@ const Placements: React.FC = () => {
     { name: "Capgemini", icon: <CapgeminiIcon /> },
     { name: "Freshworks", icon: <FreshworksIcon /> },
     { name: "Hexaware", icon: <HexawareIcon /> },
-    { name: "Mphasis", icon: <MphasisIcon /> },
     { name: "LTI", icon: <LtiIcon /> },
     { name: "Mindtree", icon: <MindtreeIcon /> }
   ];
@@ -228,7 +222,7 @@ const Placements: React.FC = () => {
                   ))}
                 </div>
                 <div className="text-left">
-                  <div className="text-lg font-black text-navy leading-none">15,000+</div>
+                  <div className="text-lg font-black text-navy leading-none">1,500+</div>
                   <div className="text-[9px] font-bold uppercase tracking-widest text-navy/40">Hired Alumni</div>
                 </div>
               </div>
@@ -243,7 +237,7 @@ const Placements: React.FC = () => {
           style={{ willChange: "transform", WebkitBackfaceVisibility: "hidden", backfaceVisibility: "hidden" }}
           className="absolute top-16 right-10 lg:right-24 bg-white p-4 px-5 rounded-2xl shadow-soft border border-border/40 hidden md:block"
         >
-          <div className="text-xl font-black text-navy mb-0.5">98%</div>
+          <div className="text-xl font-black text-navy mb-0.5">95%</div>
           <div className="text-[9px] font-bold uppercase tracking-widest text-navy/40">Placement Rate</div>
         </motion.div>
 
@@ -254,7 +248,7 @@ const Placements: React.FC = () => {
           className="absolute bottom-16 left-10 lg:left-24 bg-white p-4 px-5 rounded-2xl shadow-soft border border-border/40 hidden md:block"
         >
           <div className="text-xl font-black text-navy mb-0.5">₹12 LPA</div>
-          <div className="text-[9px] font-bold uppercase tracking-widest text-navy/40">Average Package</div>
+          <div className="text-[9px] font-bold uppercase tracking-widest text-navy/40">Highest Package</div>
         </motion.div>
       </section>
 
@@ -543,7 +537,7 @@ const Placements: React.FC = () => {
                
                <div className="pt-5 border-t border-border/30 flex items-center gap-3 text-navy/35 font-bold text-[9px] uppercase tracking-widest">
                   <CheckCircle2 className="text-emerald-500" size={14} />
-                  <span>Based on 2,000+ placements in 2025-26</span>
+                  <span>Based on 1,500+ placements in 2025-26</span>
                </div>
             </motion.div>
          </div>

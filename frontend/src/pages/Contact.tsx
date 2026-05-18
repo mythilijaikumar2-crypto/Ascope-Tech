@@ -190,7 +190,7 @@ const Contact: React.FC = () => {
                   {[
                     { icon: Phone, value: '+91 74182 40526' },
                     { icon: Mail, value: 'ascopetech@gmail.com' },
-                    { icon: MapPin, value: '5th floor, SBRR Square, Anna Nagar, Trichy' }
+                    { icon: MapPin, value: 'Ascope Tech, 5th floor, SBRR Square, Anna Nagar, Trichy' }
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-6 group">
                       <div className="w-12 h-12 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">

@@ -1,4 +1,17 @@
 {
   "css.customData": [".vscode/tailwind.json"],
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "sqltools.connections": [
+    {
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5433,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "Ascope_tech",
+      "username": "ascope_db",
+      "database": "ascope_db"
+    }
+  ]
 }

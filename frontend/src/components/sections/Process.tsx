@@ -36,7 +36,7 @@ const steps = [
   {
     number: "04",
     title: "Get Hired & Placed",
-    desc: "Clear mock interviews, build a competitive resume, and gain access to our extensive network of over 20+ global hiring partners.",
+    desc: "Clear mock interviews, build a competitive resume, and gain access to our extensive network of over 350+ global hiring partners.",
     icon: Trophy,
     color: "from-primary to-accent",
     glow: "bg-primary/10"

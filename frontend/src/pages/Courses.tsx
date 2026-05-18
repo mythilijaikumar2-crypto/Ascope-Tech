@@ -155,14 +155,15 @@ const Courses: React.FC = () => {
                       {/* Glass shine transition sweep on hover */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
                       
-                      <div className={`absolute top-6 left-6 px-4 py-1.5 rounded-full backdrop-blur-md text-[10px] font-black uppercase tracking-widest shadow-lg ${getCategoryBadgeStyles(course.category)}`}>
-                        {course.category || 'Development'}
-                      </div>
+
                     </div>
                     
                     <div className="p-8 flex flex-col justify-between flex-1">
                       <div>
-                        <div className="flex items-center gap-4 mb-4">
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className={`px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full ${getCategoryBadgeStyles(course.category)}`}>
+                            {course.category}
+                          </span>
                           <div className="flex items-center gap-1 text-primary">
                             <Star size={16} fill="currentColor" className="transform group-hover:scale-110 group-hover:rotate-[15deg] transition-transform duration-300" />
                             <span className="font-black text-sm">{course.rating}</span>

@@ -21,11 +21,11 @@ CREATE TABLE IF NOT EXISTS courses (
 
 -- 4. Insert some initial professional data
 INSERT INTO courses (title, category, duration, rating, price, original_price, image) VALUES
-('Python Full Course', 'Development', '3 Months', 4.8, '₹11,999', '₹14,399', 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80'),
+('Python Full Course', 'Development', '3 Months', 4.8, '₹11,999', '₹14,399', '/images/pfc.png'),
 ('Java Full Stack Development', 'Development', '6 Months', 4.9, '₹19,999', '₹23,999', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80'),
 ('Cyber Security and Ethical Hacking', 'Development', '6 Months', 4.9, '₹25,999', '₹31,199', 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80'),
 ('Cloud Computing', 'Development', '4 Months', 4.7, '₹14,999', '₹17,999', 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80'),
-('Mastering in Python + C', 'Development', '3 Months', 4.8, '₹19,999', '₹23,999', 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80'),
+('Mastering in Python and C Programming', 'Development', '3 Months', 4.8, '₹19,999', '₹23,999', 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80'),
 ('Digital Marketing', 'Marketing', '3 Months', 4.6, '₹9,999', '₹11,999', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'),
 ('UI/UX Design', 'Design', '3 Months', 4.8, '₹9,999', '₹11,999', '/images/ui_ux_course.png'),
 ('Data Science and Machine Learning', 'Data Science', '6 Months', 4.9, '₹19,999', '₹23,999', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'),

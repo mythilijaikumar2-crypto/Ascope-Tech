@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
             { 
                 id: 3, 
                 name: "Mr Keerthivasan VR", 
-                role: "UI/UX Design Expert", 
+                role: "UI/UX Design Expert & Digital Marketing Specialist", 
                 company: "Ex- Infinity notion - 5 Years Experience", 
                 skills: ["Figma", "Adobe XD", "Prototyping", "Research"],
                 color: "bg-[#581c87]",
