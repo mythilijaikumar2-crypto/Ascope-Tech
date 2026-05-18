@@ -6,6 +6,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import api from '../services/api';
+import { FALLBACK_COURSES } from '../services/fallbackData';
 
 const categories = ["All", "Development", "Data Science", "Design", "Marketing"];
 
@@ -33,7 +34,8 @@ const Courses: React.FC = () => {
         setLoading(false);
       })
       .catch(err => {
-        console.error('Error fetching courses:', err);
+        console.error('Error fetching courses, using fallback:', err);
+        setCourses(FALLBACK_COURSES);
         setLoading(false);
       });
   }, []);

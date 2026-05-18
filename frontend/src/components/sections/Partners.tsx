@@ -1,10 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import hclLogo from '../../assets/partners/hcl.svg';
+import tcsLogo from '../../assets/partners/tcs.svg';
+import infosysLogo from '../../assets/partners/infosys.svg';
+import wiproLogo from '../../assets/partners/wipro.svg';
+import cognizantLogo from '../../assets/partners/cognizant.svg';
+import accentureLogo from '../../assets/partners/accenture.svg';
+import capgeminiLogo from '../../assets/partners/capgemini.svg';
+import zohoLogo from '../../assets/partners/zoho.svg';
+import ltimindtreeLogo from '../../assets/partners/ltimindtree.svg';
+import hexawareLogo from '../../assets/partners/hexaware.svg';
+import mindtreeLogo from '../../assets/partners/mindtree.svg';
 
-/* ─────────────────────────────────────────────
-   Exact Brand SVGs from your design specification
-───────────────────────────────────────────── */
+interface Partner {
+  name: string;
+  src: string;
+}
 
+<<<<<<< HEAD
 const TCSIcon: React.FC = () => (
   <svg className="h-7 w-auto shrink-0" viewBox="0 5 38 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -199,48 +212,76 @@ const partners = [
   { name: "Capgemini",     icon: <CapgeminiIcon /> },
   { name: "Accenture",     icon: <AccentureIcon /> },
   { name: "LTIMindtree",   icon: <LtiMindtreeIcon /> }
+=======
+const partners: Partner[] = [
+  { name: 'TCS',          src: tcsLogo },
+  { name: 'Infosys',      src: infosysLogo },
+  { name: 'Wipro',        src: wiproLogo },
+  { name: 'HCLTech',      src: hclLogo },
+  { name: 'Cognizant',    src: cognizantLogo },
+  { name: 'Accenture',    src: accentureLogo },
+  { name: 'Capgemini',    src: capgeminiLogo },
+  { name: 'Zoho',         src: zohoLogo },
+  { name: 'LTIMindtree',  src: ltimindtreeLogo },
+  { name: 'Hexaware',     src: hexawareLogo },
+  { name: 'Mindtree',     src: mindtreeLogo },
+>>>>>>> 69849434e43438933ced58609afc38e8b7dbb461
 ];
 
 const Partners: React.FC = () => {
-  // Triple the array to ensure ultra-smooth seamless carousel loops without jumps
-  const doubled = [...partners, ...partners, ...partners];
+  const tripled = [...partners, ...partners, ...partners];
 
   return (
-    <section className="py-20 bg-cream overflow-hidden border-y border-border/50 select-none">
+    <section className="py-16 bg-white overflow-hidden border-y border-border/30 select-none">
       <div className="w-full">
-        <p className="text-center text-muted font-black uppercase tracking-[0.3em] text-xs mb-10">
+        <p className="text-center text-muted font-black uppercase tracking-[0.3em] text-[10px] mb-10">
           Our Graduates Work At
         </p>
 
-        {/* Infinite scrolling marquee wrapper */}
+        {/* Infinite scrolling marquee */}
         <div className="relative w-full flex items-center overflow-hidden">
           {/* Fade masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-cream to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-cream to-transparent z-20 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
 
           <motion.div
-            className="flex items-center gap-8 whitespace-nowrap"
-            animate={{ x: ["0%", "-33.333%"] }}
-            transition={{
-              ease: "linear",
-              duration: 25,
-              repeat: Infinity,
-            }}
+            className="flex items-center gap-6 whitespace-nowrap"
+            animate={{ x: ['0%', '-33.333%'] }}
+            transition={{ ease: 'linear', duration: 60, repeat: Infinity }}
             style={{
-              width: "fit-content",
-              willChange: "transform",
-              WebkitBackfaceVisibility: "hidden",
-              backfaceVisibility: "hidden",
+              width: 'fit-content',
+              willChange: 'transform',
+              WebkitBackfaceVisibility: 'hidden',
+              backfaceVisibility: 'hidden',
             }}
           >
-            {doubled.map((partner, idx) => (
+            {tripled.map((partner, idx) => (
               <div
                 key={idx}
+<<<<<<< HEAD
                 className="h-14 min-w-[140px] inline-flex items-center justify-center bg-white px-6 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium transition-all duration-300 select-none cursor-default group"
               >
                 <div className="flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                   {partner.icon}
                 </div>
+=======
+                className="inline-flex items-center justify-center
+                           bg-white border border-gray-100/80 rounded-2xl
+                           w-[200px] h-[110px] shadow-sm
+                           hover:shadow-md hover:scale-105 hover:border-gray-200
+                           transition-all duration-300 cursor-default group shrink-0"
+              >
+                <img
+                  src={partner.src}
+                  alt={`${partner.name} logo`}
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                  className="object-contain opacity-100 transition-all duration-300 h-12 w-auto max-w-[170px]"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.visibility = 'hidden';
+                  }}
+                />
+>>>>>>> 69849434e43438933ced58609afc38e8b7dbb461
               </div>
             ))}
           </motion.div>
