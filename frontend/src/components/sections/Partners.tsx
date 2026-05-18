@@ -42,13 +42,7 @@ const CognizantIcon: React.FC = () => (
   </svg>
 );
 
-const TechMahindraIcon: React.FC = () => (
-  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2" y="2" width="20" height="20" rx="4" fill="#e2231a"></rect>
-    {/* Stylized geometric Arrow logo representing TechM */}
-    <path d="M7 17L12 7L17 17" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+
 
 const ZohoIcon: React.FC = () => (
   <div className="grid grid-cols-2 gap-0.5 w-5 h-5 shrink-0">
@@ -110,7 +104,7 @@ const partners = [
   { name: "Wipro",         icon: <WiproIcon /> },
   { name: "HCL",           icon: <HCLIcon /> },
   { name: "Cognizant",     icon: <CognizantIcon /> },
-  { name: "Tech Mahindra", icon: <TechMahindraIcon /> },
+
   { name: "Zoho",          icon: <ZohoIcon /> },
   { name: "Hexaware",      icon: <HexawareIcon /> },
   { name: "Capgemini",     icon: <CapgeminiIcon /> },

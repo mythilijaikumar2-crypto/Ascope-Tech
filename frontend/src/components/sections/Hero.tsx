@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Play,
   Code2,
   Database,
   Globe,
@@ -413,12 +412,6 @@ const Hero: React.FC = () => {
                 <span className="group-hover:translate-x-1 transition-transform">
                   <ArrowRight size={18} />
                 </span>
-              </button>
-              <button className="flex items-center gap-3 px-9 py-4 rounded-[14px] font-bold text-base border-2 border-slate-200 text-navy hover:border-primary/30 hover:bg-primary/5 transition-all group">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Play size={14} fill="#075a97" className="ml-0.5" />
-                </div>
-                Watch Demo
               </button>
             </motion.div>
           </motion.div>

@@ -33,15 +33,6 @@ router.get('/', (req, res) => {
             },
             { 
                 id: 4, 
-                name: "Ms Santhanalakshmi", 
-                role: "Digital Marketing Strategist", 
-                company: "Cognizant - 2 Years Experience", 
-                skills: ["SEO", "Google Ads", "Social Media"],
-                color: "bg-[#450a0a]",
-                emoji: "📊"
-            },
-            { 
-                id: 5, 
                 name: "Priya", 
                 role: "Business Analytics Expert", 
                 company: "LT Mindtree - 2 Years Experience", 
@@ -50,7 +41,7 @@ router.get('/', (req, res) => {
                 emoji: "📈"
             },
             { 
-                id: 6, 
+                id: 5, 
                 name: "Ms Yashmeen", 
                 role: "Data Science Lead", 
                 company: "Trainer On Ascope Tech", 

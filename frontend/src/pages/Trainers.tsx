@@ -17,7 +17,7 @@ const Trainers: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5003/api/trainers')
+    fetch('http://localhost:5004/api/trainers')
       .then(res => res.json())
       .then(data => {
         setTrainers(data.data || []);

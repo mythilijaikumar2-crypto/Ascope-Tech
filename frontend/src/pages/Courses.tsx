@@ -121,7 +121,8 @@ const Courses: React.FC = () => {
           >
             <AnimatePresence mode="popLayout">
               {filteredCourses.map((course) => {
-                const getCategoryBadgeStyles = (category: string) => {
+                const getCategoryBadgeStyles = (category?: string) => {
+                  if (!category) return 'text-navy bg-white border border-border';
                   switch (category.toLowerCase()) {
                     case 'development':
                       return 'text-primary bg-primary/10 border border-primary/20';
@@ -155,7 +156,7 @@ const Courses: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
                       
                       <div className={`absolute top-6 left-6 px-4 py-1.5 rounded-full backdrop-blur-md text-[10px] font-black uppercase tracking-widest shadow-lg ${getCategoryBadgeStyles(course.category)}`}>
-                        {course.category}
+                        {course.category || 'Development'}
                       </div>
                     </div>
                     

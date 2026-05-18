@@ -358,7 +358,7 @@ const Placements: React.FC = () => {
                </div>
                <div>
                   <p className="text-navy/40 text-[9px] font-black uppercase tracking-widest mb-1">Priya Nair</p>
-                  <p className="text-base font-black text-navy leading-tight">Data Analyst @ Infosys</p>
+                  <p className="text-base font-black text-navy leading-tight">Data Analyst @ Cognizant</p>
                   <p className="text-primary text-xs font-black mt-1">₹8.2 LPA</p>
                </div>
                <p className="text-xs text-navy/60 font-medium italic border-t border-navy/5 pt-3">
@@ -379,7 +379,7 @@ const Placements: React.FC = () => {
                </div>
                <div>
                   <p className="text-primary/40 text-[9px] font-black uppercase tracking-widest mb-1">Karthik Sundar</p>
-                  <p className="text-base font-black text-navy leading-tight">Java Developer @ Wipro</p>
+                  <p className="text-base font-black text-navy leading-tight">Java Developer @ Wipro / Support Engineer @ Cognizant</p>
                   <p className="text-primary text-xs font-black mt-1">₹4.8 LPA</p>
                </div>
                <p className="text-xs text-navy/60 font-medium italic border-t border-navy/5 pt-3">
@@ -461,25 +461,50 @@ const Placements: React.FC = () => {
 
       {/* 5. Salary Benchmarks (Sleek sizing & thin ROI bars) */}
       <section className="py-24 px-6 bg-white relative">
-         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="space-y-6"
+              className="space-y-8"
             >
-               <span className="text-primary font-black text-[10px] uppercase tracking-[0.35em]">Career Path ROI</span>
-               <h2 className="text-3xl lg:text-4xl font-heading font-black text-navy leading-tight tracking-tight">
-                 Unmatched <br />
-                 <span className="text-gradient">ROI</span> in Tech
-               </h2>
-               <p className="text-text/75 text-sm leading-relaxed font-medium">
-                  Our graduates observe an average 250% salary raise after completing our structured tracks. Here is how different domains perform on industry packages.
+               <div className="space-y-3">
+                  <span className="text-primary font-black text-[10px] uppercase tracking-[0.35em]">Career Path ROI</span>
+                  <h2 className="text-3xl lg:text-5xl font-heading font-black text-navy leading-tight tracking-tight">
+                    Your Career. <br />
+                    <span className="text-gradient">Engineered</span> for Growth.
+                  </h2>
+               </div>
+               
+               <p className="text-text/75 text-sm sm:text-base leading-relaxed font-medium">
+                  At Ascope Tech, we design professional roadmaps that consistently bypass entry-level limits. Our hands-on tracks deliver high-performance skills that translate directly into unmatched market value and accelerated promotion cycles.
                </p>
-               <button className="px-6 py-3.5 bg-navy text-white rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-primary transition-all active:scale-95 shadow-md">
-                  View Career Report
-               </button>
+               
+               {/* Premium Interactive Metrics Grid (Replaces the removed button) */}
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="bg-cream/20 p-5 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium hover:border-primary/20 transition-all duration-300 group select-none">
+                     <div className="flex items-center gap-2 mb-2">
+                        <div className="p-1.5 rounded-lg bg-primary/10 text-primary group-hover:scale-110 transition-transform">
+                           <TrendingUp size={14} />
+                        </div>
+                        <span className="text-[9px] font-black text-navy/40 uppercase tracking-widest">Growth Multiplier</span>
+                     </div>
+                     <div className="text-3xl font-black text-navy tracking-tight mb-1 group-hover:text-primary transition-colors">3.5x</div>
+                     <p className="text-[10px] text-muted font-semibold leading-normal">Average salary increase vs local baseline packages.</p>
+                  </div>
+
+                  <div className="bg-cream/20 p-5 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium hover:border-accent/20 transition-all duration-300 group select-none">
+                     <div className="flex items-center gap-2 mb-2">
+                        <div className="p-1.5 rounded-lg bg-accent/10 text-accent group-hover:scale-110 transition-transform">
+                           <Zap size={14} />
+                        </div>
+                        <span className="text-[9px] font-black text-navy/40 uppercase tracking-widest">Payback Rate</span>
+                     </div>
+                     <div className="text-3xl font-black text-navy tracking-tight mb-1 group-hover:text-accent transition-colors">&lt; 90 Days</div>
+                     <p className="text-[10px] text-muted font-semibold leading-normal">Full educational investment recovery period post graduation.</p>
+                  </div>
+               </div>
             </motion.div>
 
             <motion.div 
@@ -487,29 +512,36 @@ const Placements: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-sky/15 rounded-3xl p-6 sm:p-8 shadow-soft border border-border/30 space-y-6"
+              className="bg-gradient-to-br from-cream/30 via-sky/10 to-sky/20 rounded-[32px] p-8 sm:p-10 shadow-premium border border-border/40 space-y-6"
             >
-               {salaryBenchmarks.map((bench, i) => (
-                 <div key={i} className="space-y-2">
-                    <div className="flex justify-between items-end text-xs">
-                       <p className="font-black text-navy uppercase tracking-wider">{bench.role}</p>
-                       <p className="font-black text-primary">{bench.value}-{bench.max} LPA</p>
-                    </div>
-                    <div className="h-2 bg-white rounded-full overflow-hidden p-0.5 shadow-inner">
-                       <motion.div 
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${(bench.value / 15) * 100}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.2, delay: i * 0.1, ease: "easeOut" }}
-                          className={`h-full ${bench.color} rounded-full relative group`}
-                       >
-                          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full m-0.5 shadow-sm" />
-                       </motion.div>
-                    </div>
-                 </div>
-               ))}
+               <div className="space-y-1">
+                  <h4 className="text-sm font-black text-navy uppercase tracking-wider">Salary Benchmarks</h4>
+                  <p className="text-[10px] text-muted font-bold uppercase tracking-widest">Domain range & placement averages</p>
+               </div>
                
-               <div className="pt-4 border-t border-border/40 flex items-center gap-3 text-navy/35 font-bold text-[9px] uppercase tracking-widest">
+               <div className="space-y-5 pt-2">
+                  {salaryBenchmarks.map((bench, i) => (
+                    <div key={i} className="space-y-2 hover:translate-x-1 transition-transform duration-300">
+                       <div className="flex justify-between items-end text-xs">
+                          <p className="font-black text-navy uppercase tracking-wider">{bench.role}</p>
+                          <p className="font-black text-primary">{bench.value}-{bench.max} LPA</p>
+                       </div>
+                       <div className="h-2 bg-white rounded-full overflow-hidden p-0.5 shadow-inner border border-border/20">
+                          <motion.div 
+                             initial={{ width: 0 }}
+                             whileInView={{ width: `${(bench.value / 15) * 100}%` }}
+                             viewport={{ once: true }}
+                             transition={{ duration: 1.2, delay: i * 0.1, ease: "easeOut" }}
+                             className={`h-full ${bench.color} rounded-full relative group`}
+                          >
+                             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full m-0.5 shadow-sm" />
+                          </motion.div>
+                       </div>
+                    </div>
+                  ))}
+               </div>
+               
+               <div className="pt-5 border-t border-border/30 flex items-center gap-3 text-navy/35 font-bold text-[9px] uppercase tracking-widest">
                   <CheckCircle2 className="text-emerald-500" size={14} />
                   <span>Based on 2,000+ placements in 2025-26</span>
                </div>

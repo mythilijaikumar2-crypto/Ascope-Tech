@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   User,
@@ -32,8 +32,31 @@ const Contact: React.FC = () => {
   const [status, setStatus] = useState({ type: '', message: '' });
   const [courses, setCourses] = useState<{ id: number; title: string }[]>([]);
 
+  const confettiParticles = useMemo(() => {
+    if (status.type !== 'success') return [];
+    return Array.from({ length: 45 }).map((_, i) => {
+      const left = Math.random() * 100;
+      const delay = Math.random() * 3;
+      const duration = 2.5 + Math.random() * 2;
+      const size = 8 + Math.random() * 8;
+      const colors = [
+        '#004b87',
+        '#00b5e2',
+        '#e31b23',
+        '#ff9800',
+        '#10b981',
+        '#a100ff',
+        '#fdd000',
+      ];
+      const color = colors[Math.floor(Math.random() * 7)];
+      const shape = Math.random() > 0.5 ? '50%' : '0%';
+      const rotate = Math.random() * 360;
+      return { id: i, left, delay, duration, size, color, shape, rotate };
+    });
+  }, [status.type]);
+
   useEffect(() => {
-    fetch('http://localhost:5003/api/courses')
+    fetch('http://localhost:5004/api/courses')
       .then(res => res.json())
       .then(data => {
         setCourses(data.data || []);
@@ -48,7 +71,7 @@ const Contact: React.FC = () => {
     setStatus({ type: 'loading', message: 'Sending message...' });
     
     try {
-      const res = await fetch('http://localhost:5003/api/contact', {
+      const res = await fetch('http://localhost:5004/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -197,42 +220,24 @@ const Contact: React.FC = () => {
                    >
                      {/* Dynamic Shower of Happy Confetti */}
                      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                       {Array.from({ length: 45 }).map((_, i) => {
-                         const randomLeft = Math.random() * 100;
-                         const randomDelay = Math.random() * 3;
-                         const randomDuration = 2.5 + Math.random() * 2;
-                         const randomSize = 8 + Math.random() * 8;
-                         const randomColor = [
-                           '#004b87',
-                           '#00b5e2',
-                           '#e31b23',
-                           '#ff9800',
-                           '#10b981',
-                           '#a100ff',
-                           '#fdd000',
-                         ][Math.floor(Math.random() * 7)];
-                         const randomShape = Math.random() > 0.5 ? '50%' : '0%';
-                         const randomRotate = Math.random() * 360;
-
-                         return (
-                           <div
-                             key={i}
-                             className="absolute animate-confetti-fall"
-                             style={{
-                               left: `${randomLeft}%`,
-                               top: `-20px`,
-                               width: `${randomSize}px`,
-                               height: `${randomSize}px`,
-                               backgroundColor: randomColor,
-                               borderRadius: randomShape,
-                               opacity: 0.8,
-                               transform: `rotate(${randomRotate}deg)`,
-                               animationDelay: `${randomDelay}s`,
-                               animationDuration: `${randomDuration}s`,
-                             }}
-                           />
-                         );
-                       })}
+                       {confettiParticles.map((p) => (
+                         <div
+                           key={p.id}
+                           className="absolute animate-confetti-fall"
+                           style={{
+                             left: `${p.left}%`,
+                             top: '-20px',
+                             width: `${p.size}px`,
+                             height: `${p.size}px`,
+                             backgroundColor: p.color,
+                             borderRadius: p.shape,
+                             opacity: 0.8,
+                             transform: `rotate(${p.rotate}deg)`,
+                             animationDelay: `${p.delay}s`,
+                             animationDuration: `${p.duration}s`,
+                           }}
+                         />
+                       ))}
                      </div>
 
                      {/* Premium Animated Tick Mark Card */}

@@ -11,10 +11,12 @@ import LoginPage from "./pages/auth/LoginPage";
 import Signup from "./pages/auth/Signup";
 import Enrollment from "./pages/Enrollment";
 import CourseAdmin from "./pages/CourseAdmin";
+import ScrollToTop from "./components/layout/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">

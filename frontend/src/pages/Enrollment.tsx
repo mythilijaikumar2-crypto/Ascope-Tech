@@ -13,7 +13,7 @@ const Enrollment: React.FC = () => {
     setStatus({ type: 'loading', message: 'Processing enrollment...' });
 
     try {
-      const res = await fetch('http://localhost:5003/api/enroll', {
+      const res = await fetch('http://localhost:5004/api/enroll', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

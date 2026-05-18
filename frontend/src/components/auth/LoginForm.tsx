@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { authService } from '../../services/authService';
 
@@ -11,11 +10,12 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
     setStatus({ type: 'loading', message: 'Authenticating...' });
     try {
-      const data = await authService.login(formData);
+      await authService.login(formData);
       setStatus({ type: 'success', message: 'Success!' });
       setTimeout(() => window.location.href = '/', 1000);
-    } catch (err: any) {
-      setStatus({ type: 'error', message: err.error || 'Invalid credentials' });
+    } catch (err: unknown) {
+      const errorData = err as { error?: string };
+      setStatus({ type: 'error', message: errorData.error || 'Invalid credentials' });
     }
   };
 
