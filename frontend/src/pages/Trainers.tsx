@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Building2 } from 'lucide-react';
+import { FALLBACK_TRAINERS } from '../services/fallbackData';
 
 interface Trainer {
   id: number;
@@ -24,7 +25,8 @@ const Trainers: React.FC = () => {
         setLoading(false);
       })
       .catch(err => {
-        console.error('Failed to fetch trainers:', err);
+        console.error('Failed to fetch trainers, using fallback:', err);
+        setTrainers(FALLBACK_TRAINERS);
         setLoading(false);
       });
   }, []);

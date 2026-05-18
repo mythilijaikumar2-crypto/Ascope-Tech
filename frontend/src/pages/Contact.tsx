@@ -12,6 +12,7 @@ import {
   Linkedin,
   BookOpen
 } from 'lucide-react';
+import { FALLBACK_COURSES } from '../services/fallbackData';
 
 // Sleek, high-quality, brand-accurate WhatsappIcon inline SVG
 const WhatsappIcon: React.FC<{ size?: number; className?: string }> = ({ size = 20, className }) => (
@@ -30,7 +31,7 @@ const Contact: React.FC = () => {
     message: ''
   });
   const [status, setStatus] = useState({ type: '', message: '' });
-  const [courses, setCourses] = useState<{ id: number; title: string }[]>([]);
+  const [courses, setCourses] = useState<{ id: number | string; title: string }[]>([]);
 
   const confettiParticles = useMemo(() => {
     if (status.type !== 'success') return [];
@@ -62,7 +63,8 @@ const Contact: React.FC = () => {
         setCourses(data.data || []);
       })
       .catch(err => {
-        console.error('Failed to fetch courses:', err);
+        console.error('Failed to fetch courses, using fallback:', err);
+        setCourses(FALLBACK_COURSES);
       });
   }, []);
 

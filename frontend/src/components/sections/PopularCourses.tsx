@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Star, ArrowRight } from "lucide-react";
 import api from "../../services/api";
+import { FALLBACK_COURSES } from "../../services/fallbackData";
 
 interface Course {
   id: string | number;
@@ -29,7 +30,8 @@ const PopularCourses: React.FC = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error fetching popular courses:", err);
+        console.error("Error fetching popular courses, using fallback:", err);
+        setCourses(FALLBACK_COURSES.slice(0, 3));
         setLoading(false);
       });
   }, []);
