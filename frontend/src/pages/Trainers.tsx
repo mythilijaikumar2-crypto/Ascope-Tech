@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
@@ -31,12 +30,6 @@ import {
   FileSpreadsheet,
   Briefcase,
 } from "lucide-react";
-=======
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Building2 } from 'lucide-react';
-import { FALLBACK_TRAINERS } from '../services/fallbackData';
->>>>>>> 69849434e43438933ced58609afc38e8b7dbb461
 
 interface Trainer {
   id: number;
@@ -260,15 +253,8 @@ const Trainers: React.FC = () => {
           setTrainers(data.data);
         }
       })
-<<<<<<< HEAD
       .catch((err) => {
         console.warn("Failed to fetch fresh trainers, using high-fidelity offline fallback:", err);
-=======
-      .catch(err => {
-        console.error('Failed to fetch trainers, using fallback:', err);
-        setTrainers(FALLBACK_TRAINERS);
-        setLoading(false);
->>>>>>> 69849434e43438933ced58609afc38e8b7dbb461
       });
   }, []);
 

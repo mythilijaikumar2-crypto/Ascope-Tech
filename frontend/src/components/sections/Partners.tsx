@@ -1,23 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import hclLogo from '../../assets/partners/hcl.svg';
-import tcsLogo from '../../assets/partners/tcs.svg';
-import infosysLogo from '../../assets/partners/infosys.svg';
-import wiproLogo from '../../assets/partners/wipro.svg';
-import cognizantLogo from '../../assets/partners/cognizant.svg';
-import accentureLogo from '../../assets/partners/accenture.svg';
-import capgeminiLogo from '../../assets/partners/capgemini.svg';
-import zohoLogo from '../../assets/partners/zoho.svg';
-import ltimindtreeLogo from '../../assets/partners/ltimindtree.svg';
-import hexawareLogo from '../../assets/partners/hexaware.svg';
-import mindtreeLogo from '../../assets/partners/mindtree.svg';
 
-interface Partner {
-  name: string;
-  src: string;
-}
 
-<<<<<<< HEAD
 const TCSIcon: React.FC = () => (
   <svg className="h-7 w-auto shrink-0" viewBox="0 5 38 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -212,20 +196,6 @@ const partners = [
   { name: "Capgemini",     icon: <CapgeminiIcon /> },
   { name: "Accenture",     icon: <AccentureIcon /> },
   { name: "LTIMindtree",   icon: <LtiMindtreeIcon /> }
-=======
-const partners: Partner[] = [
-  { name: 'TCS',          src: tcsLogo },
-  { name: 'Infosys',      src: infosysLogo },
-  { name: 'Wipro',        src: wiproLogo },
-  { name: 'HCLTech',      src: hclLogo },
-  { name: 'Cognizant',    src: cognizantLogo },
-  { name: 'Accenture',    src: accentureLogo },
-  { name: 'Capgemini',    src: capgeminiLogo },
-  { name: 'Zoho',         src: zohoLogo },
-  { name: 'LTIMindtree',  src: ltimindtreeLogo },
-  { name: 'Hexaware',     src: hexawareLogo },
-  { name: 'Mindtree',     src: mindtreeLogo },
->>>>>>> 69849434e43438933ced58609afc38e8b7dbb461
 ];
 
 const Partners: React.FC = () => {
@@ -258,30 +228,11 @@ const Partners: React.FC = () => {
             {tripled.map((partner, idx) => (
               <div
                 key={idx}
-<<<<<<< HEAD
                 className="h-14 min-w-[140px] inline-flex items-center justify-center bg-white px-6 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium transition-all duration-300 select-none cursor-default group"
               >
                 <div className="flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                   {partner.icon}
                 </div>
-=======
-                className="inline-flex items-center justify-center
-                           bg-white border border-gray-100/80 rounded-2xl
-                           w-[200px] h-[110px] shadow-sm
-                           hover:shadow-md hover:scale-105 hover:border-gray-200
-                           transition-all duration-300 cursor-default group shrink-0"
-              >
-                <img
-                  src={partner.src}
-                  alt={`${partner.name} logo`}
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  className="object-contain opacity-100 transition-all duration-300 h-12 w-auto max-w-[170px]"
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).style.visibility = 'hidden';
-                  }}
-                />
->>>>>>> 69849434e43438933ced58609afc38e8b7dbb461
               </div>
             ))}
           </motion.div>

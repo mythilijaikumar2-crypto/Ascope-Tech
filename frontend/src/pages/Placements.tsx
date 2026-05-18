@@ -1,17 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import hclLogo from '../assets/partners/hcl.svg';
-import tcsLogo from '../assets/partners/tcs.svg';
-import infosysLogo from '../assets/partners/infosys.svg';
-import wiproLogo from '../assets/partners/wipro.svg';
-import cognizantLogo from '../assets/partners/cognizant.svg';
-import zohoLogo from '../assets/partners/zoho.svg';
-import accentureLogo from '../assets/partners/accenture.svg';
-import capgeminiLogo from '../assets/partners/capgemini.svg';
-import hexawareLogo from '../assets/partners/hexaware.svg';
 
-import ltimindtreeLogo from '../assets/partners/ltimindtree.svg';
-import mindtreeLogo from '../assets/partners/mindtree.svg';
 import {
   TrendingUp,
   Award,
@@ -23,7 +12,6 @@ import {
   CheckCircle2
 } from 'lucide-react';
 
-<<<<<<< HEAD
 // Sleek, high-quality, color-accurate inline SVG brand icons for Placements Marquee
 const TcsIcon: React.FC = () => (
   <svg className="h-7 w-auto shrink-0" viewBox="0 5 38 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -205,8 +193,6 @@ const LtiMindtreeIcon: React.FC = () => (
   </svg>
 );
 
-=======
->>>>>>> 69849434e43438933ced58609afc38e8b7dbb461
 const Placements: React.FC = () => {
   const stats = [
     { label: "Placement Rate", value: "95%", icon: TrendingUp, color: "text-primary", bg: "bg-primary/10" },
@@ -216,7 +202,6 @@ const Placements: React.FC = () => {
   ];
 
   const partners = [
-<<<<<<< HEAD
     { name: "TCS", icon: <TcsIcon /> },
     { name: "Infosys", icon: <InfosysIcon /> },
     { name: "Wipro", icon: <WiproIcon /> },
@@ -227,19 +212,6 @@ const Placements: React.FC = () => {
     { name: "Capgemini", icon: <CapgeminiIcon /> },
     { name: "Accenture", icon: <AccentureIcon /> },
     { name: "LTIMindtree", icon: <LtiMindtreeIcon /> }
-=======
-    { name: "TCS",          src: tcsLogo },
-    { name: "Infosys",      src: infosysLogo },
-    { name: "Wipro",        src: wiproLogo },
-    { name: "HCL",          src: hclLogo },
-    { name: "Cognizant",    src: cognizantLogo },
-    { name: "Zoho",         src: zohoLogo },
-    { name: "Accenture",    src: accentureLogo },
-    { name: "Capgemini",    src: capgeminiLogo },
-    { name: "Hexaware",     src: hexawareLogo },
-    { name: "LTIMindtree",  src: ltimindtreeLogo },
-    { name: "Mindtree",     src: mindtreeLogo },
->>>>>>> 69849434e43438933ced58609afc38e8b7dbb461
   ];
 
   const salaryBenchmarks = [
@@ -545,7 +517,6 @@ const Placements: React.FC = () => {
       </section>
 
       {/* 4. Partners Marquee (Fully optimized and GPU hardware accelerated) */}
-<<<<<<< HEAD
       <section className="py-14 bg-sky/20 overflow-hidden border-y border-border/30">
          <div className="max-w-7xl mx-auto px-6 mb-8">
             <h3 className="text-navy/20 font-black uppercase tracking-[0.4em] text-[9px] text-center">Global Hiring Partners</h3>
@@ -569,39 +540,7 @@ const Placements: React.FC = () => {
               </div>
             ))}
          </div>
-=======
-      <section className="py-16 bg-gray-50/50 overflow-hidden border-y border-border/30">
-        <div className="max-w-7xl mx-auto px-6 mb-10">
-          <h3 className="text-navy/20 font-black uppercase tracking-[0.4em] text-[9px] text-center">Global Hiring Partners</h3>
-        </div>
-        <div
-          className="flex gap-6 whitespace-nowrap animate-marquee items-center"
-          style={{
-            willChange: "transform",
-            WebkitBackfaceVisibility: "hidden",
-            backfaceVisibility: "hidden"
-          }}
-        >
-          {[...partners, ...partners, ...partners].map((partner, i) => (
-            <div
-              key={i}
-              className="inline-flex items-center justify-center
-                         bg-white border border-gray-100/80 rounded-2xl
-                         w-[200px] h-[110px] shadow-sm
-                         hover:shadow-md hover:scale-105 hover:border-gray-200
-                         transition-all duration-300 cursor-default group shrink-0"
-            >
-              <img
-                src={partner.src}
-                alt={`${partner.name} logo`}
-                loading="lazy"
-                referrerPolicy="no-referrer"
-                className="object-contain opacity-100 transition-all duration-300 h-12 w-auto max-w-[170px]"
-              />
-            </div>
-          ))}
-        </div>
->>>>>>> 69849434e43438933ced58609afc38e8b7dbb461
+
       </section>
 
       {/* 5. Salary Benchmarks (Sleek sizing & thin ROI bars) */}
@@ -626,48 +565,6 @@ const Placements: React.FC = () => {
               At Ascope Tech, we design professional roadmaps that consistently bypass entry-level limits. Our hands-on tracks deliver high-performance skills that translate directly into unmatched market value and accelerated promotion cycles.
             </p>
 
-<<<<<<< HEAD
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-gradient-to-br from-cream/30 via-sky/10 to-sky/20 rounded-[32px] p-8 sm:p-10 shadow-premium border border-border/40 space-y-6"
-            >
-               <div className="space-y-1">
-                  <h4 className="text-sm font-black text-navy uppercase tracking-wider">Salary Benchmarks</h4>
-                  <p className="text-[10px] text-muted font-bold uppercase tracking-widest">Domain range & placement averages</p>
-               </div>
-               
-               <div className="space-y-5 pt-2">
-                  {salaryBenchmarks.map((bench, i) => (
-                    <div key={i} className="space-y-2 hover:translate-x-1 transition-transform duration-300">
-                       <div className="flex justify-between items-end text-xs">
-                          <p className="font-black text-navy uppercase tracking-wider">{bench.role}</p>
-                          <p className="font-black text-primary">{bench.value}-{bench.max} LPA</p>
-                       </div>
-                       <div className="h-2 bg-white rounded-full overflow-hidden p-0.5 shadow-inner border border-border/20">
-                          <motion.div 
-                             initial={{ width: 0 }}
-                             whileInView={{ width: `${(bench.value / 15) * 100}%` }}
-                             viewport={{ once: true }}
-                             transition={{ duration: 1.2, delay: i * 0.1, ease: "easeOut" }}
-                             className={`h-full ${bench.color} rounded-full relative group`}
-                          >
-                             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full m-0.5 shadow-sm" />
-                          </motion.div>
-                       </div>
-                    </div>
-                  ))}
-               </div>
-               
-               <div className="pt-5 border-t border-border/30 flex items-center gap-3 text-navy/35 font-bold text-[9px] uppercase tracking-widest">
-                  <CheckCircle2 className="text-emerald-500" size={14} />
-                  <span>Based on 50+ placements in 2025-26</span>
-               </div>
-            </motion.div>
-         </div>
-=======
             {/* Premium Interactive Metrics Grid (Replaces the removed button) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="bg-cream/20 p-5 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium hover:border-primary/20 transition-all duration-300 group select-none">
@@ -734,7 +631,6 @@ const Placements: React.FC = () => {
             </div>
           </motion.div>
         </div>
->>>>>>> 69849434e43438933ced58609afc38e8b7dbb461
       </section>
 
       {/* 6. Compact Final CTA */}
