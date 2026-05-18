@@ -312,7 +312,7 @@ const Placements: React.FC = () => {
                   ))}
                 </div>
                 <div className="text-left">
-                  <div className="text-lg font-black text-navy leading-none">50+</div>
+                  <div className="text-lg font-black text-navy leading-none">200+</div>
                   <div className="text-[9px] font-bold uppercase tracking-widest text-navy/40">Hired Alumni</div>
                 </div>
               </div>
