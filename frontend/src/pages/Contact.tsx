@@ -140,7 +140,7 @@ const Contact: React.FC = () => {
                      <div className="flex gap-4 mt-8 flex-wrap justify-center">
                        {[
                          { Icon: Instagram, color: "hover:bg-[#E4405F]", href: "#" },
-                         { Icon: WhatsappIcon, color: "hover:bg-[#25D366]", href: "https://wa.me/919789444431" },
+                         { Icon: WhatsappIcon, color: "hover:bg-[#25D366]", href: "https://wa.me/917418240526" },
                          { Icon: Facebook, color: "hover:bg-[#1877F2]", href: "#" },
                          { Icon: Linkedin, color: "hover:bg-[#0A66C2]", href: "#" },
                          { Icon: Mail, color: "hover:bg-[#EA4335]", href: "mailto:ascopetech@gmail.com" }
@@ -160,12 +160,12 @@ const Contact: React.FC = () => {
                   </motion.div>
                </div>
             </motion.div>
-
+ 
             <div className="space-y-8 pl-4 lg:pl-10">
                <h3 className="text-3xl font-black text-navy tracking-tight mb-8">Get in touch</h3>
                <div className="space-y-6">
                   {[
-                    { icon: Phone, value: '+91 97894 44431' },
+                    { icon: Phone, value: '+91 74182 40526' },
                     { icon: Mail, value: 'ascopetech@gmail.com' },
                     { icon: MapPin, value: '5th floor, SBRR Square, Anna Nagar, Trichy' }
                   ].map((item, i) => (

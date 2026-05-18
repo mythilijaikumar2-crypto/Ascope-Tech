@@ -49,7 +49,7 @@ const getFallbackCourses = () => {
                     rating: 4.7,
                     price: "₹14,999",
                     originalPrice: "₹17,999",
-                    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80"
+                    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
                 },
                 {
                     id: 5,
@@ -99,7 +99,7 @@ const getFallbackCourses = () => {
                     rating: 4.8,
                     price: "₹16,999",
                     originalPrice: "₹20,399",
-                    image: "https://images.unsplash.com/photo-1527474305487-b87b222841cc?auto=format&fit=crop&w=800&q=80"
+                    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80"
                 }
             ];
             fs.writeFileSync(FALLBACK_FILE, JSON.stringify(initialData, null, 2));

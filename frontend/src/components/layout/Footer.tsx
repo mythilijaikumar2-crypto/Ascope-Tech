@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { 
-  Facebook, 
-  Instagram, 
-  Linkedin, 
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
   Mail,
   Phone,
   MapPin
@@ -47,13 +47,13 @@ const Footer: React.FC = () => {
             <div className="flex gap-3 flex-wrap">
               {[
                 { Icon: Instagram, color: "hover:bg-[#E4405F] hover:border-[#E4405F]", href: "#" },
-                { Icon: WhatsappIcon, color: "hover:bg-[#25D366] hover:border-[#25D366]", href: "https://wa.me/919789444431" },
+                { Icon: WhatsappIcon, color: "hover:bg-[#25D366] hover:border-[#25D366]", href: "https://wa.me/917418240526" },
                 { Icon: Facebook, color: "hover:bg-[#1877F2] hover:border-[#1877F2]", href: "#" },
                 { Icon: Linkedin, color: "hover:bg-[#0A66C2] hover:border-[#0A66C2]", href: "#" },
                 { Icon: Mail, color: "hover:bg-[#EA4335] hover:border-[#EA4335]", href: "mailto:ascopetech@gmail.com" }
               ].map((social, idx) => (
-                <a 
-                  key={idx} 
+                <a
+                  key={idx}
                   href={social.href}
                   target={social.href !== "#" ? "_blank" : undefined}
                   rel={social.href !== "#" ? "noopener noreferrer" : undefined}
@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0">
                   <Phone size={20} />
                 </div>
-                <span className="text-sm">+91 97894 44431</span>
+                <span className="text-sm">+91 74182 40526</span>
               </div>
               <div className="flex gap-4 text-white/60 items-center">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0">

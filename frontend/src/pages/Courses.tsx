@@ -91,19 +91,21 @@ const Courses: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
+          className="flex overflow-x-auto md:overflow-x-visible flex-nowrap md:flex-wrap md:justify-center gap-3 sm:gap-4 mb-16 no-scrollbar w-full scroll-smooth py-2"
         >
-          <div className="flex flex-wrap gap-4">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 ${activeCategory === cat ? 'bg-navy text-white shadow-xl scale-105' : 'bg-white text-navy hover:bg-sky'}`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+          {categories.map(cat => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-5 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base rounded-xl font-bold transition-all duration-300 border border-navy/5 flex-shrink-0 whitespace-nowrap ${
+                activeCategory === cat 
+                  ? 'bg-navy text-white shadow-xl scale-105 border-navy' 
+                  : 'bg-white text-navy hover:bg-sky'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </motion.div>
 
         {loading ? (
