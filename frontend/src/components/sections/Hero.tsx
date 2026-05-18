@@ -80,7 +80,7 @@ const floatingCards = [
   {
     id: "placed",
     icon: Trophy,
-    title: "1,500+ Placed",
+    title: "50+ Placed",
     sub: "In top companies",
     color: "#10b981",
     bg: "#f0fdf4",

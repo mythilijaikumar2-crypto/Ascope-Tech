@@ -13,91 +13,114 @@ import {
 
 // Sleek, high-quality, color-accurate inline SVG brand icons for Placements Marquee
 const TcsIcon: React.FC = () => (
-  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="10" stroke="#004b87" strokeWidth="2.5" />
-    <path d="M8 12h8M12 8v8" stroke="#004b87" strokeWidth="2.5" strokeLinecap="round" />
+  <svg className="h-7 w-auto shrink-0" viewBox="0 5 38 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="tcsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#f58220" />
+        <stop offset="35%" stopColor="#e01b84" />
+        <stop offset="70%" stopColor="#7a2583" />
+        <stop offset="100%" stopColor="#0072bc" />
+      </linearGradient>
+    </defs>
+    <path d="M7 6v5H3.5c-.3 0-.5.2-.5.5v1.5c0 .3.2.5.5.5H7v8c0 1.7 1.3 3 3 3h2c.3 0 .5-.2.5-.5v-1.5c0-.3-.2-.5-.5-.5h-1c-.6 0-1-.4-1-1v-7.5h3.5c.3 0 .5-.2.5-.5v-1.5c0-.3-.2-.5-.5-.5H10V6c0-.3-.2-.5-.5-.5H7.5c-.3 0-.5.2-.5.5z" fill="url(#tcsGrad)" />
+    <path d="M23.5 11.5c-1.2-1.2-2.8-2-4.8-2-3.5 0-6.5 2.8-6.5 6.5s3 6.5 6.5 6.5c2 0 3.6-.8 4.8-2 .3-.3.3-.8 0-1.1l-1.2-1.2c-.3-.3-.8-.3-1.1 0-.8.6-1.6 1.1-2.5 1.1-1.8 0-3.2-1.4-3.2-3.2s1.4-3.2 3.2-3.2c.9 0 1.7.5 2.5 1.1.3.3.8.3 1.1 0l1.2-1.2c.3-.3.3-.8 0-1.1z" fill="url(#tcsGrad)" />
+    <path d="M29.5 11c-1.8 0-3.2 1-3.2 2.5v.5c0 1.2 1 2 2.8 2.4h.8c1.2.3 1.6.6 1.6 1.2v.4c0 .6-.6 1.2-1.6 1.2h-2.8c-.5 0-.8.3-.8.8v1.5c0 .5.3.8.8.8H30.5c2.6 0 4.8-1.6 4.8-3.6v-.4c0-1.6-1.2-2.4-3.2-2.8h-.8c-1.2-.3-1.6-.6-1.6-1.2v-.4c0-.6.6-1.2 1.6-1.2h2.4c.5 0 .8-.3.8-.8v-1.5c0-.5-.3-.8-.8-.8h-2z" fill="url(#tcsGrad)" />
   </svg>
 );
 
 const InfosysIcon: React.FC = () => (
-  <svg className="w-6 h-4 shrink-0" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="24" height="16" rx="2" fill="#007cc3" />
-    <path d="M5 4v8h2V8h2v4h2V8h2v4h2V8h2v4h2V4h-2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  <svg className="h-6 w-auto shrink-0" viewBox="0 0 70 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <text x="0" y="16" fill="#007cc3" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="18" letterSpacing="-0.03em">Infosys</text>
   </svg>
 );
 
 const WiproIcon: React.FC = () => (
-  <div className="relative w-5 h-5 flex items-center justify-center shrink-0">
-    <div className="absolute w-3.5 h-3.5 rounded-full border border-[#78248c]/30" />
-    <div className="absolute w-1.5 h-1.5 rounded-full bg-[#009fda] -top-0.5" />
-    <div className="absolute w-1.5 h-1.5 rounded-full bg-[#f48120] -bottom-0.5" />
-    <div className="absolute w-1.5 h-1.5 rounded-full bg-[#13a89e] -left-0.5" />
-    <div className="absolute w-1.5 h-1.5 rounded-full bg-[#fdd000] -right-0.5" />
-  </div>
+  <svg className="h-7 w-auto shrink-0" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(14, 14)">
+      <circle cx="-10" cy="0" r="1.5" fill="#009fda" />
+      <circle cx="-8.6" cy="5" r="1.5" fill="#78248c" />
+      <circle cx="-5" cy="8.6" r="1.5" fill="#e01b84" />
+      <circle cx="0" cy="10" r="1.5" fill="#f48120" />
+      <circle cx="5" cy="8.6" r="1.5" fill="#fdd000" />
+      <circle cx="8.6" cy="5" r="1.5" fill="#13a89e" />
+      <circle cx="10" cy="0" r="1.5" fill="#009fda" />
+      <circle cx="8.6" cy="-5" r="1.5" fill="#78248c" />
+      <circle cx="5" cy="-8.6" r="1.5" fill="#e01b84" />
+      <circle cx="0" cy="-10" r="1.5" fill="#f48120" />
+      <circle cx="-5" cy="-8.6" r="1.5" fill="#fdd000" />
+      <circle cx="-8.6" cy="-5" r="1.5" fill="#13a89e" />
+      <circle cx="-7" cy="0" r="1.2" fill="#f48120" />
+      <circle cx="-5" cy="5" r="1.2" fill="#fdd000" />
+      <circle cx="0" cy="7" r="1.2" fill="#13a89e" />
+      <circle cx="5" cy="5" r="1.2" fill="#009fda" />
+      <circle cx="7" cy="0" r="1.2" fill="#78248c" />
+      <circle cx="5" cy="-5" r="1.2" fill="#e01b84" />
+      <circle cx="0" cy="-7" r="1.2" fill="#f48120" />
+      <circle cx="-5" cy="-5" r="1.2" fill="#fdd000" />
+      <circle cx="-3.5" cy="0" r="0.9" fill="#13a89e" />
+      <circle cx="0" cy="3.5" r="0.9" fill="#009fda" />
+      <circle cx="3.5" cy="0" r="0.9" fill="#78248c" />
+      <circle cx="0" cy="-3.5" r="0.9" fill="#f48120" />
+    </g>
+  </svg>
 );
 
-const HclIcon: React.FC = () => (
-  <svg className="w-6 h-5 shrink-0" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M4 6v8h2v-3h3v3h2V6H9v3H6V6H4zm9 0v6h3v2h-5V6h2zm7 0h-2v8h4v-2h-2V6z" fill="#005691" />
+const HclTechIcon: React.FC = () => (
+  <svg className="h-6 w-auto shrink-0" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <text x="0" y="18" fill="#0056b3" fontFamily="Inter, sans-serif" fontWeight="900" fontSize="18" letterSpacing="-0.03em">HCL<tspan fill="#007bff">Tech</tspan></text>
   </svg>
 );
 
 const CognizantIcon: React.FC = () => (
-  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2" y="2" width="20" height="20" rx="4" fill="#0033a0" />
-    <circle cx="12" cy="12" r="4.5" fill="#00b5e2" />
+  <svg className="h-6 w-auto shrink-0" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(0, 2)">
+      <polygon points="10 1, 18 6, 18 16, 10 21, 2 16, 2 6" fill="#0033a0" opacity="0.85" />
+      <polygon points="10 3.5, 15.5 7, 15.5 15, 10 18.5, 4.5 15, 4.5 7" fill="#00b5e2" />
+    </g>
   </svg>
 );
 
 const ZohoIcon: React.FC = () => (
-  <div className="grid grid-cols-2 gap-0.5 w-5 h-5 shrink-0">
-    <div className="bg-red-500 rounded-[2px]" />
-    <div className="bg-blue-500 rounded-[2px]" />
-    <div className="bg-yellow-500 rounded-[2px]" />
-    <div className="bg-green-500 rounded-[2px]" />
+  <div className="flex items-center gap-0.5 shrink-0 font-sans font-black text-white text-[11px] select-none">
+    <div className="w-[20px] h-[20px] bg-[#e11d48] rounded-[2px] flex items-center justify-center shadow-md transform rotate-[-4deg]">Z</div>
+    <div className="w-[20px] h-[20px] bg-[#16a34a] rounded-[2px] flex items-center justify-center shadow-md transform rotate-[2deg] -translate-y-[1px]">O</div>
+    <div className="w-[20px] h-[20px] bg-[#2563eb] rounded-[2px] flex items-center justify-center shadow-md transform rotate-[-3deg]">H</div>
+    <div className="w-[20px] h-[20px] bg-[#ca8a04] rounded-[2px] flex items-center justify-center shadow-md transform rotate-[4deg]">O</div>
   </div>
 );
 
-const AccentureIcon: React.FC = () => (
-  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 5l7 7-7 7" stroke="#a100ff" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
+const HexawareIcon: React.FC = () => (
+  <svg className="h-7 w-auto shrink-0" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(0, 2)">
+      <rect x="8" y="2" width="3.5" height="15" rx="1.5" fill="#004b87" />
+      <rect x="3" y="7" width="13.5" height="3.5" rx="1.5" fill="#e31b23" />
+      <circle cx="17.5" cy="14" r="2.2" fill="#ffc20e" />
+    </g>
   </svg>
 );
 
 const CapgeminiIcon: React.FC = () => (
-  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="10" fill="#0070ad" />
-    <circle cx="12" cy="12" r="5" fill="white" />
+  <svg className="h-6 w-auto shrink-0" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(1, 2)">
+      <path d="M10 1C5 1 1 5 1 9.5c0 4 3 6.5 6.5 8 .4.2.7-.2.5-.5-1.2-1.5-2.5-3.5-2.5-5.5 0-3 2.2-5.5 4.5-5.5s4.5 2.5 4.5 5.5c0 2-1.3 4-2.5 5.5-.2.3.1.7.5.5 3.5-1.5 6.5-4 6.5-8C21 5 17 1 10 1z" fill="#0070ad" />
+      <path d="M10 5.5c-1.8 0-3 1.5-3 3.5 0 1.5.8 2.5 1.5 3.5.1.2.4.1.3-.1-.5-.8-.8-1.5-.8-2.4 0-1.5 1-2.5 2-2.5s2 1 2 2.5c0 .9-.3 1.6-.8 2.4-.1.2.2.3.3.1.7-1 1.5-2 1.5-3.5 0-2-1.2-3.5-3-3.5z" fill="#0070ad" opacity="0.85" />
+      <circle cx="10" cy="11.5" r="1.5" fill="#0070ad" opacity="0.9" />
+    </g>
   </svg>
 );
 
-const FreshworksIcon: React.FC = () => (
-  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2L2 22h20L12 2z" fill="#ff7a00" />
+const AccentureIcon: React.FC = () => (
+  <svg className="h-6 w-auto shrink-0" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 6l5 4.5-5 4.5" stroke="#a100ff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
   </svg>
 );
 
-const HexawareIcon: React.FC = () => (
-  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 3l9 16H3l9-16z" fill="#002855" />
-    <path d="M12 8l5 9H7l5-9z" fill="#78be20" />
-  </svg>
-);
-
-
-
-const LtiIcon: React.FC = () => (
-  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="3" y="3" width="18" height="18" rx="2" fill="#002d62" />
-    <rect x="7" y="7" width="10" height="10" rx="1" fill="#d4af37" />
-  </svg>
-);
-
-const MindtreeIcon: React.FC = () => (
-  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="9" fill="#009688" />
-    <circle cx="9" cy="9" r="2.5" fill="#ff9800" />
-    <circle cx="15" cy="15" r="2.5" fill="#9c27b0" />
+const LtiMindtreeIcon: React.FC = () => (
+  <svg className="h-6 w-auto shrink-0" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(0, 1)">
+      <circle cx="10" cy="10" r="9" stroke="#003566" strokeWidth="1.8" fill="none" />
+      <path d="M4 10h12M10 4l-3.5 3.5 3.5 3.5" stroke="#003566" strokeWidth="1.2" strokeLinecap="round" />
+    </g>
   </svg>
 );
 
@@ -113,15 +136,13 @@ const Placements: React.FC = () => {
     { name: "TCS", icon: <TcsIcon /> },
     { name: "Infosys", icon: <InfosysIcon /> },
     { name: "Wipro", icon: <WiproIcon /> },
-    { name: "HCL", icon: <HclIcon /> },
+    { name: "HCLTech", icon: <HclTechIcon /> },
     { name: "Cognizant", icon: <CognizantIcon /> },
     { name: "Zoho", icon: <ZohoIcon /> },
-    { name: "Accenture", icon: <AccentureIcon /> },
-    { name: "Capgemini", icon: <CapgeminiIcon /> },
-    { name: "Freshworks", icon: <FreshworksIcon /> },
     { name: "Hexaware", icon: <HexawareIcon /> },
-    { name: "LTI", icon: <LtiIcon /> },
-    { name: "Mindtree", icon: <MindtreeIcon /> }
+    { name: "Capgemini", icon: <CapgeminiIcon /> },
+    { name: "Accenture", icon: <AccentureIcon /> },
+    { name: "LTIMindtree", icon: <LtiMindtreeIcon /> }
   ];
 
   const salaryBenchmarks = [
@@ -222,7 +243,7 @@ const Placements: React.FC = () => {
                   ))}
                 </div>
                 <div className="text-left">
-                  <div className="text-lg font-black text-navy leading-none">1,500+</div>
+                  <div className="text-lg font-black text-navy leading-none">50+</div>
                   <div className="text-[9px] font-bold uppercase tracking-widest text-navy/40">Hired Alumni</div>
                 </div>
               </div>
@@ -431,7 +452,7 @@ const Placements: React.FC = () => {
          <div className="max-w-7xl mx-auto px-6 mb-8">
             <h3 className="text-navy/20 font-black uppercase tracking-[0.4em] text-[9px] text-center">Global Hiring Partners</h3>
          </div>
-                 <div 
+         <div 
            className="flex gap-8 whitespace-nowrap animate-marquee items-center"
            style={{ 
              willChange: "transform",
@@ -442,12 +463,11 @@ const Placements: React.FC = () => {
             {[...partners, ...partners, ...partners].map((p, i) => (
               <div 
                 key={i} 
-                className="inline-flex items-center gap-3 bg-white p-3 px-5 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium transition-all duration-300 select-none cursor-default group"
+                className="h-14 min-w-[140px] inline-flex items-center justify-center bg-white px-6 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium transition-all duration-300 select-none cursor-default group"
               >
-                 <div className="flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                 <div className="flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     {p.icon}
                  </div>
-                 <span className="text-xs font-black text-navy uppercase tracking-widest">{p.name}</span>
               </div>
             ))}
          </div>
@@ -537,7 +557,7 @@ const Placements: React.FC = () => {
                
                <div className="pt-5 border-t border-border/30 flex items-center gap-3 text-navy/35 font-bold text-[9px] uppercase tracking-widest">
                   <CheckCircle2 className="text-emerald-500" size={14} />
-                  <span>Based on 1,500+ placements in 2025-26</span>
+                  <span>Based on 50+ placements in 2025-26</span>
                </div>
             </motion.div>
          </div>
