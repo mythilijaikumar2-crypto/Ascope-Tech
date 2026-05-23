@@ -37,10 +37,11 @@ const Enrollment: React.FC = () => {
       } else {
         setStatus({ type: 'error', message: res.data.message || 'Enrollment failed.' });
       }
-    } catch (err: any) {
+    } catch (err) {
+      const axiosError = err as { response?: { data?: { message?: string; error?: string } } };
       setStatus({ 
         type: 'error', 
-        message: err.response?.data?.message || err.response?.data?.error || 'Network error. Please try again.' 
+        message: axiosError.response?.data?.message || axiosError.response?.data?.error || 'Network error. Please try again.' 
       });
     }
   };
