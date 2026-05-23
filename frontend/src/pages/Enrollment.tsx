@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import { CheckCircle2, ArrowLeft } from 'lucide-react';
+import api from '../services/api';
 
 const Enrollment: React.FC = () => {
   const { courseId } = useParams();
@@ -11,13 +12,12 @@ const Enrollment: React.FC = () => {
 
   useEffect(() => {
     if (courseId) {
-      fetch(`http://localhost:5004/api/courses/${courseId}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data.success && data.data) {
-            setCourseName(data.data.title);
-          } else if (data.data) {
-            setCourseName(data.data.title);
+      api.get(`/courses/${courseId}`)
+        .then(res => {
+          if (res.data.success && res.data.data) {
+            setCourseName(res.data.data.title);
+          } else if (res.data.data) {
+            setCourseName(res.data.data.title);
           }
         })
         .catch(err => {
@@ -31,20 +31,17 @@ const Enrollment: React.FC = () => {
     setStatus({ type: 'loading', message: 'Processing enrollment...' });
 
     try {
-      const res = await fetch('http://localhost:5004/api/enroll', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      const data = await res.json();
-
-      if (res.ok) {
-        setStatus({ type: 'success', message: data.message });
+      const res = await api.post('/enroll', formData);
+      if (res.data.success) {
+        setStatus({ type: 'success', message: res.data.message });
       } else {
-        setStatus({ type: 'error', message: data.message || data.error || 'Enrollment failed.' });
+        setStatus({ type: 'error', message: res.data.message || 'Enrollment failed.' });
       }
-    } catch {
-      setStatus({ type: 'error', message: 'Network error. Please try again.' });
+    } catch (err: any) {
+      setStatus({ 
+        type: 'error', 
+        message: err.response?.data?.message || err.response?.data?.error || 'Network error. Please try again.' 
+      });
     }
   };
 

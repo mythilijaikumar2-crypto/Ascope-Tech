@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import api from "../services/api";
 import {
   Building2,
   Linkedin,
@@ -246,11 +247,10 @@ const Trainers: React.FC = () => {
   const [trainers, setTrainers] = useState<Trainer[]>(DEFAULT_TRAINERS);
 
   useEffect(() => {
-    fetch("http://localhost:5004/api/trainers")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.data) {
-          setTrainers(data.data);
+    api.get("/trainers")
+      .then((res) => {
+        if (res.data && res.data.data) {
+          setTrainers(res.data.data);
         }
       })
       .catch((err) => {
