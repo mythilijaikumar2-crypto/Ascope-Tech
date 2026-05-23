@@ -29,7 +29,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.8,
     price: "₹11,999",
     originalPrice: "₹14,399",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+    image: "/images/pfc.png"
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.9,
     price: "₹19,999",
     originalPrice: "₹23,999",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+    image: "/images/jfs_image.png"
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.9,
     price: "₹25,999",
     originalPrice: "₹31,199",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+    image: "/images/cseh_image.png"
   },
   {
     id: 4,
@@ -59,7 +59,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.7,
     price: "₹14,999",
     originalPrice: "₹17,999",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
+    image: "/images/cc_image.png"
   },
   {
     id: 5,
@@ -69,7 +69,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.8,
     price: "₹19,999",
     originalPrice: "₹23,999",
-    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80"
+    image: "/images/mpcp_image.png"
   },
   {
     id: 6,
@@ -79,7 +79,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.6,
     price: "₹9,999",
     originalPrice: "₹11,999",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+    image: "/images/dm_image.png"
   },
   {
     id: 7,
@@ -89,7 +89,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.8,
     price: "₹9,999",
     originalPrice: "₹11,999",
-    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80" // Switched local placeholder to high quality unsplash
+    image: "/images/ui_ux_course.png"
   },
   {
     id: 8,
@@ -99,7 +99,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.9,
     price: "₹19,999",
     originalPrice: "₹23,999",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+    image: "/images/dsml_image.png"
   },
   {
     id: 9,
@@ -109,52 +109,52 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.8,
     price: "₹16,999",
     originalPrice: "₹20,399",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80"
+    image: "/images/pds_image.png"
   }
 ];
 
 export const FALLBACK_TRAINERS: Trainer[] = [
-  { 
-    id: 1, 
-    name: "Mr Aswinraj", 
-    role: "Senior Full Stack Developer", 
-    company: "Zoho - Software Developer Engineer", 
+  {
+    id: 1,
+    name: "Mr Aswinraj",
+    role: "Senior Full Stack Developer",
+    company: "Zoho - Software Developer Engineer",
     skills: ["React", "Node.js", "MongoDB", "AWS", "Docker"],
     color: "bg-[#0f172a]",
     emoji: "👨‍💻"
   },
-  { 
-    id: 2, 
-    name: "Ms Mahalakshmi V", 
-    role: "Java & DevOps Expert", 
-    company: "LT Mindtree - 2 Years Experience", 
+  {
+    id: 2,
+    name: "Ms Mahalakshmi V",
+    role: "Java & DevOps Expert",
+    company: "LT Mindtree - 2 Years Experience",
     skills: ["Java", "Spring Boot", "Jenkins"],
     color: "bg-[#083344]",
     emoji: "☕"
   },
-  { 
-    id: 3, 
-    name: "Mr Keerthivasan VR", 
-    role: "UI/UX Design Expert", 
-    company: "Ex- Infinity notion - 5 Years Experience", 
+  {
+    id: 3,
+    name: "Mr Keerthivasan VR",
+    role: "UI/UX Design Expert",
+    company: "Ex- Infinity notion - 5 Years Experience",
     skills: ["Figma", "Adobe XD", "Prototyping", "Research"],
     color: "bg-[#581c87]",
     emoji: "🎨"
   },
-  { 
-    id: 4, 
-    name: "Priya", 
-    role: "Business Analytics Expert", 
-    company: "LT Mindtree - 2 Years Experience", 
+  {
+    id: 4,
+    name: "Priya",
+    role: "Business Analytics Expert",
+    company: "LT Mindtree - 2 Years Experience",
     skills: ["Excel", "Tableau", "SAP", "JIRA"],
     color: "bg-[#064e3b]",
     emoji: "📈"
   },
-  { 
-    id: 5, 
-    name: "Ms Yashmeen", 
-    role: "Data Science Lead", 
-    company: "Trainer On Ascope Tech", 
+  {
+    id: 5,
+    name: "Ms Yashmeen",
+    role: "Data Science Lead",
+    company: "Trainer On Ascope Tech",
     skills: ["Python", "ML", "TensorFlow", "SQL", "Power BI"],
     color: "bg-[#064e3b]",
     emoji: "👩‍🔬"

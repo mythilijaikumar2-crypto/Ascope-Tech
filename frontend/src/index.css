@@ -78,3 +78,59 @@ html {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* Premium Visual Redesign Additions */
+@keyframes sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.glass-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.glass-sweep:hover::after {
+  animation: sweep 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.mesh-grid {
+  background-image: radial-gradient(rgba(3, 43, 82, 0.02) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* Pulsing micro glow for progress bars and active markers */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(23, 181, 231, 0.4), 0 0 12px rgba(23, 181, 231, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(23, 181, 231, 0.8), 0 0 20px rgba(23, 181, 231, 0.4);
+  }
+}
+
+.glow-progress-tip {
+  animation: pulseGlow 2s infinite ease-in-out;
+}

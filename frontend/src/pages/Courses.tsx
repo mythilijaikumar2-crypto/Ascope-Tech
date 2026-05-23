@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  Star, 
+import {
+  Star,
   ArrowRight
 } from 'lucide-react';
 import api from '../services/api';
@@ -40,8 +40,8 @@ const Courses: React.FC = () => {
       });
   }, []);
 
-  const filteredCourses = activeCategory === "All" 
-    ? courses 
+  const filteredCourses = activeCategory === "All"
+    ? courses
     : courses.filter(c => c.category === activeCategory);
 
   const containerVariants = {
@@ -56,8 +56,8 @@ const Courses: React.FC = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
     }
@@ -89,7 +89,7 @@ const Courses: React.FC = () => {
 
       {/* 2. Filters and Course Grid Section */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-32 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -99,11 +99,10 @@ const Courses: React.FC = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base rounded-xl font-bold transition-all duration-300 border border-navy/5 flex-shrink-0 whitespace-nowrap ${
-                activeCategory === cat 
-                  ? 'bg-navy text-white shadow-xl scale-105 border-navy' 
-                  : 'bg-white text-navy hover:bg-sky'
-              }`}
+              className={`px-5 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base rounded-xl font-bold transition-all duration-300 border border-navy/5 flex-shrink-0 whitespace-nowrap ${activeCategory === cat
+                ? 'bg-navy text-white shadow-xl scale-105 border-navy'
+                : 'bg-white text-navy hover:bg-sky'
+                }`}
             >
               {cat}
             </button>
@@ -115,7 +114,7 @@ const Courses: React.FC = () => {
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent"></div>
           </div>
         ) : (
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -149,17 +148,17 @@ const Courses: React.FC = () => {
                     className="bg-white rounded-[32px] overflow-hidden shadow-soft hover:shadow-premium transition-all duration-500 group border border-border/50 hover:border-accent/40 flex flex-col justify-between h-full relative"
                   >
                     <div className="relative h-64 overflow-hidden">
-                      <img 
-                        src={course.image} 
-                        alt={course.title} 
+                      <img
+                        src={course.image}
+                        alt={course.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       {/* Glass shine transition sweep on hover */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
-                      
+
 
                     </div>
-                    
+
                     <div className="p-8 flex flex-col justify-between flex-1">
                       <div>
                         <div className="flex items-center gap-3 mb-4">
@@ -190,8 +189,8 @@ const Courses: React.FC = () => {
                             )}
                           </div>
                         </div>
-                        <Link 
-                          to={`/enroll/${course.id}`}
+                        <Link
+                          to={`/courses/${course.id}`}
                           className="w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center text-navy group-hover:bg-navy group-hover:text-white transition-all duration-300 shadow-sm relative overflow-hidden"
                         >
                           <ArrowRight size={20} className="transform group-hover:translate-x-0.5 transition-transform duration-300" />

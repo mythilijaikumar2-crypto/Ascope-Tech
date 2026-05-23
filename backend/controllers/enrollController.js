@@ -37,21 +37,27 @@ const submitEnrollment = async (req, res) => {
     }
 
     try {
-        await pool.query(
+        const dbResult = await pool.query(
           `INSERT INTO enrollments (course_id, full_name, email, phone)
-           VALUES ($1, $2, $3, $4)`,
+           VALUES ($1, $2, $3, $4) RETURNING *`,
           [courseId, fullName, email, phone]
         );
         console.log("✅ Enrollment saved to PostgreSQL database successfully.");
+        return res.status(200).json({
+          success: true,
+          message: 'Enrollment successful! Our team will contact you for the next steps.',
+          enrollment: dbResult.rows[0]
+        });
     } catch (dbErr) {
         console.warn("⚠️ Database insert failed. Saving enrollment to local JSON data store:", dbErr.message);
-        saveFallbackEnrollment({ courseId, fullName, email, phone });
+        const fallbackObj = { id: Date.now(), course_id: courseId, full_name: fullName, email, phone, status: 'pending', created_at: new Date().toISOString() };
+        saveFallbackEnrollment(fallbackObj);
+        return res.status(200).json({
+          success: true,
+          message: 'Enrollment successful! Our team will contact you for the next steps.',
+          enrollment: fallbackObj
+        });
     }
-
-    res.status(200).json({
-      success: true,
-      message: 'Enrollment successful! Our team will contact you for the next steps.'
-    });
 
   } catch (error) {
     console.error('❌ Enrollment Error:', error);

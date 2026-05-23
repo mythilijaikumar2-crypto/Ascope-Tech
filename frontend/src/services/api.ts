@@ -2,13 +2,27 @@ import axios from 'axios';
 
 // Create an instance of Axios with a base configuration
 const api = axios.create({
-    baseURL: 'http://localhost:5004/api', // Updated to 5004 to bypass 5003 zombie port issues
-    timeout: 5000, // If the server takes more than 5 seconds, give up
+    baseURL: import.meta.env.VITE_API_URL 
+        ? `${import.meta.env.VITE_API_URL}/api`
+        : (import.meta.env.DEV ? 'http://localhost:5004/api' : '/api'),
+    timeout: 10000, // Increased to 10s to allow proper database warmup if needed
     headers: {
         'Content-Type': 'application/json',
     }
 });
 
-// Professional Tip: You can add interceptors here later for authentication!
+// Interceptor to automatically add JWT token to request headers
+api.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem('user_token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
 
 export default api;

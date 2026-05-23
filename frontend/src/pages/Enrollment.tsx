@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import { CheckCircle2, ArrowLeft } from 'lucide-react';
@@ -7,6 +7,24 @@ const Enrollment: React.FC = () => {
   const { courseId } = useParams();
   const [formData, setFormData] = useState({ fullName: '', email: '', phone: '', courseId: courseId || '' });
   const [status, setStatus] = useState({ type: '', message: '' });
+  const [courseName, setCourseName] = useState<string>('');
+
+  useEffect(() => {
+    if (courseId) {
+      fetch(`http://localhost:5004/api/courses/${courseId}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.success && data.data) {
+            setCourseName(data.data.title);
+          } else if (data.data) {
+            setCourseName(data.data.title);
+          }
+        })
+        .catch(err => {
+          console.error("Error fetching course details:", err);
+        });
+    }
+  }, [courseId]);
 
   const handleEnroll = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +41,7 @@ const Enrollment: React.FC = () => {
       if (res.ok) {
         setStatus({ type: 'success', message: data.message });
       } else {
-        setStatus({ type: 'error', message: data.error || 'Enrollment failed.' });
+        setStatus({ type: 'error', message: data.message || data.error || 'Enrollment failed.' });
       }
     } catch {
       setStatus({ type: 'error', message: 'Network error. Please try again.' });
@@ -49,7 +67,10 @@ const Enrollment: React.FC = () => {
              Secure Your <br />
              <span className="text-gradient">Future.</span>
            </motion.h1>
-           <p className="text-navy/60 text-lg font-medium mt-6">Complete your registration to join the next batch of elite tech professionals.</p>
+           <p className="text-navy/60 text-lg font-medium mt-6">
+             {courseName ? 'Complete your registration for:' : 'Complete your registration to join the next batch of elite tech professionals.'}
+             {courseName && <span className="text-primary font-black block text-2xl mt-2 tracking-tight">{courseName}</span>}
+           </p>
         </div>
 
         <motion.div 
@@ -74,11 +95,11 @@ const Enrollment: React.FC = () => {
             <form onSubmit={handleEnroll} className="space-y-8 relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-navy/30 uppercase tracking-widest ml-2">Selected Course ID</label>
+                  <label className="text-[10px] font-black text-navy/30 uppercase tracking-widest ml-2">Selected Course</label>
                   <input 
                     type="text" 
                     readOnly
-                    value={formData.courseId}
+                    value={courseName ? `${courseName} (ID: ${formData.courseId})` : `Course ID: ${formData.courseId}`}
                     className="w-full px-7 py-4 rounded-2xl bg-sky/20 border-2 border-transparent text-navy/40 font-black outline-none cursor-not-allowed" 
                   />
                 </div>

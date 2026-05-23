@@ -29,7 +29,7 @@ const getFallbackCourses = () => {
                     rating: 4.9,
                     price: "₹19,999",
                     originalPrice: "₹23,999",
-                    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+                    image: "/images/jfs_image.png"
                 },
                 {
                     id: 3,
@@ -39,7 +39,7 @@ const getFallbackCourses = () => {
                     rating: 4.9,
                     price: "₹25,999",
                     originalPrice: "₹31,199",
-                    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+                    image: "/images/cseh_image.png"
                 },
                 {
                     id: 4,
@@ -49,7 +49,7 @@ const getFallbackCourses = () => {
                     rating: 4.7,
                     price: "₹14,999",
                     originalPrice: "₹17,999",
-                    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
+                    image: "/images/cc_image.png"
                 },
                 {
                     id: 5,
@@ -59,7 +59,7 @@ const getFallbackCourses = () => {
                     rating: 4.8,
                     price: "₹19,999",
                     originalPrice: "₹23,999",
-                    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80"
+                    image: "/images/mpcp_image.png"
                 },
                 {
                     id: 6,
@@ -69,7 +69,7 @@ const getFallbackCourses = () => {
                     rating: 4.6,
                     price: "₹9,999",
                     originalPrice: "₹11,999",
-                    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                    image: "/images/dm_image.png"
                 },
                 {
                     id: 7,
@@ -89,7 +89,7 @@ const getFallbackCourses = () => {
                     rating: 4.9,
                     price: "₹19,999",
                     originalPrice: "₹23,999",
-                    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                    image: "/images/dsml_image.png"
                 },
                 {
                     id: 9,
@@ -99,7 +99,7 @@ const getFallbackCourses = () => {
                     rating: 4.8,
                     price: "₹16,999",
                     originalPrice: "₹20,399",
-                    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80"
+                    image: "/images/pds_image.png"
                 }
             ];
             fs.writeFileSync(FALLBACK_FILE, JSON.stringify(initialData, null, 2));
@@ -148,7 +148,7 @@ exports.getAllCourses = async (req, res) => {
         }
         const result = await db.query(queryText, queryParams);
         const courses = result.rows.map(mapCourseRow);
-        
+
         // Return wrapped in success and data to match frontend expectations
         res.status(200).json({
             success: true,

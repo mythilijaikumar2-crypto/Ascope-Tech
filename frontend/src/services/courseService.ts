@@ -11,7 +11,7 @@ interface Course {
 export const getCourses = async (): Promise<Course[]> => {
     try {
         const response = await api.get('/courses');
-        return response.data;
+        return response.data.data || response.data;
     } catch (error) {
         console.error("Error fetching courses:", error);
         throw error;

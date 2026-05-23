@@ -14,7 +14,7 @@ import {
 
 // Sleek, high-quality, color-accurate inline SVG brand icons for Placements Marquee
 const TcsIcon: React.FC = () => (
-  <svg className="h-7 w-auto shrink-0" viewBox="0 5 38 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="h-8 w-auto shrink-0" viewBox="0 0 145 35" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="tcsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#f58220" />
@@ -23,9 +23,22 @@ const TcsIcon: React.FC = () => (
         <stop offset="100%" stopColor="#0072bc" />
       </linearGradient>
     </defs>
-    <path d="M7 6v5H3.5c-.3 0-.5.2-.5.5v1.5c0 .3.2.5.5.5H7v8c0 1.7 1.3 3 3 3h2c.3 0 .5-.2.5-.5v-1.5c0-.3-.2-.5-.5-.5h-1c-.6 0-1-.4-1-1v-7.5h3.5c.3 0 .5-.2.5-.5v-1.5c0-.3-.2-.5-.5-.5H10V6c0-.3-.2-.5-.5-.5H7.5c-.3 0-.5.2-.5.5z" fill="url(#tcsGrad)" />
-    <path d="M23.5 11.5c-1.2-1.2-2.8-2-4.8-2-3.5 0-6.5 2.8-6.5 6.5s3 6.5 6.5 6.5c2 0 3.6-.8 4.8-2 .3-.3.3-.8 0-1.1l-1.2-1.2c-.3-.3-.8-.3-1.1 0-.8.6-1.6 1.1-2.5 1.1-1.8 0-3.2-1.4-3.2-3.2s1.4-3.2 3.2-3.2c.9 0 1.7.5 2.5 1.1.3.3.8.3 1.1 0l1.2-1.2c.3-.3.3-.8 0-1.1z" fill="url(#tcsGrad)" />
-    <path d="M29.5 11c-1.8 0-3.2 1-3.2 2.5v.5c0 1.2 1 2 2.8 2.4h.8c1.2.3 1.6.6 1.6 1.2v.4c0 .6-.6 1.2-1.6 1.2h-2.8c-.5 0-.8.3-.8.8v1.5c0 .5.3.8.8.8H30.5c2.6 0 4.8-1.6 4.8-3.6v-.4c0-1.6-1.2-2.4-3.2-2.8h-.8c-1.2-.3-1.6-.6-1.6-1.2v-.4c0-.6.6-1.2 1.6-1.2h2.4c.5 0 .8-.3.8-.8v-1.5c0-.5-.3-.8-.8-.8h-2z" fill="url(#tcsGrad)" />
+    {/* High-fidelity fluid ribbon lowercase tcs */}
+    <path d="M 12 7 L 12 25 C 12 29 17 29 19 27 M 6 12 L 18 12" stroke="url(#tcsGrad)" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <path d="M 37 14 C 34 11 26 11 26 18.5 C 26 26 34 26 37 23" stroke="url(#tcsGrad)" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <path d="M 52 13.5 C 50 11.5 45 10.5 45 14.5 C 45 18 53 17 53 22.5 C 53 26.5 47 26.5 44 24.5" stroke="url(#tcsGrad)" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    
+    {/* TATA official geometric logo path with open A chevrons */}
+    <g stroke="#0258a5" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none">
+      <path d="M 68 8 H 78 M 73 8 V 18" />
+      <path d="M 80 18 L 86 8 L 92 18" />
+      <path d="M 94 8 H 104 M 99 8 V 18" />
+      <path d="M 106 18 L 112 8 L 118 18" />
+    </g>
+    
+    {/* Subtext */}
+    <text x="68" y="25" fill="#0258a5" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="7" letterSpacing="0.08em">CONSULTANCY</text>
+    <text x="68" y="32" fill="#0258a5" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="7" letterSpacing="0.08em">SERVICES</text>
   </svg>
 );
 
@@ -36,8 +49,9 @@ const InfosysIcon: React.FC = () => (
 );
 
 const WiproIcon: React.FC = () => (
-  <svg className="h-7 w-auto shrink-0" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g transform="translate(14, 14)">
+  <svg className="h-7 w-auto shrink-0" viewBox="0 0 100 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <text x="5" y="20" fill="#250e62" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="18" letterSpacing="-0.02em">wipro</text>
+    <g transform="translate(75, 14)">
       <circle cx="-10" cy="0" r="1.5" fill="#009fda" />
       <circle cx="-8.6" cy="5" r="1.5" fill="#78248c" />
       <circle cx="-5" cy="8.6" r="1.5" fill="#e01b84" />
@@ -67,8 +81,12 @@ const WiproIcon: React.FC = () => (
 );
 
 const HclTechIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <text x="0" y="18" fill="#0056b3" fontFamily="Inter, sans-serif" fontWeight="900" fontSize="18" letterSpacing="-0.03em">HCL<tspan fill="#007bff">Tech</tspan></text>
+  <svg className="h-6 w-auto shrink-0" viewBox="0 0 120 28" fill="#0056b3" xmlns="http://www.w3.org/2000/svg">
+    <g transform="skewX(-20)">
+      <path d="M12 2h8v8h10V2h8v24h-8v-9H20v9h-8V2z" />
+      <path d="M68 2c-12 0-20 5-20 12s8 12 20 12c8 0 14-3 17-7l-6-4.5c-2.5 3-6.5 4.5-11 4.5-7.5 0-12-3.5-12-5s4.5-5 12-5c4.5 0 8.5 1.5 11 4.5l6-4.5C82 5 76 2 68 2z" />
+      <path d="M94 2h8v16h14v6H94V2z" />
+    </g>
   </svg>
 );
 
@@ -143,21 +161,24 @@ const CognizantIcon: React.FC = () => (
 );
 
 const ZohoIcon: React.FC = () => (
-  <div className="flex items-center gap-0.5 shrink-0 font-sans font-black text-white text-[11px] select-none">
-    <div className="w-[20px] h-[20px] bg-[#e11d48] rounded-[2px] flex items-center justify-center shadow-md transform rotate-[-4deg]">Z</div>
-    <div className="w-[20px] h-[20px] bg-[#16a34a] rounded-[2px] flex items-center justify-center shadow-md transform rotate-[2deg] -translate-y-[1px]">O</div>
-    <div className="w-[20px] h-[20px] bg-[#2563eb] rounded-[2px] flex items-center justify-center shadow-md transform rotate-[-3deg]">H</div>
-    <div className="w-[20px] h-[20px] bg-[#ca8a04] rounded-[2px] flex items-center justify-center shadow-md transform rotate-[4deg]">O</div>
-  </div>
+  <svg className="h-8 w-auto shrink-0" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="25" y="22" width="38" height="38" rx="8" stroke="#f21c24" strokeWidth="6" transform="rotate(-6 44 41)" />
+    <rect x="62" y="16" width="38" height="38" rx="8" stroke="#00a65a" strokeWidth="6" transform="rotate(14 81 35)" />
+    <rect x="99" y="18" width="38" height="38" rx="8" stroke="#0071bc" strokeWidth="6" transform="rotate(-8 118 37)" />
+    <rect x="136" y="22" width="38" height="38" rx="8" stroke="#f9b217" strokeWidth="6" transform="rotate(4 155 41)" />
+    <text x="100" y="85" textAnchor="middle" fill="#000000" fontFamily="Inter, sans-serif" fontWeight="900" fontSize="16" letterSpacing="0.2em">ZOHO</text>
+  </svg>
 );
 
 const HexawareIcon: React.FC = () => (
-  <svg className="h-7 w-auto shrink-0" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g transform="translate(0, 2)">
-      <rect x="8" y="2" width="3.5" height="15" rx="1.5" fill="#004b87" />
-      <rect x="3" y="7" width="13.5" height="3.5" rx="1.5" fill="#e31b23" />
-      <circle cx="17.5" cy="14" r="2.2" fill="#ffc20e" />
+  <svg className="h-8 w-auto shrink-0" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(42, 2)">
+      <path d="M4 14V8h4V4h4v4h4v4h-4v6c0 1.5 0.5 2 2 2h2v4h-3.5C8 24 8 20 8 18v-6H4z" fill="#004b87" />
+      <rect x="20" y="8" width="4" height="16" rx="1" fill="#004b87" />
+      <circle cx="22" cy="3" r="2.5" fill="#e31b23" />
+      <circle cx="30" cy="21" r="2.5" fill="#ffc20e" />
     </g>
+    <text x="60" y="44" textAnchor="middle" fill="#1f2937" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="11" letterSpacing="0.15em">HEXAWARE</text>
   </svg>
 );
 
@@ -179,17 +200,47 @@ const CapgeminiIcon: React.FC = () => (
 );
 
 const AccentureIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M4 6l5 4.5-5 4.5" stroke="#a100ff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+  <svg className="h-6 w-auto shrink-0" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M66 2l5 3.5-5 3.5" stroke="#a100ff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <text x="5" y="24" fill="#000000" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="18" letterSpacing="-0.04em">accenture</text>
   </svg>
 );
 
 const LtiMindtreeIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g transform="translate(0, 1)">
-      <circle cx="10" cy="10" r="9" stroke="#003566" strokeWidth="1.8" fill="none" />
-      <path d="M4 10h12M10 4l-3.5 3.5 3.5 3.5" stroke="#003566" strokeWidth="1.2" strokeLinecap="round" />
+  <svg className="h-7 w-auto shrink-0" viewBox="0 0 170 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="ltiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#e01b84" />
+        <stop offset="100%" stopColor="#78248c" />
+      </linearGradient>
+    </defs>
+    {/* Concentric Tree Circuit Emblem */}
+    <circle cx="18" cy="18" r="14" stroke="url(#ltiGrad)" strokeWidth="2" fill="none" />
+    <g stroke="url(#ltiGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none">
+      <path d="M 18,28 L 18,12" />
+      <path d="M 18,23 C 15,22 13,22 12,22" />
+      <path d="M 18,18 C 14,17 11,16 10,15" />
+      <path d="M 18,13 L 14,9" />
+      <path d="M 18,23 C 21,22 23,22 24,22" />
+      <path d="M 18,18 C 22,17 25,16 26,15" />
+      <path d="M 18,13 L 22,9" />
+      
+      {/* Root flare */}
+      <path d="M 15,28 C 17,28 18,27.5 18,26" />
+      <path d="M 21,28 C 19,28 18,27.5 18,26" />
     </g>
+    <g fill="url(#ltiGrad)">
+      <circle cx="18" cy="11.5" r="1.5" />
+      <circle cx="11" cy="22" r="1.5" />
+      <circle cx="9.5" cy="15" r="1.5" />
+      <circle cx="13.5" cy="8.5" r="1.5" />
+      <circle cx="25" cy="22" r="1.5" />
+      <circle cx="26.5" cy="15" r="1.5" />
+      <circle cx="22.5" cy="8.5" r="1.5" />
+    </g>
+    
+    {/* Italicized, bold LTIMindtree sans-serif text */}
+    <text x="42" y="24" fill="#002d62" fontFamily="Inter, sans-serif" fontStyle="italic" fontWeight="900" fontSize="18" letterSpacing="-0.04em">LTIMindtree</text>
   </svg>
 );
 

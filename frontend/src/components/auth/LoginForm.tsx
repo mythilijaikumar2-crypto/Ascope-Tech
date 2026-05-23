@@ -12,7 +12,10 @@ const LoginForm: React.FC = () => {
     try {
       await authService.login(formData);
       setStatus({ type: 'success', message: 'Success!' });
-      setTimeout(() => window.location.href = '/', 1000);
+      
+      const searchParams = new URLSearchParams(window.location.search);
+      const redirectPath = searchParams.get('redirect') || '/dashboard';
+      setTimeout(() => window.location.href = redirectPath, 1000);
     } catch (err: unknown) {
       const errorData = err as { error?: string };
       setStatus({ type: 'error', message: errorData.error || 'Invalid credentials' });
@@ -68,7 +71,7 @@ const LoginForm: React.FC = () => {
 
         <div className="pt-6 space-y-4 text-center">
           <a href="#" className="block text-sm font-bold text-gray-400 hover:text-gray-600">Forgot password?</a>
-          <Link to="/signup" className="block text-sm font-bold text-gray-400 hover:text-gray-600">Don't have an account?</Link>
+          <Link to={`/signup${window.location.search}`} className="block text-sm font-bold text-gray-400 hover:text-gray-600">Don't have an account?</Link>
         </div>
       </form>
     </div>
