@@ -118,13 +118,13 @@ const PopularCourses: React.FC = () => {
                   key={idx}
                   variants={itemVariants}
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  className="bg-white rounded-[32px] overflow-hidden shadow-soft hover:shadow-premium group transition-all duration-500 border border-border/50 hover:border-accent/40 flex flex-col justify-between h-full relative"
+                  className="bg-white rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-soft hover:shadow-premium group transition-all duration-500 border border-border/50 hover:border-accent/40 flex flex-col justify-between h-full relative"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-44 sm:h-64 overflow-hidden bg-slate-50/50">
                     <img
                       src={course.image}
                       alt={course.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                     />
                     {/* Glass shine transition sweep on hover */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
@@ -132,7 +132,7 @@ const PopularCourses: React.FC = () => {
 
                   </div>
 
-                  <div className="p-8 flex flex-col justify-between flex-1">
+                  <div className="p-5 sm:p-8 flex flex-col justify-between flex-1">
                     <div>
                       <div className="flex items-center gap-3 mb-4">
                         <span className={`px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full ${getCategoryBadgeStyles(course.category)}`}>
@@ -144,29 +144,29 @@ const PopularCourses: React.FC = () => {
                         </div>
                       </div>
 
-                      <h4 className="text-2xl font-black text-navy mb-6 group-hover:text-primary transition-colors leading-tight min-h-[3.5rem]">
+                      <h4 className="text-xl sm:text-2xl font-black text-navy mb-4 sm:mb-6 group-hover:text-primary transition-colors leading-tight min-h-[2.5rem] sm:min-h-[3.5rem]">
                         {course.title}
                       </h4>
                     </div>
 
-                    <div className="flex items-center justify-between pt-6 border-t border-border/50">
+                    <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-border/50">
                       <div className="flex flex-col">
                         <span className="text-[10px] text-navy/40 font-black uppercase tracking-widest mb-1">
                           Course Fee
                         </span>
                         <div className="flex items-baseline gap-2">
-                          <span className="text-2xl font-black text-navy">{course.price}</span>
+                          <span className="text-xl sm:text-2xl font-black text-navy">{course.price}</span>
                           {course.originalPrice && (
-                            <span className="text-sm font-semibold text-navy/30 line-through">{course.originalPrice}</span>
+                            <span className="text-xs sm:text-sm font-semibold text-navy/30 line-through">{course.originalPrice}</span>
                           )}
                           {course.originalPrice && (
-                            <span className="text-[10px] bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">20% OFF</span>
+                            <span className="text-[9px] bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">20% OFF</span>
                           )}
                         </div>
                       </div>
                       <Link
                         to={`/enroll/${course.id}`}
-                        className="w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center text-navy group-hover:bg-navy group-hover:text-white transition-all duration-300 shadow-sm relative overflow-hidden"
+                        className="w-11 h-11 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white border border-border flex items-center justify-center text-navy group-hover:bg-navy group-hover:text-white transition-all duration-300 shadow-sm relative overflow-hidden"
                       >
                         <ArrowRight size={20} className="transform group-hover:translate-x-0.5 transition-transform duration-300" />
                       </Link>

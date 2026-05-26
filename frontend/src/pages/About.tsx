@@ -1,4 +1,6 @@
 import React from "react";
+import SEO from "../components/layout/SEO";
+import { getOrganizationSchema, getBreadcrumbSchema } from "../utils/seoHelper";
 import { motion } from "framer-motion";
 import {
   Award,
@@ -13,6 +15,18 @@ import {
 import { Link } from "react-router-dom";
 
 const About: React.FC = () => {
+  // Centralized structured data schemas for About Us page
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      getOrganizationSchema(),
+      getBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "About Us", url: "/about" }
+      ])
+    ]
+  };
+
   const stats = [
     { value: "10,000+", label: "Trained Students", Icon: Users },
     { value: "95%", label: "Placement Rate", Icon: Briefcase },
@@ -41,8 +55,37 @@ const About: React.FC = () => {
     },
   ];
 
+  // Content strings — extracted to JS variables to satisfy IDE i18n analysis
+  const text = {
+    badge: 'WHO WE ARE',
+    heading1: 'Ascope',
+    heading2: 'Tech',
+    tagline: 'Empowering tech aspirants with high-end full-stack development skills, advanced engineering architectures, and career placement services.',
+    h2: 'Bridging the gap between ambitious dreams and technical mastery.',
+    p1: 'Established with the goal of creating direct, industry-ready professionals, Ascope Tech has grown to be a premier training facility in Trichy. Our custom-designed labs allow students to work on true server instances, database optimization, and high-quality frontend frameworks.',
+    p2: 'Whether you are a starter learning HTML/CSS, or an experienced engineer seeking knowledge on system integrations, PostgreSQL database performance, or advanced API controllers, we have tailored learning paths mapped to your career milestones.',
+    cta: 'EXPLORE OUR COURSES',
+    cardHeading: "Trichy's Leading Academy",
+    cardBody: 'Voted #1 technical boot camp for structural engineering, web architecture, and placement conversions.',
+    isoTitle: 'ISO 9001:2015',
+    isoBody: 'Certified training standard excellence.',
+    valuesBadge: 'OUR VALUES',
+    valuesHeading: 'Why Students Trust Us',
+  };
+
   return (
     <div className="pt-32 pb-24 bg-white min-h-screen font-sans overflow-x-hidden relative">
+      <SEO
+        title="About Our Academy | Software Training Institute in Trichy"
+        description="Learn about Ascope Tech, Trichy's premium training institute. We offer world-class software courses, ISO-certified curriculum, and direct mentor support from active tech developers."
+        keywords={[
+          "Software Training Institute in Trichy",
+          "Best Coding Institute in Trichy",
+          "Ascope Tech Trichy",
+          "IT Training Academy Tamil Nadu"
+        ]}
+        schema={aboutSchema}
+      />
       {/* Sleek Decorative Top Circles */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/3 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
@@ -55,7 +98,7 @@ const About: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-[11px] font-black uppercase tracking-[0.25em] text-primary"
           >
-            WHO WE ARE
+            {text.badge}
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -63,7 +106,7 @@ const About: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-5xl lg:text-7xl font-heading font-black text-navy tracking-tighter"
           >
-            Ascope <span className="text-gradient">Tech</span>
+            {text.heading1} <span className="text-gradient">{text.heading2}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -71,7 +114,7 @@ const About: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-navy/60 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
           >
-            Empowering tech aspirants with high-end full-stack development skills, advanced engineering architectures, and career placement services.
+            {text.tagline}
           </motion.p>
         </div>
 
@@ -84,20 +127,20 @@ const About: React.FC = () => {
             className="space-y-6"
           >
             <h2 className="text-3xl lg:text-4xl font-black text-navy tracking-tight leading-tight">
-              Bridging the gap between ambitious dreams and technical mastery.
+              {text.h2}
             </h2>
             <p className="text-navy/70 leading-relaxed font-body">
-              Established with the goal of creating direct, industry-ready professionals, Ascope Tech has grown to be a premier training facility in Trichy. Our custom-designed labs allow students to work on true server instances, database optimization, and high-quality frontend frameworks.
+              {text.p1}
             </p>
             <p className="text-navy/70 leading-relaxed font-body">
-              Whether you are a starter learning HTML/CSS, or an experienced engineer seeking knowledge on system integrations, PostgreSQL database performance, or advanced API controllers, we have tailored learning paths mapped to your career milestones.
+              {text.p2}
             </p>
             <div className="pt-4">
               <Link
                 to="/courses"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-black text-xs uppercase tracking-widest rounded-xl hover:bg-primary/95 transition-all shadow-md shadow-primary/10 hover:shadow-lg hover:scale-105 active:scale-95"
               >
-                <span>EXPLORE OUR COURSES</span>
+                <span>{text.cta}</span>
                 <ArrowRight size={16} />
               </Link>
             </div>
@@ -117,10 +160,10 @@ const About: React.FC = () => {
                     <Award size={40} />
                   </div>
                   <h3 className="text-2xl font-black uppercase tracking-wider">
-                    Trichy's Leading Academy
+                    {text.cardHeading}
                   </h3>
                   <p className="text-white/80 text-sm max-w-sm mx-auto leading-relaxed">
-                    Voted #1 technical boot camp for structural engineering, web architecture, and placement conversions.
+                    {text.cardBody}
                   </p>
                 </div>
               </div>
@@ -132,10 +175,10 @@ const About: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-black text-navy text-xs uppercase tracking-wider">
-                  ISO 9001:2015
+                  {text.isoTitle}
                 </h4>
                 <p className="text-navy/60 text-[10px] font-bold">
-                  Certified training standard excellence.
+                  {text.isoBody}
                 </p>
               </div>
             </div>
@@ -171,10 +214,10 @@ const About: React.FC = () => {
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">
-              OUR VALUES
+              {text.valuesBadge}
             </span>
             <h2 className="text-3xl lg:text-5xl font-black text-navy tracking-tight">
-              Why Students Trust Us
+              {text.valuesHeading}
             </h2>
           </div>
 

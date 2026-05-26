@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   Compass, 
@@ -15,7 +16,8 @@ const steps = [
     desc: "Speak with our career advisors or browse our modern, industry-focused tech courses in Software Engineering, Data Science, and UI/UX.",
     icon: Compass,
     color: "from-primary to-accent",
-    glow: "bg-primary/10"
+    glow: "bg-primary/10",
+    path: "/courses"
   },
   {
     number: "02",
@@ -23,7 +25,8 @@ const steps = [
     desc: "Master coding skills through interactive sessions conducted by veteran mentors, backed by instant one-on-one doubt resolution.",
     icon: BookOpen,
     color: "from-accent to-secondary",
-    glow: "bg-accent/10"
+    glow: "bg-accent/10",
+    path: "/trainers"
   },
   {
     number: "03",
@@ -31,7 +34,8 @@ const steps = [
     desc: "Cement your expertise by building production-grade, collaborative group projects that demonstrate true technical capability.",
     icon: Code,
     color: "from-secondary to-primary",
-    glow: "bg-secondary/10"
+    glow: "bg-secondary/10",
+    path: "/courses"
   },
   {
     number: "04",
@@ -39,7 +43,8 @@ const steps = [
     desc: "Clear mock interviews, build a competitive resume, and gain access to our extensive network of over 350+ global hiring partners.",
     icon: Trophy,
     color: "from-primary to-accent",
-    glow: "bg-primary/10"
+    glow: "bg-primary/10",
+    path: "/placements"
   }
 ];
 
@@ -62,7 +67,17 @@ const cardVariants = {
   }
 };
 
+// Create a Framer Motion-enabled Link component
+const MotionLink = motion(Link);
+
 const Process: React.FC = () => {
+  // Content strings — extracted to JS variables to satisfy IDE i18n analysis
+  const text = {
+    sectionBadge: 'Our Learning Journey',
+    headingLine1: 'How We Guide You',
+    headingLine2: 'To Your Dream Career',
+  };
+
   return (
     <section className="py-24 relative overflow-hidden bg-cream">
       {/* Background elements */}
@@ -75,11 +90,11 @@ const Process: React.FC = () => {
         {/* Header */}
         <div className="mb-20 text-center lg:text-left">
           <p className="text-accent font-black text-xs uppercase tracking-[0.4em] mb-4">
-            Our Learning Journey
+            {text.sectionBadge}
           </p>
           <h2 className="text-4xl lg:text-5xl font-heading font-black text-navy leading-tight">
-            How We Guide You <br className="hidden lg:block" />
-            <span className="text-gradient">To Your Dream Career</span>
+            {text.headingLine1} <br className="hidden lg:block" />
+            <span className="text-gradient">{text.headingLine2}</span>
           </h2>
           <div className="w-16 h-1.5 bg-accent mt-6 lg:mx-0 mx-auto" />
         </div>
@@ -96,10 +111,11 @@ const Process: React.FC = () => {
           <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-primary/10 via-accent/20 to-primary/10 -translate-y-1/2 hidden lg:block z-0 pointer-events-none" />
 
           {steps.map((step, idx) => (
-            <motion.div
+            <MotionLink
               key={idx}
+              to={step.path}
               variants={cardVariants}
-              className="group relative bg-white p-8 rounded-2xl border border-border/40 hover:border-accent/40 shadow-soft hover:shadow-premium transition-all duration-500 z-10 flex flex-col justify-between"
+              className="group relative bg-white p-8 rounded-2xl border border-border/40 hover:border-accent/40 shadow-soft hover:shadow-premium transition-all duration-500 z-10 flex flex-col justify-between cursor-pointer hover:no-underline text-left"
             >
               {/* Card Glow Effect */}
               <div className={`absolute inset-0 rounded-2xl ${step.glow} opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 -z-10`} />
@@ -126,14 +142,14 @@ const Process: React.FC = () => {
                 </p>
               </div>
 
-              {/* Step indicator arrow at bottom (for non-last items) */}
-              {idx < steps.length - 1 && (
-                <div className="mt-8 flex items-center gap-2 text-xs font-bold text-accent/60 group-hover:text-accent transition-colors lg:hidden">
-                  <span>Next Step</span>
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </div>
-              )}
-            </motion.div>
+              {/* Step indicator arrow at bottom (navigates to relevant page) */}
+              <div 
+                className="mt-8 flex items-center gap-2 text-xs font-bold text-accent/60 group-hover:text-accent transition-colors group/btn"
+              >
+                <span>{idx === steps.length - 1 ? "Explore Placements" : "Next Step"}</span>
+                <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
+              </div>
+            </MotionLink>
           ))}
         </motion.div>
       </div>

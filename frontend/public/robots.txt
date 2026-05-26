@@ -1,0 +1,30 @@
+# robots.txt for Ascope Tech Full Stack Platform
+# Optimized for Google, Bing, Yahoo, and AI search engines (ChatGPT, AppleBot, Perplexity)
+
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /courses
+Allow: /courses/*
+Allow: /trainers
+Allow: /placements
+Allow: /contact
+
+# Block crawl in private / administrative areas to prevent security indexes
+Disallow: /admin
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /dashboard/
+Disallow: /profile
+Disallow: /settings
+Disallow: /tickets
+Disallow: /billing
+Disallow: /checkout
+Disallow: /checkout/
+Disallow: /payment-success
+Disallow: /payment-failed
+Disallow: /api/
+Disallow: /api/*
+
+# Central Sitemap
+Sitemap: https://ascope.tech/sitemap.xml

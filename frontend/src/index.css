@@ -134,3 +134,29 @@ html {
 .glow-progress-tip {
   animation: pulseGlow 2s infinite ease-in-out;
 }
+
+/* Infinite Marquee Scroll (Left to Right) for Testimonials */
+@keyframes marqueeLeftToRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.animate-marquee-lr {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marqueeLeftToRight 60s linear infinite;
+}
+
+.animate-marquee-lr:hover {
+  animation-play-state: paused;
+}
+
+.mask-gradient {
+  mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
+}

@@ -110,15 +110,23 @@ const Footer: React.FC = () => {
             <h4 className="font-heading font-black text-white mb-8 border-l-4 border-accent pl-4 uppercase tracking-widest text-xs">
               Company
             </h4>
-            <ul className="space-y-4">
-              {["Courses", "Trainers", "Placements", "Contact"].map((link) => (
-                <li key={link}>
+            <ul className="space-y-4" role="navigation" aria-label="Footer Company Links">
+              {[
+                { label: "Home", path: "/" },
+                { label: "About Us", path: "/about" },
+                { label: "Our Courses", path: "/courses" },
+                { label: "Expert Trainers", path: "/trainers" },
+                { label: "Placements", path: "/placements" },
+                { label: "Contact Us", path: "/contact" },
+              ].map((link) => (
+                <li key={link.label}>
                   <Link
-                    to={`/${link.toLowerCase().replace(" ", "-")}`}
+                    to={link.path}
                     className="text-white/60 hover:text-accent hover:pl-2 transition-all flex items-center gap-2 font-bold text-sm"
+                    aria-label={`Go to Ascope Tech ${link.label} page`}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-accent/30" />{" "}
-                    {link}
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -128,24 +136,25 @@ const Footer: React.FC = () => {
           {/* Support */}
           <div className="col-span-1">
             <h4 className="font-heading font-black text-white mb-8 border-l-4 border-accent pl-4 uppercase tracking-widest text-xs">
-              Categories
+              Primary Courses
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-4" role="navigation" aria-label="Footer Course Categories">
               {[
-                "Full Stack Dev",
-                "Data Science",
-                "UI/UX Design",
-                "Cloud Computing",
-                "Cybersecurity",
+                { label: "Python Full Stack Course in Trichy", path: "/courses" },
+                { label: "Java Full Stack Training", path: "/courses" },
+                { label: "Web Development Course", path: "/courses" },
+                { label: "UI/UX Design Specialist", path: "/courses" },
+                { label: "Cyber Security & Ethical Hacking", path: "/courses" },
               ].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
+                <li key={item.label}>
+                  <Link
+                    to={item.path}
                     className="text-white/60 hover:text-accent hover:pl-2 transition-all flex items-center gap-2 font-bold text-sm"
+                    aria-label={`Learn more about our ${item.label}`}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-accent/30" />{" "}
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -154,24 +163,27 @@ const Footer: React.FC = () => {
           {/* Contact */}
           <div className="col-span-2 sm:col-span-1">
             <h4 className="font-heading font-black text-white mb-8 border-l-4 border-accent pl-4 uppercase tracking-widest text-xs">
-              Contact Info
+              IT Training Center Trichy
             </h4>
             <div className="space-y-6">
               <div className="flex gap-4 text-white/60 items-start">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0" aria-hidden="true">
                   <MapPin size={20} />
                 </div>
                 <span className="text-sm">
-                  Ascope Tech, 5th floor, SBRR Square,
+                  <strong>Ascope Tech</strong>, 5th floor, SBRR Square,
                   <br />
                   Anna Nagar, Trichy – 620017
+                  <br />
+                  <span className="text-[10px] text-accent/50 block mt-1">Tamil Nadu, India (Local IT Hub)</span>
                 </span>
               </div>
               <a
                 href="tel:+917418240526"
                 className="flex gap-4 text-white/60 items-center hover:text-accent transition-colors group"
+                aria-label="Call Ascope Tech Software Training Institute at +91 74182 40526"
               >
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-navy shrink-0 transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-navy shrink-0 transition-all duration-300" aria-hidden="true">
                   <Phone size={20} />
                 </div>
                 <span className="text-sm font-body">+91 74182 40526</span>
@@ -181,8 +193,9 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex gap-4 text-white/60 items-center hover:text-accent transition-colors group"
+                aria-label="Email Ascope Tech team at ascopetech@gmail.com"
               >
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-navy shrink-0 transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-navy shrink-0 transition-all duration-300" aria-hidden="true">
                   <Mail size={20} />
                 </div>
                 <span className="text-sm font-body">ascopetech@gmail.com</span>

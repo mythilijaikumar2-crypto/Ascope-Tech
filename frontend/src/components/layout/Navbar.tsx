@@ -85,7 +85,11 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 h-24 flex items-center ${scrolled ? 'glass-navbar shadow-subtle' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 flex items-center ${
+      scrolled 
+        ? 'glass-navbar shadow-subtle h-12 md:h-16' 
+        : 'bg-transparent h-16 md:h-20'
+    }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full flex justify-between items-center relative">
         {/* Logo */}
         <Link to="/" className="flex items-center group relative">
@@ -102,7 +106,11 @@ const Navbar: React.FC = () => {
             }}
             src="/ascopetech_logo.png"
             alt="Ascope Tech Logo"
-            className="h-24 w-auto object-contain drop-shadow-[0_0_30px_rgba(7,90,151,0.2)] relative z-10 cursor-pointer"
+            className={`w-auto object-contain drop-shadow-[0_0_30px_rgba(7,90,151,0.2)] relative z-10 cursor-pointer transition-all duration-300 ${
+              scrolled 
+                ? 'h-9 md:h-12' 
+                : 'h-12 md:h-16'
+            }`}
           />
         </Link>
 
@@ -241,7 +249,11 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-24 left-0 w-full bg-white/95 backdrop-blur-2xl shadow-premium border-b border-border/50 overflow-hidden"
+            className={`md:hidden absolute left-0 w-full bg-white/95 backdrop-blur-2xl shadow-premium border-b border-border/50 overflow-hidden transition-all duration-300 ${
+              scrolled 
+                ? 'top-12 md:top-16' 
+                : 'top-16 md:top-20'
+            }`}
           >
             <div className="p-8 space-y-8 max-h-[80vh] overflow-y-auto">
               {!isDashboardRoute && (

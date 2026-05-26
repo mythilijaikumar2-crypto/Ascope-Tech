@@ -300,7 +300,7 @@ const Contact: React.FC = () => {
                   {
                     icon: MapPin,
                     value:
-                      "Ascope Tech, 5th floor, SBRR Square, Anna Nagar, Trichy",
+                      "Ascope Tech, 5th floor, SBRR Square, Anna Nagar, Trichy - 620017",
                     href: undefined
                   },
                 ].map((item, i) => (

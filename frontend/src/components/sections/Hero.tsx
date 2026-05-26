@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -514,12 +515,15 @@ const Hero: React.FC = () => {
               variants={textReveal}
               className="flex flex-wrap gap-4 pt-2 lg:justify-start justify-center"
             >
-              <button className="premium-button px-9 py-4 rounded-[14px] font-bold text-base flex items-center gap-3 shadow-xl shadow-primary/20 group">
+              <Link
+                to="/courses"
+                className="premium-button px-9 py-4 rounded-[14px] font-bold text-base flex items-center gap-3 shadow-xl shadow-primary/20 group text-white hover:text-white/90"
+              >
                 Explore Courses
                 <span className="group-hover:translate-x-1 transition-transform">
                   <ArrowRight size={18} />
                 </span>
-              </button>
+              </Link>
             </motion.div>
           </motion.div>
 

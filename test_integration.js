@@ -3,7 +3,7 @@ const axios = require('axios');
 
 // Set up PostgreSQL Connection
 const pool = new Pool({
-  connectionString: "postgresql://postgres:root@localhost:5433/ascope_db"
+  connectionString: "postgresql://postgres:root@localhost:5432/ascope_db"
 });
 
 const BASE_URL = 'http://localhost:5004/api';
