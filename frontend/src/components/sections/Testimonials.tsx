@@ -143,7 +143,7 @@ const Testimonials: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-4xl lg:text-5xl font-heading font-black text-navy mb-16 leading-tight"
+          className="text-4xl lg:text-5xl font-heading font-black text-navy mb-8 md:mb-16 leading-tight"
         >
           What Our Alumni <span className="text-gradient">Achieved</span>
         </motion.h3>

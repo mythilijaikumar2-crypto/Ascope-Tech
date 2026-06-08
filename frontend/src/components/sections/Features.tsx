@@ -32,9 +32,9 @@ const features = [
 
 const Features: React.FC = () => {
   return (
-    <section className="py-24 bg-cream">
+    <section className="py-12 md:py-24 bg-cream">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="mb-16 lg:text-left text-center">
+        <div className="mb-8 md:mb-16 lg:text-left text-center">
           <p className="text-accent font-black text-xs uppercase tracking-[0.4em] mb-4">
             Why Choose Us
           </p>
@@ -43,7 +43,7 @@ const Features: React.FC = () => {
             <br className="hidden lg:block" />
             <span className="text-gradient">launch your career</span>
           </h2>
-          <div className="w-16 h-1.5 bg-accent mt-6 lg:mx-0 mx-auto" />
+          <div className="w-16 h-1.5 bg-accent mt-4 md:mt-6 lg:mx-0 mx-auto" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

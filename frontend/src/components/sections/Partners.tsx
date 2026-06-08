@@ -1,9 +1,18 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+
+const TEXT = {
+  consultancy: "CONSULTANCY",
+  services: "SERVICES",
+  infosys: "Infosys",
+  zoho: "ZOHO",
+  hexaware: "HEXAWARE",
+  accenture: "accenture",
+  graduatesHeader: "Our Graduates Work At"
+};
 
 
 const TCSIcon: React.FC = () => (
-  <svg className="h-8 w-auto shrink-0" viewBox="0 0 145 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="145" height="35" className="h-8 w-auto shrink-0" viewBox="0 0 145 35" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="tcsGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#f58220" />
@@ -26,19 +35,19 @@ const TCSIcon: React.FC = () => (
     </g>
     
     {/* Subtext */}
-    <text x="68" y="25" fill="#0258a5" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="7" letterSpacing="0.08em">CONSULTANCY</text>
-    <text x="68" y="32" fill="#0258a5" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="7" letterSpacing="0.08em">SERVICES</text>
+    <text x="68" y="25" fill="#0258a5" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="7" letterSpacing="0.08em">{TEXT.consultancy}</text>
+    <text x="68" y="32" fill="#0258a5" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="7" letterSpacing="0.08em">{TEXT.services}</text>
   </svg>
 );
 
 const InfosysIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 70 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <text x="0" y="16" fill="#007cc3" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="18" letterSpacing="-0.03em">Infosys</text>
+  <svg width="70" height="20" className="h-6 w-auto shrink-0" viewBox="0 0 70 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <text x="0" y="16" fill="#007cc3" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="18" letterSpacing="-0.03em">{TEXT.infosys}</text>
   </svg>
 );
 
 const WiproIcon: React.FC = () => (
-  <svg className="h-8 w-auto shrink-0" viewBox="0 0 376.8 296.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="376.8" height="296.5" className="h-8 w-auto shrink-0" viewBox="0 0 376.8 296.5" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path id="path999" d="m341.1 116.4c2.1 8 10.3 12.8 18.4 10.6 8-2.1 12.8-10.3 10.6-18.4-2.1-8-10.3-12.8-18.4-10.6-7.9 2.2-12.7 10.4-10.6 18.4z" fill="#2A4C87" />
   <path id="path1001" d="m320.8 132.4c5.4-1.5 8.7-7.1 7.2-12.5s-7.1-8.7-12.5-7.2-8.7 7.1-7.2 12.5c1.4 5.4 7 8.6 12.5 7.2z" fill="#2A4C87" />
   <path id="path1003" d="m290.8 137.6c4-1.1 6.4-5.2 5.3-9.2s-5.2-6.4-9.2-5.3-6.4 5.2-5.3 9.2 5.2 6.4 9.2 5.3z" fill="#2A4C87" />
@@ -126,7 +135,7 @@ const WiproIcon: React.FC = () => (
 );
 
 const HclTechIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 120 28" fill="#0056b3" xmlns="http://www.w3.org/2000/svg">
+  <svg width="120" height="28" className="h-6 w-auto shrink-0" viewBox="0 0 120 28" fill="#0056b3" xmlns="http://www.w3.org/2000/svg">
     <g transform="skewX(-20)">
       <path d="M12 2h8v8h10V2h8v24h-8v-9H20v9h-8V2z" />
       <path d="M68 2c-12 0-20 5-20 12s8 12 20 12c8 0 14-3 17-7l-6-4.5c-2.5 3-6.5 4.5-11 4.5-7.5 0-12-3.5-12-5s4.5-5 12-5c4.5 0 8.5 1.5 11 4.5l6-4.5C82 5 76 2 68 2z" />
@@ -136,7 +145,7 @@ const HclTechIcon: React.FC = () => (
 );
 
 const CognizantIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 245.8 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="245.8" height="44" className="h-6 w-auto shrink-0" viewBox="0 0 245.8 44" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <path id="cog_1" d="M59.2 2.7h186.7v40.8H59.2z" />
       <clipPath id="cog_clip_1">
@@ -206,29 +215,29 @@ const CognizantIcon: React.FC = () => (
 );
 
 const ZohoIcon: React.FC = () => (
-  <svg className="h-8 w-auto shrink-0" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="200" height="100" className="h-8 w-auto shrink-0" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="25" y="22" width="38" height="38" rx="8" stroke="#f21c24" strokeWidth="6" transform="rotate(-6 44 41)" />
     <rect x="62" y="16" width="38" height="38" rx="8" stroke="#00a65a" strokeWidth="6" transform="rotate(14 81 35)" />
     <rect x="99" y="18" width="38" height="38" rx="8" stroke="#0071bc" strokeWidth="6" transform="rotate(-8 118 37)" />
     <rect x="136" y="22" width="38" height="38" rx="8" stroke="#f9b217" strokeWidth="6" transform="rotate(4 155 41)" />
-    <text x="100" y="85" textAnchor="middle" fill="#000000" fontFamily="Inter, sans-serif" fontWeight="900" fontSize="16" letterSpacing="0.2em">ZOHO</text>
+    <text x="100" y="85" textAnchor="middle" fill="#000000" fontFamily="Inter, sans-serif" fontWeight="900" fontSize="16" letterSpacing="0.2em">{TEXT.zoho}</text>
   </svg>
 );
 
 const HexawareIcon: React.FC = () => (
-  <svg className="h-8 w-auto shrink-0" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="120" height="50" className="h-8 w-auto shrink-0" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(42, 2)">
       <path d="M4 14V8h4V4h4v4h4v4h-4v6c0 1.5 0.5 2 2 2h2v4h-3.5C8 24 8 20 8 18v-6H4z" fill="#004b87" />
       <rect x="20" y="8" width="4" height="16" rx="1" fill="#004b87" />
       <circle cx="22" cy="3" r="2.5" fill="#e31b23" />
       <circle cx="30" cy="21" r="2.5" fill="#ffc20e" />
     </g>
-    <text x="60" y="44" textAnchor="middle" fill="#1f2937" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="11" letterSpacing="0.15em">HEXAWARE</text>
+    <text x="60" y="44" textAnchor="middle" fill="#1f2937" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="11" letterSpacing="0.15em">{TEXT.hexaware}</text>
   </svg>
 );
 
 const CapgeminiIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="-1 -1 162 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="162" height="38" className="h-6 w-auto shrink-0" viewBox="-1 -1 162 38" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fill="#12abdb"
       fillRule="evenodd"
@@ -245,14 +254,14 @@ const CapgeminiIcon: React.FC = () => (
 );
 
 const AccentureIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="120" height="30" className="h-6 w-auto shrink-0" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M66 2l5 3.5-5 3.5" stroke="#a100ff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    <text x="5" y="24" fill="#000000" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="18" letterSpacing="-0.04em">accenture</text>
+    <text x="5" y="24" fill="#000000" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="18" letterSpacing="-0.04em">{TEXT.accenture}</text>
   </svg>
 );
 
 const LtiMindtreeIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 114 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="114" height="30" className="h-6 w-auto shrink-0" viewBox="0 0 114 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M 12 5 L 12 25 L 30 25" stroke="#ff5a4e" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
     <path d="M 40 5 L 64 5 M 52 5 L 52 25" stroke="#ff5a4e" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
     <path d="M 74 25 L 74 5 L 88 16 L 102 5 L 102 25" stroke="#ff5a4e" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -276,45 +285,65 @@ const partners = [
 ];
 
 const Partners: React.FC = () => {
-  const tripled = [...partners, ...partners, ...partners];
-
   return (
-    <section className="py-16 bg-white overflow-hidden border-y border-border/30 select-none">
+    <section className="pt-2 pb-6 md:py-16 bg-white overflow-hidden border-y border-border/30 select-none">
       <div className="w-full">
-        <p className="text-center text-muted font-black uppercase tracking-[0.3em] text-[10px] mb-10">
-          Our Graduates Work At
+        <p className="text-center text-muted font-black uppercase tracking-[0.3em] text-[10px] mb-6 md:mb-10">
+          {TEXT.graduatesHeader}
         </p>
 
         {/* Infinite scrolling marquee */}
-        <div className="relative w-full flex items-center overflow-hidden">
+        <div className="relative w-full overflow-hidden">
           {/* Fade masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-          <motion.div
-            className="flex items-center gap-6 whitespace-nowrap"
-            animate={{ x: ['0%', '-33.333%'] }}
-            transition={{ ease: 'linear', duration: 60, repeat: Infinity }}
-            style={{
-              width: 'fit-content',
-              willChange: 'transform',
-              WebkitBackfaceVisibility: 'hidden',
-              backfaceVisibility: 'hidden',
-            }}
-          >
-            {tripled.map((partner, idx) => (
-              <div
-                key={idx}
-                className="h-14 min-w-[140px] inline-flex items-center justify-center bg-white px-6 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium transition-all duration-300 select-none cursor-default group"
-              >
-                <div className="flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  {partner.icon}
+          <div className="flex w-max animate-partners-marquee gap-8 py-2">
+            {/* First Set of Logos */}
+            <div className="flex gap-8 shrink-0">
+              {partners.map((partner, i) => (
+                <div 
+                  key={i} 
+                  className="h-14 min-w-[140px] shrink-0 inline-flex items-center justify-center bg-white px-6 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium transition-all duration-300 select-none cursor-default group"
+                >
+                   <div className="flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                      {partner.icon}
+                   </div>
                 </div>
-              </div>
-            ))}
-          </motion.div>
+              ))}
+            </div>
+            {/* Second Duplicate Set for Seamless Loop */}
+            <div className="flex gap-8 shrink-0" aria-hidden="true">
+              {partners.map((partner, i) => (
+                <div 
+                  key={`dup-${i}`} 
+                  className="h-14 min-w-[140px] shrink-0 inline-flex items-center justify-center bg-white px-6 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium transition-all duration-300 select-none cursor-default group"
+                >
+                   <div className="flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                      {partner.icon}
+                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Global Marquee Styles */}
+      <style>{`
+        @keyframes partners-marquee {
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(calc(-50% - 1rem), 0, 0); }
+        }
+        .animate-partners-marquee {
+          animation: partners-marquee 45s linear infinite;
+        }
+        @media (max-width: 767px) {
+          .animate-partners-marquee {
+            animation: partners-marquee 22s linear infinite;
+          }
+        }
+      `}</style>
     </section>
   );
 };

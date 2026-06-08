@@ -29,7 +29,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.8,
     price: "₹11,999",
     originalPrice: "₹14,399",
-    image: "/images/pfc.png"
+    image: "/images/pythonfullcourse.png"
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.9,
     price: "₹19,999",
     originalPrice: "₹23,999",
-    image: "/images/jfs_image.png"
+    image: "/images/javafullstack.png"
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.9,
     price: "₹25,999",
     originalPrice: "₹31,199",
-    image: "/images/cseh_image.png"
+    image: "/images/cybersecurityimg.png"
   },
   {
     id: 4,
@@ -59,17 +59,17 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.7,
     price: "₹14,999",
     originalPrice: "₹17,999",
-    image: "/images/cc_image.png"
+    image: "/images/cloudimg.png"
   },
   {
     id: 5,
-    title: "Mastering in Python + C",
+    title: "Mastering in Python and C Programming",
     category: "Development",
     duration: "3 Months",
     rating: 4.8,
     price: "₹19,999",
     originalPrice: "₹23,999",
-    image: "/images/mpcp_image.png"
+    image: "/images/pythoncimg.png"
   },
   {
     id: 6,
@@ -79,7 +79,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.6,
     price: "₹9,999",
     originalPrice: "₹11,999",
-    image: "/images/dm_image.png"
+    image: "/images/digitalmarketing.png"
   },
   {
     id: 7,
@@ -89,7 +89,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.8,
     price: "₹9,999",
     originalPrice: "₹11,999",
-    image: "/images/ui_ux_course.png"
+    image: "/images/uiuximg.png"
   },
   {
     id: 8,
@@ -99,7 +99,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.9,
     price: "₹19,999",
     originalPrice: "₹23,999",
-    image: "/images/dsml_image.png"
+    image: "/images/datascienceandmachinelerning.png"
   },
   {
     id: 9,
@@ -109,7 +109,7 @@ export const FALLBACK_COURSES: Course[] = [
     rating: 4.8,
     price: "₹16,999",
     originalPrice: "₹20,399",
-    image: "/images/pds_image.png"
+    image: "/images/pythonanddatascienc.png"
   }
 ];
 

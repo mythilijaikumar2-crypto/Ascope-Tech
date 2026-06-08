@@ -22,6 +22,14 @@ interface Course {
   image: string;
 }
 
+const COURSES_COPY = {
+  discoverYour: "Discover Your ",
+  future: "Future",
+  subtitle: "Browse through our industry-vetted courses and start your journey towards becoming a world-class professional.",
+  courseFee: "Course Fee",
+  off20: "20% OFF",
+};
+
 const Courses: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [courses, setCourses] = useState<Course[]>([]);
@@ -66,7 +74,7 @@ const Courses: React.FC = () => {
   return (
     <div className="bg-white min-h-screen font-sans overflow-x-hidden">
       {/* 1. Streamlined Search Header */}
-      <section className="relative pt-40 pb-20 overflow-hidden">
+      <section className="relative pt-24 pb-12 md:pt-40 md:pb-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -74,10 +82,10 @@ const Courses: React.FC = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-navy mb-8 tracking-tighter">
-              Discover Your <span className="text-gradient">Future</span>
+              {COURSES_COPY.discoverYour}<span className="text-gradient">{COURSES_COPY.future}</span>
             </h1>
             <p className="text-navy/60 max-w-2xl mx-auto text-lg font-medium leading-relaxed">
-              Browse through our industry-vetted courses and start your journey towards becoming a world-class professional.
+              {COURSES_COPY.subtitle}
             </p>
           </motion.div>
         </div>
@@ -147,11 +155,11 @@ const Courses: React.FC = () => {
                     key={course.id}
                     className="bg-white rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-soft hover:shadow-premium transition-all duration-500 group border border-border/50 hover:border-accent/40 flex flex-col justify-between h-full relative"
                   >
-                    <div className="relative h-44 sm:h-64 overflow-hidden bg-slate-50/50">
+                    <div className="relative w-full overflow-hidden bg-slate-50/50 rounded-t-[24px] sm:rounded-t-[32px]">
                       <img
                         src={course.image}
                         alt={course.title}
-                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-auto block transition-transform duration-700 group-hover:scale-105 rounded-t-[24px] sm:rounded-t-[32px]"
                       />
                       {/* Glass shine transition sweep on hover */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
@@ -178,14 +186,14 @@ const Courses: React.FC = () => {
 
                       <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-border/50">
                         <div className="flex flex-col">
-                          <span className="text-[10px] text-navy/40 font-black uppercase tracking-widest mb-1">Course Fee</span>
+                          <span className="text-[10px] text-navy/40 font-black uppercase tracking-widest mb-1">{COURSES_COPY.courseFee}</span>
                           <div className="flex items-baseline gap-2">
                             <span className="text-xl sm:text-2xl font-black text-navy">{course.price}</span>
                             {course.originalPrice && (
                               <span className="text-xs sm:text-sm font-semibold text-navy/30 line-through">{course.originalPrice}</span>
                             )}
                             {course.originalPrice && (
-                              <span className="text-[9px] bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">20% OFF</span>
+                              <span className="text-[9px] bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">{COURSES_COPY.off20}</span>
                             )}
                           </div>
                         </div>

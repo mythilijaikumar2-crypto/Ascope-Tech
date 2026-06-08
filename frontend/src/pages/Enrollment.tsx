@@ -28,6 +28,21 @@ const Enrollment: React.FC = () => {
 
   const handleEnroll = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Check if phone number is exactly 10 digits
+    const cleanedPhone = formData.phone.replace(/\D/g, '');
+    if (cleanedPhone.length !== 10) {
+      setStatus({ type: 'error', message: 'Phone number must be exactly 10 digits.' });
+      return;
+    }
+
+    // Check if email format is valid
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus({ type: 'error', message: 'Please enter a valid email address.' });
+      return;
+    }
+
     setStatus({ type: 'loading', message: 'Processing enrollment...' });
 
     try {
@@ -72,9 +87,9 @@ const Enrollment: React.FC = () => {
         </div>
 
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="bg-white p-10 lg:p-14 rounded-[48px] shadow-premium border border-white relative overflow-hidden"
+           initial={{ opacity: 0, scale: 0.95 }}
+           animate={{ opacity: 1, scale: 1 }}
+           className="bg-white p-10 lg:p-14 rounded-[48px] shadow-premium border border-white relative overflow-hidden"
         >
           {status.type === 'success' ? (
             <div className="text-center py-10">
@@ -108,7 +123,7 @@ const Enrollment: React.FC = () => {
                     required
                     value={formData.fullName}
                     onChange={(e) => setFormData({...formData, fullName: e.target.value})}
-                    placeholder="John Doe" 
+                    placeholder="Enter your name" 
                     className="w-full px-7 py-4 rounded-2xl bg-sky/20 border-2 border-transparent focus:border-primary/20 focus:bg-white outline-none transition-all font-medium text-navy" 
                   />
                 </div>
@@ -132,8 +147,15 @@ const Enrollment: React.FC = () => {
                     type="tel" 
                     required
                     value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    placeholder="+91 00000 00000" 
+                    onChange={(e) => {
+                      const val = e.target.value.replace(/\D/g, '');
+                      if (val.length <= 10) {
+                        setFormData({...formData, phone: val});
+                      }
+                    }}
+                    placeholder="Enter 10-digit phone number"
+                    maxLength={10}
+                    pattern="[0-9]{10}"
                     className="w-full px-7 py-4 rounded-2xl bg-sky/20 border-2 border-transparent focus:border-primary/20 focus:bg-white outline-none transition-all font-medium text-navy" 
                   />
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 import {
   TrendingUp,
@@ -13,8 +14,18 @@ import {
 } from 'lucide-react';
 
 // Sleek, high-quality, color-accurate inline SVG brand icons for Placements Marquee
+const STRINGS = {
+  globalHiringPartners: "Our Global Hiring Partners",
+  consultancy: "CONSULTANCY",
+  services: "SERVICES",
+  infosys: "Infosys",
+  zoho: "ZOHO",
+  hexaware: "HEXAWARE",
+  accenture: "accenture"
+};
+
 const TcsIcon: React.FC = () => (
-  <svg className="h-8 w-auto shrink-0" viewBox="0 0 145 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="145" height="35" className="h-8 w-auto shrink-0" viewBox="0 0 145 35" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="tcsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#f58220" />
@@ -37,19 +48,19 @@ const TcsIcon: React.FC = () => (
     </g>
     
     {/* Subtext */}
-    <text x="68" y="25" fill="#0258a5" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="7" letterSpacing="0.08em">CONSULTANCY</text>
-    <text x="68" y="32" fill="#0258a5" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="7" letterSpacing="0.08em">SERVICES</text>
+    <text x="68" y="25" fill="#0258a5" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="7" letterSpacing="0.08em">{STRINGS.consultancy}</text>
+    <text x="68" y="32" fill="#0258a5" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="7" letterSpacing="0.08em">{STRINGS.services}</text>
   </svg>
 );
 
 const InfosysIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 70 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <text x="0" y="16" fill="#007cc3" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="18" letterSpacing="-0.03em">Infosys</text>
+  <svg width="70" height="20" className="h-6 w-auto shrink-0" viewBox="0 0 70 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <text x="0" y="16" fill="#007cc3" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="18" letterSpacing="-0.03em">{STRINGS.infosys}</text>
   </svg>
 );
 
 const WiproIcon: React.FC = () => (
-  <svg className="h-8 w-auto shrink-0" viewBox="0 0 376.8 296.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="376.8" height="296.5" className="h-8 w-auto shrink-0" viewBox="0 0 376.8 296.5" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path id="path999" d="m341.1 116.4c2.1 8 10.3 12.8 18.4 10.6 8-2.1 12.8-10.3 10.6-18.4-2.1-8-10.3-12.8-18.4-10.6-7.9 2.2-12.7 10.4-10.6 18.4z" fill="#2A4C87" />
   <path id="path1001" d="m320.8 132.4c5.4-1.5 8.7-7.1 7.2-12.5s-7.1-8.7-12.5-7.2-8.7 7.1-7.2 12.5c1.4 5.4 7 8.6 12.5 7.2z" fill="#2A4C87" />
   <path id="path1003" d="m290.8 137.6c4-1.1 6.4-5.2 5.3-9.2s-5.2-6.4-9.2-5.3-6.4 5.2-5.3 9.2 5.2 6.4 9.2 5.3z" fill="#2A4C87" />
@@ -137,7 +148,7 @@ const WiproIcon: React.FC = () => (
 );
 
 const HclTechIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 120 28" fill="#0056b3" xmlns="http://www.w3.org/2000/svg">
+  <svg width="120" height="28" className="h-6 w-auto shrink-0" viewBox="0 0 120 28" fill="#0056b3" xmlns="http://www.w3.org/2000/svg">
     <g transform="skewX(-20)">
       <path d="M12 2h8v8h10V2h8v24h-8v-9H20v9h-8V2z" />
       <path d="M68 2c-12 0-20 5-20 12s8 12 20 12c8 0 14-3 17-7l-6-4.5c-2.5 3-6.5 4.5-11 4.5-7.5 0-12-3.5-12-5s4.5-5 12-5c4.5 0 8.5 1.5 11 4.5l6-4.5C82 5 76 2 68 2z" />
@@ -147,7 +158,7 @@ const HclTechIcon: React.FC = () => (
 );
 
 const CognizantIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 245.8 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="245.8" height="44" className="h-6 w-auto shrink-0" viewBox="0 0 245.8 44" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <path id="cog_1" d="M59.2 2.7h186.7v40.8H59.2z" />
       <clipPath id="cog_clip_1">
@@ -217,29 +228,29 @@ const CognizantIcon: React.FC = () => (
 );
 
 const ZohoIcon: React.FC = () => (
-  <svg className="h-8 w-auto shrink-0" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="200" height="100" className="h-8 w-auto shrink-0" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="25" y="22" width="38" height="38" rx="8" stroke="#f21c24" strokeWidth="6" transform="rotate(-6 44 41)" />
     <rect x="62" y="16" width="38" height="38" rx="8" stroke="#00a65a" strokeWidth="6" transform="rotate(14 81 35)" />
     <rect x="99" y="18" width="38" height="38" rx="8" stroke="#0071bc" strokeWidth="6" transform="rotate(-8 118 37)" />
     <rect x="136" y="22" width="38" height="38" rx="8" stroke="#f9b217" strokeWidth="6" transform="rotate(4 155 41)" />
-    <text x="100" y="85" textAnchor="middle" fill="#000000" fontFamily="Inter, sans-serif" fontWeight="900" fontSize="16" letterSpacing="0.2em">ZOHO</text>
+    <text x="100" y="85" textAnchor="middle" fill="#000000" fontFamily="Inter, sans-serif" fontWeight="900" fontSize="16" letterSpacing="0.2em">{STRINGS.zoho}</text>
   </svg>
 );
 
 const HexawareIcon: React.FC = () => (
-  <svg className="h-8 w-auto shrink-0" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="120" height="50" className="h-8 w-auto shrink-0" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(42, 2)">
       <path d="M4 14V8h4V4h4v4h4v4h-4v6c0 1.5 0.5 2 2 2h2v4h-3.5C8 24 8 20 8 18v-6H4z" fill="#004b87" />
       <rect x="20" y="8" width="4" height="16" rx="1" fill="#004b87" />
       <circle cx="22" cy="3" r="2.5" fill="#e31b23" />
       <circle cx="30" cy="21" r="2.5" fill="#ffc20e" />
     </g>
-    <text x="60" y="44" textAnchor="middle" fill="#1f2937" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="11" letterSpacing="0.15em">HEXAWARE</text>
+    <text x="60" y="44" textAnchor="middle" fill="#1f2937" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="11" letterSpacing="0.15em">{STRINGS.hexaware}</text>
   </svg>
 );
 
 const CapgeminiIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="-1 -1 162 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="162" height="38" className="h-6 w-auto shrink-0" viewBox="-1 -1 162 38" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fill="#12abdb"
       fillRule="evenodd"
@@ -256,14 +267,14 @@ const CapgeminiIcon: React.FC = () => (
 );
 
 const AccentureIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="120" height="30" className="h-6 w-auto shrink-0" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M66 2l5 3.5-5 3.5" stroke="#a100ff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    <text x="5" y="24" fill="#000000" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="18" letterSpacing="-0.04em">accenture</text>
+    <text x="5" y="24" fill="#000000" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="18" letterSpacing="-0.04em">{STRINGS.accenture}</text>
   </svg>
 );
 
 const LtiMindtreeIcon: React.FC = () => (
-  <svg className="h-6 w-auto shrink-0" viewBox="0 0 114 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="114" height="30" className="h-6 w-auto shrink-0" viewBox="0 0 114 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M 12 5 L 12 25 L 30 25" stroke="#ff5a4e" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
     <path d="M 40 5 L 64 5 M 52 5 L 52 25" stroke="#ff5a4e" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
     <path d="M 74 25 L 74 5 L 88 16 L 102 5 L 102 25" stroke="#ff5a4e" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -330,22 +341,28 @@ const Placements: React.FC = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen font-sans selection:bg-navy/10 overflow-x-hidden pt-20">
+    <div className="bg-white min-h-screen font-sans selection:bg-navy/10 overflow-x-hidden pt-16 md:pt-20">
+      {/* GPU-Accelerated Hardware CSS Animations */}
+      <style>{`
+        @keyframes float-up-subtle {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-4px); }
+        }
+        @keyframes float-down-subtle {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(4px); }
+        }
+        .placements-float-up {
+          animation: float-up-subtle 6s ease-in-out infinite;
+        }
+        .placements-float-down {
+          animation: float-down-subtle 5s ease-in-out infinite;
+        }
+      `}</style>
 
       {/* 1. Compact Brand-Dominant Hero Section */}
-      <section className="relative py-20 lg:py-24 flex items-center justify-center overflow-hidden bg-cream/20 border-b border-border/20">
-        {/* Decorative Success Wall Background */}
-        <div className="absolute inset-0 z-0 opacity-[0.015] select-none pointer-events-none rotate-[-4deg] scale-110">
-          <div className="flex flex-col gap-8">
-            {[1, 2, 3, 4].map((row) => (
-              <div key={row} className={`flex gap-16 whitespace-nowrap ${row % 2 === 0 ? 'translate-x-[-50px]' : 'translate-x-[50px]'}`}>
-                {["GOOGLE", "META", "AMAZON", "NETFLIX", "APPLE", "MICROSOFT", "ADOBE", "TESLA"].map((brand) => (
-                  <span key={brand} className="text-7xl font-black italic">{brand}</span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="relative py-8 md:py-20 lg:py-24 flex items-center justify-center overflow-hidden bg-cream/20 border-b border-border/20">
+
 
         <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
           <motion.div
@@ -373,9 +390,12 @@ const Placements: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button className="px-8 py-3.5 bg-navy text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-primary transition-all shadow-md active:scale-95">
+              <Link
+                to="/courses"
+                className="px-8 py-3.5 bg-navy text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-primary transition-all shadow-md active:scale-95 inline-block text-center"
+              >
                 Start Your Journey
-              </button>
+              </Link>
 
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-3">
@@ -397,26 +417,20 @@ const Placements: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Floating Decorative Stats (Compact & Sleek) */}
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          style={{ willChange: "transform", WebkitBackfaceVisibility: "hidden", backfaceVisibility: "hidden" }}
-          className="absolute top-16 right-10 lg:right-24 bg-white p-4 px-5 rounded-2xl shadow-soft border border-border/40 hidden md:block"
+        {/* Floating Decorative Stats (Compact & Sleek) - Optimized with GPU CSS */}
+        <div
+          className="absolute top-16 right-10 lg:right-24 bg-white p-4 px-5 rounded-2xl shadow-soft border border-border/40 hidden md:block placements-float-up"
         >
           <div className="text-xl font-black text-navy mb-0.5">95%</div>
           <div className="text-[9px] font-bold uppercase tracking-widest text-navy/40">Placement Rate</div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          style={{ willChange: "transform", WebkitBackfaceVisibility: "hidden", backfaceVisibility: "hidden" }}
-          className="absolute bottom-16 left-10 lg:left-24 bg-white p-4 px-5 rounded-2xl shadow-soft border border-border/40 hidden md:block"
+        <div
+          className="absolute bottom-16 left-10 lg:left-24 bg-white p-4 px-5 rounded-2xl shadow-soft border border-border/40 hidden md:block placements-float-down"
         >
           <div className="text-xl font-black text-navy mb-0.5">₹12 LPA</div>
           <div className="text-[9px] font-bold uppercase tracking-widest text-navy/40">Highest Package</div>
-        </motion.div>
+        </div>
       </section>
 
       {/* 2. Success Statistics (Compact padding & spacing) */}
@@ -426,10 +440,10 @@ const Placements: React.FC = () => {
             {stats.map((stat, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
+                transition={{ duration: 0.35, delay: idx * 0.04 }}
                 className="text-center group"
               >
                 <div className={`w-12 h-12 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-105`}>
@@ -594,30 +608,45 @@ const Placements: React.FC = () => {
       </section>
 
       {/* 4. Partners Marquee (Fully optimized and GPU hardware accelerated) */}
-      <section className="py-14 bg-sky/20 overflow-hidden border-y border-border/30">
-         <div className="max-w-7xl mx-auto px-6 mb-8">
-            <h3 className="text-navy/20 font-black uppercase tracking-[0.4em] text-[9px] text-center">Global Hiring Partners</h3>
+      <section className="py-14 bg-sky/20 overflow-hidden border-y border-border/30 relative select-none">
+         <div className="max-w-7xl mx-auto px-6 mb-8 relative z-20">
+            <h3 className="text-navy/20 font-black uppercase tracking-[0.4em] text-[9px] text-center">{STRINGS.globalHiringPartners}</h3>
          </div>
-         <div 
-           className="flex gap-8 whitespace-nowrap animate-marquee items-center"
-           style={{ 
-             willChange: "transform",
-             WebkitBackfaceVisibility: "hidden",
-             backfaceVisibility: "hidden"
-           }}
-         >
-            {[...partners, ...partners, ...partners].map((p, i) => (
-              <div 
-                key={i} 
-                className="h-14 min-w-[140px] inline-flex items-center justify-center bg-white px-6 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium transition-all duration-300 select-none cursor-default group"
-              >
-                 <div className="flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                    {p.icon}
-                 </div>
-              </div>
-            ))}
-         </div>
+         
+         <div className="relative w-full overflow-hidden">
+           {/* Fade masks */}
+           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-sky/20 to-transparent z-10 pointer-events-none" />
+           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-sky/20 to-transparent z-10 pointer-events-none" />
 
+           <div className="flex w-max animate-marquee gap-8 py-2">
+             {/* First Set of Logos */}
+             <div className="flex gap-8 shrink-0">
+               {partners.map((p, i) => (
+                 <div 
+                   key={i} 
+                   className="h-14 min-w-[140px] shrink-0 inline-flex items-center justify-center bg-white px-6 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium transition-all duration-300 select-none cursor-default group"
+                 >
+                    <div className="flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                       {p.icon}
+                    </div>
+                 </div>
+               ))}
+             </div>
+             {/* Second Duplicate Set for Seamless Loop */}
+             <div className="flex gap-8 shrink-0" aria-hidden="true">
+               {partners.map((p, i) => (
+                 <div 
+                   key={`dup-${i}`} 
+                   className="h-14 min-w-[140px] shrink-0 inline-flex items-center justify-center bg-white px-6 rounded-2xl border border-border/40 shadow-soft hover:shadow-premium transition-all duration-300 select-none cursor-default group"
+                 >
+                    <div className="flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                       {p.icon}
+                    </div>
+                 </div>
+               ))}
+             </div>
+           </div>
+         </div>
       </section>
 
       {/* 5. Salary Benchmarks (Sleek sizing & thin ROI bars) */}
@@ -718,7 +747,7 @@ const Placements: React.FC = () => {
             transition={{ duration: 10, repeat: Infinity }}
             className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full pointer-events-none"
           />
-          <div className="relative z-10 space-y-6">
+          <div className="relative z-10 flex flex-col items-center justify-center space-y-10">
             <motion.h2
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -728,37 +757,33 @@ const Placements: React.FC = () => {
               Ready to be our next <br />
               <span className="text-gradient">success story?</span>
             </motion.h2>
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-3.5 bg-navy text-white rounded-xl font-black text-xs uppercase tracking-widest hover:bg-primary transition-all shadow-md active:scale-95"
-            >
-              Apply for Next Batch
-            </motion.button>
+            <Link to="/courses">
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="px-8 py-3.5 bg-navy text-white rounded-xl font-black text-xs uppercase tracking-widest hover:bg-primary transition-all shadow-md active:scale-95"
+              >
+                Apply for Next Batch
+              </motion.button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Minimal Footer */}
-      <footer className="py-8 bg-white border-t border-border/40 px-6">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-navy/20 text-[9px] font-black uppercase tracking-widest">© 2026 Ascope Tech. Global placement division.</p>
-          <div className="flex gap-6">
-            {['Success Reports', 'Hiring Portal', 'Alumni Network'].map(t => (
-              <a key={t} href="#" className="text-navy/20 text-[9px] font-black uppercase tracking-widest hover:text-navy transition-colors">{t}</a>
-            ))}
-          </div>
-        </div>
-      </footer>
 
       {/* Global Marquee Styles */}
       <style>{`
         @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(calc(-50% - 1rem), 0, 0); }
         }
         .animate-marquee {
           animation: marquee 35s linear infinite;
+        }
+        @media (max-width: 767px) {
+          .animate-marquee {
+            animation: marquee 16s linear infinite;
+          }
         }
       `}</style>
     </div>

@@ -5,6 +5,14 @@ import { Star, ArrowRight } from "lucide-react";
 import api from "../../services/api";
 import { FALLBACK_COURSES } from "../../services/fallbackData";
 
+const POPULAR_COPY = {
+  industryLeading: "Industry Leading",
+  ourMostPopular: "Our Most Popular ",
+  courses: "Courses",
+  exploreFullCatalog: "Explore Full Catalog",
+  courseFee: "Course Fee",
+};
+
 interface Course {
   id: string | number;
   title: string;
@@ -57,21 +65,21 @@ const PopularCourses: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-12 md:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8"
+          className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 md:mb-16 gap-8"
         >
           <div className="max-w-2xl">
             <h2 className="text-sm font-black text-primary tracking-[0.4em] uppercase mb-4">
-              Industry Leading
+              {POPULAR_COPY.industryLeading}
             </h2>
             <h3 className="text-4xl lg:text-5xl font-heading font-black text-navy leading-tight tracking-tighter">
-              Our Most Popular <span className="text-gradient">Courses</span>
+              {POPULAR_COPY.ourMostPopular} <span className="text-gradient">{POPULAR_COPY.courses}</span>
             </h3>
           </div>
           <Link to="/courses">
@@ -79,7 +87,7 @@ const PopularCourses: React.FC = () => {
               whileHover={{ x: 8 }}
               className="flex items-center gap-2 text-navy font-black hover:text-primary transition-all uppercase tracking-[0.2em] text-[10px]"
             >
-              Explore Full Catalog <ArrowRight size={18} />
+              {POPULAR_COPY.exploreFullCatalog} <ArrowRight size={18} />
             </motion.button>
           </Link>
         </motion.div>
@@ -120,11 +128,11 @@ const PopularCourses: React.FC = () => {
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
                   className="bg-white rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-soft hover:shadow-premium group transition-all duration-500 border border-border/50 hover:border-accent/40 flex flex-col justify-between h-full relative"
                 >
-                  <div className="relative h-44 sm:h-64 overflow-hidden bg-slate-50/50">
+                  <div className="relative w-full overflow-hidden bg-slate-50/50 rounded-t-[24px] sm:rounded-t-[32px]">
                     <img
                       src={course.image}
                       alt={course.title}
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-auto block transition-transform duration-700 group-hover:scale-105 rounded-t-[24px] sm:rounded-t-[32px]"
                     />
                     {/* Glass shine transition sweep on hover */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
@@ -152,7 +160,7 @@ const PopularCourses: React.FC = () => {
                     <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-border/50">
                       <div className="flex flex-col">
                         <span className="text-[10px] text-navy/40 font-black uppercase tracking-widest mb-1">
-                          Course Fee
+                          {POPULAR_COPY.courseFee}
                         </span>
                         <div className="flex items-baseline gap-2">
                           <span className="text-xl sm:text-2xl font-black text-navy">{course.price}</span>

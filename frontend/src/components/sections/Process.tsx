@@ -79,7 +79,7 @@ const Process: React.FC = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-cream">
+    <section className="py-12 md:py-24 relative overflow-hidden bg-cream">
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent rounded-full blur-[150px] -translate-y-1/2" />
@@ -88,7 +88,7 @@ const Process: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="mb-20 text-center lg:text-left">
+        <div className="mb-10 md:mb-20 text-center lg:text-left">
           <p className="text-accent font-black text-xs uppercase tracking-[0.4em] mb-4">
             {text.sectionBadge}
           </p>
@@ -96,7 +96,7 @@ const Process: React.FC = () => {
             {text.headingLine1} <br className="hidden lg:block" />
             <span className="text-gradient">{text.headingLine2}</span>
           </h2>
-          <div className="w-16 h-1.5 bg-accent mt-6 lg:mx-0 mx-auto" />
+          <div className="w-16 h-1.5 bg-accent mt-4 md:mt-6 lg:mx-0 mx-auto" />
         </div>
 
         {/* Dynamic Process Steps */}

@@ -108,8 +108,8 @@ const Navbar: React.FC = () => {
             alt="Ascope Tech Logo"
             className={`w-auto object-contain drop-shadow-[0_0_30px_rgba(7,90,151,0.2)] relative z-10 cursor-pointer transition-all duration-300 ${
               scrolled 
-                ? 'h-9 md:h-12' 
-                : 'h-12 md:h-16'
+                ? 'h-11 md:h-12' 
+                : 'h-14 md:h-16'
             }`}
           />
         </Link>

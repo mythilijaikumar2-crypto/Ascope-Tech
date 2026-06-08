@@ -1,3 +1,9 @@
+# Protect sensitive environment files and hidden folders
+<FilesMatch "^\.env|^\.git|^\.htaccess">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f

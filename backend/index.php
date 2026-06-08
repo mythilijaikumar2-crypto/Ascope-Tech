@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // 2. Load .env file
-function loadEnv() {
+function loadEnv()
+{
     $envPath = __DIR__ . '/.env';
     if (!file_exists($envPath)) {
         return;
@@ -45,7 +46,8 @@ loadEnv();
 require_once __DIR__ . '/config/db.php';
 
 // 3. Database Initialization / Migrator (identical tables schema, constraints, indices, defaults, and seeds)
-function initDB() {
+function initDB()
+{
     try {
         $db = Database::connect();
 
@@ -217,7 +219,7 @@ function initDB() {
         Database::query("CREATE INDEX IF NOT EXISTS idx_enrollments_user ON enrollments(user_id)");
 
         // Seed mock coupons if empty
-        $couponCount = (int)Database::query("SELECT COUNT(*) FROM coupons")->fetchColumn();
+        $couponCount = (int) Database::query("SELECT COUNT(*) FROM coupons")->fetchColumn();
         if ($couponCount === 0) {
             Database::query("
                 INSERT INTO coupons (code, discount_type, discount_value, max_discount, min_cart_value, expires_at) VALUES
@@ -229,7 +231,7 @@ function initDB() {
         }
 
         // Seed default admin if empty
-        $adminCount = (int)Database::query("SELECT COUNT(*) FROM users WHERE role = 'admin'")->fetchColumn();
+        $adminCount = (int) Database::query("SELECT COUNT(*) FROM users WHERE role = 'admin'")->fetchColumn();
         if ($adminCount === 0) {
             $hashedPw = password_hash('adminpassword', PASSWORD_BCRYPT, ['cost' => 10]);
             Database::query("
@@ -240,19 +242,19 @@ function initDB() {
         }
 
         // Seed courses catalog if empty
-        $coursesCount = (int)Database::query("SELECT COUNT(*) FROM courses")->fetchColumn();
+        $coursesCount = (int) Database::query("SELECT COUNT(*) FROM courses")->fetchColumn();
         if ($coursesCount === 0) {
             Database::query("
                 INSERT INTO courses (title, category, duration, rating, price, original_price, image) VALUES 
-                ('Python Full Course', 'Development', '3 Months', 4.8, '₹11,999', '₹14,399', '/images/pfc.png'),
-                ('Java Full Stack Development', 'Development', '6 Months', 4.9, '₹19,999', '₹23,999', '/images/jfs_image.png'),
-                ('Cyber Security and Ethical Hacking', 'Development', '6 Months', 4.9, '₹25,999', '₹31,199', '/images/cseh_image.png'),
-                ('Cloud Computing', 'Development', '4 Months', 4.7, '₹14,999', '₹17,999', '/images/cc_image.png'),
-                ('Mastering in Python + C', 'Development', '3 Months', 4.8, '₹19,999', '₹23,999', '/images/mpcp_image.png'),
-                ('Digital Marketing', 'Marketing', '3 Months', 4.6, '₹9,999', '₹11,999', '/images/dm_image.png'),
-                ('UI/UX Design', 'Design', '3 Months', 4.8, '₹9,999', '₹11,999', '/images/ui_ux_course.png'),
-                ('Data Science and Machine Learning', 'Data Science', '6 Months', 4.9, '₹19,999', '₹23,999', '/images/dsml_image.png'),
-                ('Python and Data Science', 'Data Science', '4 Months', 4.8, '₹16,999', '₹20,399', '/images/pds_image.png');
+                ('Python Full Course', 'Development', '3 Months', 4.8, '₹11,999', '₹14,399', '/images/pythonfullcourse.png'),
+                ('Java Full Stack Development', 'Development', '6 Months', 4.9, '₹19,999', '₹23,999', '/images/javafullstack.png'),
+                ('Cyber Security and Ethical Hacking', 'Development', '6 Months', 4.9, '₹25,999', '₹31,199', '/images/cybersecurityimg.png'),
+                ('Cloud Computing', 'Development', '4 Months', 4.7, '₹14,999', '₹17,999', '/images/cloudimg.png'),
+                ('Mastering in Python and C Programming', 'Development', '3 Months', 4.8, '₹19,999', '₹23,999', '/images/pythoncimg.png'),
+                ('Digital Marketing', 'Marketing', '3 Months', 4.6, '₹9,999', '₹11,999', '/images/digitalmarketing.png'),
+                ('UI/UX Design', 'Design', '3 Months', 4.8, '₹9,999', '₹11,999', '/images/uiuximg.png'),
+                ('Data Science and Machine Learning', 'Data Science', '6 Months', 4.9, '₹19,999', '₹23,999', '/images/datascienceandmachinelerning.png'),
+                ('Python and Data Science', 'Data Science', '4 Months', 4.8, '₹16,999', '₹20,399', '/images/pythonanddatascienc.png');
             ");
             error_log("🌱 Seed data inserted into 'courses' table.");
         }
@@ -293,7 +295,8 @@ require_once __DIR__ . '/controllers/couponController.php';
 require_once __DIR__ . '/controllers/paymentController.php';
 
 // Helper to match paths with params (e.g. api/courses/5)
-function matchRoute($pattern, $path, &$params) {
+function matchRoute($pattern, $path, &$params)
+{
     $patternParts = explode('/', trim($pattern, '/'));
     $pathParts = explode('/', trim($path, '/'));
 
@@ -410,81 +413,81 @@ if (strpos($path, 'api') === 0) {
         } elseif ($method === 'GET' && $path === 'api/trainers') {
             $response = [
                 'data' => [
-                    [ 
-                        'id' => 1, 
-                        'name' => 'Mr Aswinraj', 
-                        'role' => 'Senior Full Stack Developer', 
-                        'company' => 'Zoho - Software Developer Engineer', 
+                    [
+                        'id' => 1,
+                        'name' => 'Mr Aswinraj',
+                        'role' => 'Senior Full Stack Developer',
+                        'company' => 'Zoho - Software Developer Engineer',
                         'skills' => ['React', 'Node.js', 'MongoDB', 'AWS', 'Docker'],
                         'color' => 'bg-[#0f172a]',
                         'emoji' => '👨‍💻',
                         'socials' => ['linkedin' => 'https://linkedin.com', 'github' => 'https://github.com', 'web' => 'https://ascope.tech']
                     ],
-                    [ 
-                        'id' => 2, 
-                        'name' => 'Ms Mahalakshmi V', 
-                        'role' => 'Java & DevOps Expert', 
-                        'company' => 'LT Mindtree - 2 Years Experience', 
+                    [
+                        'id' => 2,
+                        'name' => 'Ms Mahalakshmi V',
+                        'role' => 'Java & DevOps Expert',
+                        'company' => 'LT Mindtree - 2 Years Experience',
                         'skills' => ['Java', 'Spring Boot', 'Jenkins'],
                         'color' => 'bg-[#083344]',
                         'emoji' => '☕',
                         'socials' => ['linkedin' => 'https://linkedin.com', 'github' => 'https://github.com', 'web' => 'https://ascope.tech']
                     ],
-                    [ 
-                        'id' => 3, 
-                        'name' => 'Mr Keerthivasan VR', 
-                        'role' => 'UI/UX Design Expert & Digital Marketing Specialist', 
-                        'company' => 'Ex- Infinity notion - 5 Years Experience', 
+                    [
+                        'id' => 3,
+                        'name' => 'Mr Keerthivasan VR',
+                        'role' => 'UI/UX Design Expert & Digital Marketing Specialist',
+                        'company' => 'Ex- Infinity notion - 5 Years Experience',
                         'skills' => ['Figma', 'Adobe XD', 'Prototyping', 'Research'],
                         'color' => 'bg-[#581c87]',
                         'emoji' => '🎨',
                         'socials' => ['linkedin' => 'https://linkedin.com', 'github' => 'https://github.com', 'web' => 'https://ascope.tech']
                     ],
-                    [ 
-                        'id' => 4, 
-                        'name' => 'Priya', 
-                        'role' => 'Business Analytics Expert', 
-                        'company' => 'LT Mindtree - 2 Years Experience', 
+                    [
+                        'id' => 4,
+                        'name' => 'Priya',
+                        'role' => 'Business Analytics Expert',
+                        'company' => 'LT Mindtree - 2 Years Experience',
                         'skills' => ['Excel', 'Tableau', 'SAP', 'JIRA'],
                         'color' => 'bg-[#064e3b]',
                         'emoji' => '📈',
                         'socials' => ['linkedin' => 'https://linkedin.com', 'github' => 'https://github.com', 'web' => 'https://ascope.tech']
                     ],
-                    [ 
-                        'id' => 5, 
-                        'name' => 'Ms Yashmeen', 
-                        'role' => 'Data Science Lead', 
-                        'company' => 'Trainer On Ascope Tech', 
+                    [
+                        'id' => 5,
+                        'name' => 'Ms Yashmeen',
+                        'role' => 'Data Science Lead',
+                        'company' => 'Trainer On Ascope Tech',
                         'skills' => ['Python', 'ML', 'TensorFlow', 'SQL', 'Power BI'],
                         'color' => 'bg-[#064e3b]',
                         'emoji' => '👩‍🔬',
                         'socials' => ['linkedin' => 'https://linkedin.com', 'github' => 'https://github.com', 'web' => 'https://ascope.tech']
                     ],
-                    [ 
-                        'id' => 6, 
-                        'name' => 'Ms Brindha A', 
-                        'role' => 'Junior Full Stack Developer', 
-                        'company' => 'Ascope Tech - Core Developer', 
+                    [
+                        'id' => 6,
+                        'name' => 'Ms Brindha A',
+                        'role' => 'Junior Full Stack Developer',
+                        'company' => 'Ascope Tech - Core Developer',
                         'skills' => ['React', 'Node.js', 'Express.js', 'Tailwind CSS', 'MongoDB', 'Git'],
                         'color' => 'bg-[#075a97]',
                         'emoji' => '👩‍💻',
                         'socials' => ['linkedin' => 'https://linkedin.com', 'github' => 'https://github.com', 'web' => 'https://ascope.tech']
                     ],
-                    [ 
-                        'id' => 7, 
-                        'name' => 'Ms Dharshini S', 
-                        'role' => 'Data Science, Machine Learning & Data Analytics', 
-                        'company' => 'Ascope Tech - AI Specialist', 
+                    [
+                        'id' => 7,
+                        'name' => 'Ms Dharshini S',
+                        'role' => 'Data Science, Machine Learning & Data Analytics',
+                        'company' => 'Ascope Tech - AI Specialist',
                         'skills' => ['Python', 'Machine Learning', 'Data Analytics', 'Pandas', 'SQL', 'Scikit-Learn'],
                         'color' => 'bg-[#10b981]',
                         'emoji' => '👩‍🔬',
                         'socials' => ['linkedin' => 'https://linkedin.com', 'github' => 'https://github.com', 'web' => 'https://ascope.tech']
                     ],
-                    [ 
-                        'id' => 8, 
-                        'name' => 'Mr Sathiyanarayana J', 
-                        'role' => 'Cybersecurity & Ethical Hacking', 
-                        'company' => 'Ascope Tech - Security Lead', 
+                    [
+                        'id' => 8,
+                        'name' => 'Mr Sathiyanarayana J',
+                        'role' => 'Cybersecurity & Ethical Hacking',
+                        'company' => 'Ascope Tech - Security Lead',
                         'skills' => ['Ethical Hacking', 'Penetration Testing', 'Linux', 'Network Security', 'Wireshark', 'Metasploit'],
                         'color' => 'bg-[#6366f1]',
                         'emoji' => '👨‍💻',
@@ -495,8 +498,8 @@ if (strpos($path, 'api') === 0) {
             $handled = true;
         } elseif ($method === 'GET' && $path === 'api/placements') {
             $response = [
-                [ 'id' => 1, 'studentName' => 'Rahul S.', 'company' => 'Google', 'role' => 'Software Engineer' ],
-                [ 'id' => 2, 'studentName' => 'Priya K.', 'company' => 'Amazon', 'role' => 'Data Analyst' ]
+                ['id' => 1, 'studentName' => 'Rahul S.', 'company' => 'Google', 'role' => 'Software Engineer'],
+                ['id' => 2, 'studentName' => 'Priya K.', 'company' => 'Amazon', 'role' => 'Data Analyst']
             ];
             $handled = true;
         }
@@ -523,7 +526,7 @@ $frontendDistPath = dirname(__DIR__) . '/frontend/dist';
 if (is_dir($frontendDistPath)) {
     // Determine target file
     $targetFile = $frontendDistPath . $requestUri;
-    
+
     if (is_file($targetFile)) {
         // Resolve Content-Type
         $ext = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));

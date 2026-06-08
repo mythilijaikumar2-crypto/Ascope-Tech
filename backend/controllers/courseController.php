@@ -4,10 +4,12 @@
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../middleware/authMiddleware.php';
 
-class CourseController {
+class CourseController
+{
     private static $fallbackFile = __DIR__ . '/../data/courses_fallback.json';
 
-    private static function getFallbackCourses() {
+    private static function getFallbackCourses()
+    {
         try {
             $dir = dirname(self::$fallbackFile);
             if (!is_dir($dir)) {
@@ -23,7 +25,7 @@ class CourseController {
                         "rating" => 4.8,
                         "price" => "₹11,999",
                         "originalPrice" => "₹14,399",
-                        "image" => "/images/pfc.png"
+                        "image" => "/images/pythonfullcourse.png"
                     ],
                     [
                         "id" => 2,
@@ -33,7 +35,7 @@ class CourseController {
                         "rating" => 4.9,
                         "price" => "₹19,999",
                         "originalPrice" => "₹23,999",
-                        "image" => "/images/jfs_image.png"
+                        "image" => "/images/javafullstack.png"
                     ],
                     [
                         "id" => 3,
@@ -43,7 +45,7 @@ class CourseController {
                         "rating" => 4.9,
                         "price" => "₹25,999",
                         "originalPrice" => "₹31,199",
-                        "image" => "/images/cseh_image.png"
+                        "image" => "/images/cybersecurityimg.png"
                     ],
                     [
                         "id" => 4,
@@ -53,7 +55,7 @@ class CourseController {
                         "rating" => 4.7,
                         "price" => "₹14,999",
                         "originalPrice" => "₹17,999",
-                        "image" => "/images/cc_image.png"
+                        "image" => "/images/cloudimg.png"
                     ],
                     [
                         "id" => 5,
@@ -63,7 +65,7 @@ class CourseController {
                         "rating" => 4.8,
                         "price" => "₹19,999",
                         "originalPrice" => "₹23,999",
-                        "image" => "/images/mpcp_image.png"
+                        "image" => "/images/pythoncimg.png"
                     ],
                     [
                         "id" => 6,
@@ -73,7 +75,7 @@ class CourseController {
                         "rating" => 4.6,
                         "price" => "₹9,999",
                         "originalPrice" => "₹11,999",
-                        "image" => "/images/dm_image.png"
+                        "image" => "/images/digitalmarketing.png"
                     ],
                     [
                         "id" => 7,
@@ -83,7 +85,7 @@ class CourseController {
                         "rating" => 4.8,
                         "price" => "₹9,999",
                         "originalPrice" => "₹11,999",
-                        "image" => "/images/ui_ux_course.png"
+                        "image" => "/images/uiuximg.png"
                     ],
                     [
                         "id" => 8,
@@ -93,7 +95,7 @@ class CourseController {
                         "rating" => 4.9,
                         "price" => "₹19,999",
                         "originalPrice" => "₹23,999",
-                        "image" => "/images/dsml_image.png"
+                        "image" => "/images/datascienceandmachinelerning.png"
                     ],
                     [
                         "id" => 9,
@@ -103,7 +105,7 @@ class CourseController {
                         "rating" => 4.8,
                         "price" => "₹16,999",
                         "originalPrice" => "₹20,399",
-                        "image" => "/images/pds_image.png"
+                        "image" => "/images/pythonanddatascienc.png"
                     ]
                 ];
                 file_put_contents(self::$fallbackFile, json_encode($initialData, JSON_PRETTY_PRINT));
@@ -116,7 +118,8 @@ class CourseController {
         }
     }
 
-    private static function saveFallbackCourses($courses) {
+    private static function saveFallbackCourses($courses)
+    {
         try {
             $dir = dirname(self::$fallbackFile);
             if (!is_dir($dir)) {
@@ -128,21 +131,23 @@ class CourseController {
         }
     }
 
-    private static function mapCourseRow($row) {
+    private static function mapCourseRow($row)
+    {
         return [
-            'id' => (int)$row['id'],
+            'id' => (int) $row['id'],
             'title' => $row['title'],
             'category' => $row['category'] ?? 'Development',
             'duration' => $row['duration'],
-            'rating' => (float)($row['rating'] ?? 4.8),
+            'rating' => (float) ($row['rating'] ?? 4.8),
             'price' => $row['price'],
             'originalPrice' => $row['original_price'] ?? $row['originalprice'] ?? $row['originalPrice'] ?? null,
             'image' => $row['image']
         ];
     }
 
-    public static function getAllCourses($req) {
-        $limit = isset($req['query']['limit']) ? (int)$req['query']['limit'] : null;
+    public static function getAllCourses($req)
+    {
+        $limit = isset($req['query']['limit']) ? (int) $req['query']['limit'] : null;
 
         try {
             $sql = 'SELECT * FROM courses ORDER BY id ASC';
@@ -170,8 +175,9 @@ class CourseController {
         }
     }
 
-    public static function getCourseById($req) {
-        $id = (int)$req['params']['id'];
+    public static function getCourseById($req)
+    {
+        $id = (int) $req['params']['id'];
 
         try {
             $stmt = Database::query('SELECT * FROM courses WHERE id = ?', [$id]);
@@ -189,7 +195,7 @@ class CourseController {
             $fallbackCourses = self::getFallbackCourses();
             $found = null;
             foreach ($fallbackCourses as $c) {
-                if ((int)$c['id'] === $id) {
+                if ((int) $c['id'] === $id) {
                     $found = $c;
                     break;
                 }
@@ -205,7 +211,8 @@ class CourseController {
         }
     }
 
-    public static function createCourse($req) {
+    public static function createCourse($req)
+    {
         $user = AuthMiddleware::protect();
         AuthMiddleware::authorize($user, 'admin');
 
@@ -213,7 +220,7 @@ class CourseController {
         $title = $body['title'] ?? '';
         $category = $body['category'] ?? 'Development';
         $duration = $body['duration'] ?? '';
-        $rating = isset($body['rating']) ? (float)$body['rating'] : 4.8;
+        $rating = isset($body['rating']) ? (float) $body['rating'] : 4.8;
         $price = $body['price'] ?? '';
         $originalPrice = $body['originalPrice'] ?? '';
         $image = $body['image'] ?? '';
@@ -238,7 +245,7 @@ class CourseController {
             error_log("⚠️ Database query failed. Falling back to local JSON data store: " . $err->getMessage());
             $fallbackCourses = self::getFallbackCourses();
             $newId = count($fallbackCourses) > 0 ? max(array_column($fallbackCourses, 'id')) + 1 : 1;
-            
+
             $newCourse = [
                 'id' => $newId,
                 'title' => $title,
@@ -250,10 +257,10 @@ class CourseController {
                 'image' => $image,
                 'created_at' => date('c')
             ];
-            
+
             $fallbackCourses[] = $newCourse;
             self::saveFallbackCourses($fallbackCourses);
-            
+
             http_response_code(201);
             return [
                 'success' => true,
@@ -262,11 +269,12 @@ class CourseController {
         }
     }
 
-    public static function updateCourse($req) {
+    public static function updateCourse($req)
+    {
         $user = AuthMiddleware::protect();
         AuthMiddleware::authorize($user, 'admin');
 
-        $id = (int)$req['params']['id'];
+        $id = (int) $req['params']['id'];
         $body = $req['body'] ?? [];
 
         try {
@@ -280,7 +288,7 @@ class CourseController {
             $title = $body['title'] ?? $existing['title'];
             $category = $body['category'] ?? $existing['category'];
             $duration = $body['duration'] ?? $existing['duration'];
-            $rating = isset($body['rating']) ? (float)$body['rating'] : (float)$existing['rating'];
+            $rating = isset($body['rating']) ? (float) $body['rating'] : (float) $existing['rating'];
             $price = $body['price'] ?? $existing['price'];
             $originalPrice = $body['originalPrice'] ?? $existing['original_price'];
             $image = $body['image'] ?? $existing['image'];
@@ -300,7 +308,7 @@ class CourseController {
             $fallbackCourses = self::getFallbackCourses();
             $index = -1;
             foreach ($fallbackCourses as $i => $c) {
-                if ((int)$c['id'] === $id) {
+                if ((int) $c['id'] === $id) {
                     $index = $i;
                     break;
                 }
@@ -314,7 +322,7 @@ class CourseController {
                 'title' => $body['title'] ?? $fallbackCourses[$index]['title'],
                 'category' => $body['category'] ?? $fallbackCourses[$index]['category'],
                 'duration' => $body['duration'] ?? $fallbackCourses[$index]['duration'],
-                'rating' => isset($body['rating']) ? (float)$body['rating'] : $fallbackCourses[$index]['rating'],
+                'rating' => isset($body['rating']) ? (float) $body['rating'] : $fallbackCourses[$index]['rating'],
                 'price' => $body['price'] ?? $fallbackCourses[$index]['price'],
                 'originalPrice' => $body['originalPrice'] ?? $fallbackCourses[$index]['originalPrice'],
                 'image' => $body['image'] ?? $fallbackCourses[$index]['image']
@@ -329,11 +337,12 @@ class CourseController {
         }
     }
 
-    public static function deleteCourse($req) {
+    public static function deleteCourse($req)
+    {
         $user = AuthMiddleware::protect();
         AuthMiddleware::authorize($user, 'admin');
 
-        $id = (int)$req['params']['id'];
+        $id = (int) $req['params']['id'];
 
         try {
             $stmt = Database::query('DELETE FROM courses WHERE id = ? RETURNING *', [$id]);
@@ -351,7 +360,7 @@ class CourseController {
             $fallbackCourses = self::getFallbackCourses();
             $index = -1;
             foreach ($fallbackCourses as $i => $c) {
-                if ((int)$c['id'] === $id) {
+                if ((int) $c['id'] === $id) {
                     $index = $i;
                     break;
                 }

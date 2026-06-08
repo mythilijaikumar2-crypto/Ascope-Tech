@@ -27,7 +27,7 @@ export const GLOBAL_SEO_DEFAULTS = {
   ],
   keywords: [
     "Best Full Stack Development Institute in Trichy",
-    "Python Full Stack Course in Trichy",
+    "Python Full Course",
     "Java Full Stack Training in Trichy",
     "Software Training Institute in Trichy",
     "Full Stack Developer Course Tamil Nadu",

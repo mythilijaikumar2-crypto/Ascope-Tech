@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import footerLogo from "../../assets/ascopetech_logo.png";
 import {
   Facebook,
   Instagram,
@@ -32,10 +33,13 @@ const WhatsappIcon: React.FC<{ size?: number; className?: string }> = ({
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-navy text-white pt-16 pb-12 overflow-hidden relative">
+    <footer 
+      className="text-navy pt-8 pb-6 overflow-hidden relative border-t border-border/40"
+      style={{ background: "linear-gradient(180deg, #ffffff 0%, #278ccf 100%)" }}
+    >
       {/* Background circles */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[100px] -mr-48 -mt-48" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -ml-32 -mb-32" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] -mr-48 -mt-48" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -ml-32 -mb-32" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
@@ -46,14 +50,14 @@ const Footer: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 whileHover={{ y: -5, scale: 1.05 }}
-                src="/ascopetech_logo.png"
+                src={footerLogo}
                 alt="Ascope Tech Logo"
                 className="w-44 h-auto object-contain drop-shadow-[0_0_30px_rgba(23,181,231,0.35)]"
               />
             </Link>
-            <p className="text-white/60 leading-relaxed max-w-xs font-body text-sm">
+            <p className="text-navy/70 leading-relaxed max-w-xs font-body text-sm">
               Empowering the next generation of tech leaders through
-              industry-ready courses and expert mentorship since 2024.
+              industry-ready courses and expert mentorship since 2025.
             </p>
             <div className="flex gap-3 flex-wrap lg:flex-nowrap">
               {[
@@ -92,22 +96,22 @@ const Footer: React.FC = () => {
                       ? "noopener noreferrer"
                       : undefined
                   }
-                  className={`w-11 h-11 shrink-0 rounded-xl bg-white/5 flex items-center justify-center text-white ${social.color} hover:scale-110 transition-all border border-white/10 group`}
+                  className={`w-11 h-11 shrink-0 rounded-xl bg-navy/5 flex items-center justify-center text-navy ${social.color} hover:scale-110 hover:text-white transition-all border border-navy/10 group`}
                 >
                   <social.Icon size={20} />
                 </a>
               ))}
             </div>
             <Link to="/" className="inline-block">
-              <span className="text-2xl font-heading font-black text-white tracking-tight hover:text-accent transition-colors">
-                Ascope <span className="text-accent">Tech</span>
+              <span className="text-2xl font-heading font-black text-navy tracking-tight hover:text-primary transition-colors">
+                Ascope <span className="text-primary">Tech</span>
               </span>
             </Link>
           </div>
 
           {/* Quick Links */}
           <div className="col-span-1">
-            <h4 className="font-heading font-black text-white mb-8 border-l-4 border-accent pl-4 uppercase tracking-widest text-xs">
+            <h4 className="font-heading font-black text-navy mb-8 border-l-4 border-primary pl-4 uppercase tracking-widest text-xs">
               Company
             </h4>
             <ul className="space-y-4" role="navigation" aria-label="Footer Company Links">
@@ -122,10 +126,10 @@ const Footer: React.FC = () => {
                 <li key={link.label}>
                   <Link
                     to={link.path}
-                    className="text-white/60 hover:text-accent hover:pl-2 transition-all flex items-center gap-2 font-bold text-sm"
+                    className="text-navy/70 hover:text-primary hover:pl-2 transition-all flex items-center gap-2 font-bold text-sm"
                     aria-label={`Go to Ascope Tech ${link.label} page`}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent/30" />{" "}
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/30" />{" "}
                     {link.label}
                   </Link>
                 </li>
@@ -135,12 +139,12 @@ const Footer: React.FC = () => {
 
           {/* Support */}
           <div className="col-span-1">
-            <h4 className="font-heading font-black text-white mb-8 border-l-4 border-accent pl-4 uppercase tracking-widest text-xs">
+            <h4 className="font-heading font-black text-navy mb-8 border-l-4 border-primary pl-4 uppercase tracking-widest text-xs">
               Primary Courses
             </h4>
             <ul className="space-y-4" role="navigation" aria-label="Footer Course Categories">
               {[
-                { label: "Python Full Stack Course in Trichy", path: "/courses" },
+                { label: "Python Full Course", path: "/courses" },
                 { label: "Java Full Stack Training", path: "/courses" },
                 { label: "Web Development Course", path: "/courses" },
                 { label: "UI/UX Design Specialist", path: "/courses" },
@@ -149,10 +153,10 @@ const Footer: React.FC = () => {
                 <li key={item.label}>
                   <Link
                     to={item.path}
-                    className="text-white/60 hover:text-accent hover:pl-2 transition-all flex items-center gap-2 font-bold text-sm"
+                    className="text-navy/70 hover:text-primary hover:pl-2 transition-all flex items-center gap-2 font-bold text-sm"
                     aria-label={`Learn more about our ${item.label}`}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent/30" />{" "}
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/30" />{" "}
                     {item.label}
                   </Link>
                 </li>
@@ -162,29 +166,39 @@ const Footer: React.FC = () => {
 
           {/* Contact */}
           <div className="col-span-2 sm:col-span-1">
-            <h4 className="font-heading font-black text-white mb-8 border-l-4 border-accent pl-4 uppercase tracking-widest text-xs">
+            <h4 className="font-heading font-black text-navy mb-8 border-l-4 border-primary pl-4 uppercase tracking-widest text-xs">
               IT Training Center Trichy
             </h4>
             <div className="space-y-6">
-              <div className="flex gap-4 text-white/60 items-start">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shrink-0" aria-hidden="true">
+              <div className="flex gap-4 text-navy/70 items-start">
+                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center text-primary shrink-0" aria-hidden="true">
                   <MapPin size={20} />
                 </div>
                 <span className="text-sm">
                   <strong>Ascope Tech</strong>, 5th floor, SBRR Square,
                   <br />
                   Anna Nagar, Trichy – 620017
-                  <br />
-                  <span className="text-[10px] text-accent/50 block mt-1">Tamil Nadu, India (Local IT Hub)</span>
                 </span>
               </div>
               <a
                 href="tel:+917418240526"
-                className="flex gap-4 text-white/60 items-center hover:text-accent transition-colors group"
+                className="flex gap-4 text-navy/70 items-center hover:text-primary transition-colors group"
                 aria-label="Call Ascope Tech Software Training Institute at +91 74182 40526"
               >
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-navy shrink-0 transition-all duration-300" aria-hidden="true">
+                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white shrink-0 transition-all duration-300" aria-hidden="true">
                   <Phone size={20} />
+                </div>
+                <span className="text-sm font-body">+91 74182 40526</span>
+              </a>
+              <a
+                href="https://wa.me/917418240526"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex gap-4 text-navy/70 items-center hover:text-primary transition-colors group"
+                aria-label="Chat with Ascope Tech on WhatsApp at +91 74182 40526"
+              >
+                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white shrink-0 transition-all duration-300" aria-hidden="true">
+                  <WhatsappIcon size={20} />
                 </div>
                 <span className="text-sm font-body">+91 74182 40526</span>
               </a>
@@ -192,10 +206,10 @@ const Footer: React.FC = () => {
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=ascopetech@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex gap-4 text-white/60 items-center hover:text-accent transition-colors group"
+                className="flex gap-4 text-navy/70 items-center hover:text-primary transition-colors group"
                 aria-label="Email Ascope Tech team at ascopetech@gmail.com"
               >
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-navy shrink-0 transition-all duration-300" aria-hidden="true">
+                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white shrink-0 transition-all duration-300" aria-hidden="true">
                   <Mail size={20} />
                 </div>
                 <span className="text-sm font-body">ascopetech@gmail.com</span>
@@ -204,16 +218,16 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40 text-sm">
-          <p>© 2026 Ascope Tech. All rights reserved.</p>
+        <div className="mt-8 sm:mt-10 pt-6 border-t border-navy/10 flex flex-col md:flex-row justify-between items-center gap-6 text-navy/60 text-sm">
+          <p>© 2025 Ascope Tech. All rights reserved.</p>
           <div className="flex gap-10">
-            <a href="#" className="hover:text-accent transition-colors">
+            <a href="#" className="hover:text-primary transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-accent transition-colors">
+            <a href="#" className="hover:text-primary transition-colors">
               Terms of Service
             </a>
-            <a href="#" className="hover:text-accent transition-colors">
+            <a href="#" className="hover:text-primary transition-colors">
               Cookie Policy
             </a>
           </div>

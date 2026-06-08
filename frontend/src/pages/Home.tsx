@@ -26,7 +26,7 @@ const Home: React.FC = () => {
         description="Ascope Tech is the premier software training institute in Trichy, Tamil Nadu, offering Python and Java Full Stack Development, Data Science, and UI/UX design courses with 100% placement training."
         keywords={[
           "Best Full Stack Development Institute in Trichy",
-          "Python Full Stack Course in Trichy",
+          "Python Full Course",
           "Java Full Stack Training in Trichy",
           "Software Training Institute in Trichy",
           "Best Coding Institute in Trichy"

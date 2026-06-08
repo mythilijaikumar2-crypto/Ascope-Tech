@@ -259,27 +259,14 @@ const OrbitNode: React.FC<{ node: (typeof orbitNodes)[0]; index: number }> = ({
   const Icon = node.icon;
   return (
     <motion.div
-      className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
+      className={`absolute -translate-x-1/2 -translate-y-1/2 z-20 ${index % 2 === 0 ? 'hero-float-up' : 'hero-float-down'}`}
       style={{
         left: `calc(50% + ${toXY(node.angle, 130).x}px)`,
         top: `calc(50% + ${toXY(node.angle, 130).y}px)`,
       }}
       initial={{ opacity: 0, scale: 0 }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-        y: [0, index % 2 === 0 ? -8 : 8, 0],
-      }}
-      transition={{
-        opacity: { duration: 0.5, delay: 0.5 + index * 0.12 },
-        scale: { duration: 0.5, delay: 0.5 + index * 0.12 },
-        y: {
-          duration: 3.5 + index * 0.4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: index * 0.3,
-        },
-      }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4, delay: 0.2 + index * 0.05 }}
     >
       <div className="flex flex-col items-center gap-1.5 cursor-default group">
         <motion.div
@@ -311,7 +298,7 @@ const FloatingCard: React.FC<{ card: (typeof floatingCards)[0] }> = ({
   const Icon = card.icon;
   return (
     <motion.div
-      className="absolute z-30 flex items-center gap-3 px-4 py-3 rounded-2xl cursor-default select-none"
+      className={`absolute z-30 flex items-center gap-3 px-4 py-3 rounded-2xl cursor-default select-none ${card.delay % 2 === 0 ? 'hero-float-up' : 'hero-float-down'}`}
       style={{
         top: card.top,
         left: card.left,
@@ -324,22 +311,9 @@ const FloatingCard: React.FC<{ card: (typeof floatingCards)[0] }> = ({
         boxShadow: "0 8px 32px rgba(0,0,0,0.08)",
         minWidth: "160px",
       }}
-      initial={{ opacity: 0, scale: 0.7, y: 20 }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-        y: [0, card.delay % 2 === 0 ? -8 : 8, 0],
-      }}
-      transition={{
-        opacity: { duration: 0.6, delay: 0.8 + card.delay },
-        scale: { duration: 0.6, delay: 0.8 + card.delay },
-        y: {
-          duration: 4 + card.delay,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: card.delay,
-        },
-      }}
+      initial={{ opacity: 0, scale: 0.7 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4, delay: 0.2 + card.delay * 0.1 }}
     >
       <div
         className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
@@ -426,13 +400,13 @@ const LearnersBadge: React.FC = () => (
 ───────────────────────────────────────────── */
 const Hero: React.FC = () => {
   const textReveal = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1,
-        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+        duration: 0.4,
+        ease: "easeOut" as const,
       },
     },
   };
@@ -441,12 +415,29 @@ const Hero: React.FC = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.18, delayChildren: 0.1 },
+      transition: { staggerChildren: 0.05, delayChildren: 0.05 },
     },
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
+    <section className="relative min-h-[auto] md:min-h-screen pt-6 pb-2 md:py-0 flex items-center overflow-hidden bg-white">
+      {/* Hardware-Accelerated Snappy Compositor CSS Animations */}
+      <style>{`
+        @keyframes float-up-subtle {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-4px); }
+        }
+        @keyframes float-down-subtle {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(4px); }
+        }
+        .hero-float-up {
+          animation: float-up-subtle 6s ease-in-out infinite;
+        }
+        .hero-float-down {
+          animation: float-down-subtle 5s ease-in-out infinite;
+        }
+      `}</style>
       {/* ── Page Background ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
@@ -473,7 +464,7 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-20 relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-8 md:pt-28 pb-4 md:pb-20 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* ══ LEFT CONTENT ══ */}
           <motion.div
